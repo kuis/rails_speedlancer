@@ -1,0 +1,23 @@
+@import "varmixins";
+
+.footer{
+	background-color: $shadow;
+	padding: 15px 20px;
+	overflow: auto;
+	font-size: 14px;
+	color: #666;
+	a{
+		text-transform: uppercase;
+		font-weight: 700;
+		color: #666;
+		padding-left: 24px;
+		background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyElEQVQ4y2NgGHDg4uLylhIMMuA/EP8G4l4gLiAS90L1/IcZ8BOIX7u6unoQcjFIDUgtVA/EAKBgFpBeC8R/gexmX19fJnSNIDGQHEgNSC1UD9yAKKjpRVCn7XZ3dxeDaQaxQWIgOZAaqNooDAOgEguh3nrq5uZmA8IgNlTdXCR1UdhcUAfl18BshLkIKNYIlavAagCS5gJkP4M0wsIEyC6DGYJiABCfRNZMIBbKoHqOIhtAlGYshsANOEtCIoLhizADKEvKAw4A9a/iNqt1QL0AAAAASUVORK5CYII=") no-repeat 0px center;
+		&:hover{
+			color: #444;
+		}
+	}
+	&.loggedin{
+		margin: 0 0 0 260px;
+		
+	}
+}

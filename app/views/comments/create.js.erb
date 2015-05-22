@@ -1,0 +1,5 @@
+<% if @comment_error.present? %>
+  custom_push_alert("<%= @comment_error %>", "alert")
+<% else %>
+  $('#comment-block').html("<%=j render( 'tasks/comment_block') %>");
+<% end %>

@@ -1,0 +1,9 @@
+<div class="attachment-block">
+  <% if f.object.persisted? %>
+    <%= link_for_task_attachment_according_to_extention(@task, f.object) %>
+  <% else %>
+    <%= f.input :attachment_file, label: false %>
+  <% end %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "X", "javascript:void(0)", class: "remove_fields" %>
+</div>

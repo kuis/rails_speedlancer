@@ -1,0 +1,87 @@
+<%= render "shared/sidebar" %>
+
+<div class="content">
+
+  <h1 class="main-title">
+    <%= link_to "Tasks", tasks_path %><span class="crumb"></span>
+    <%= link_to @task.category.name, category_path(@task.category) %><span class="crumb"></span>
+    <%= @task.title %>
+  </h1>
+
+  <%= link_to 'Edit', edit_task_path(@task), class: "context-link edit" if @task.buyer == current_buyer and @task.present_seller_id.blank? %>
+
+  <div class="item-box">
+    <h1 class="item-title"><%= link_to @task.title, task_path(@task) %></h1>
+    <h2 class="cost top-right"><%= pricing_wrt_current_user(@task) unless @task.lapse?%></h2>
+    <p class="preformat"><%= @task.description %></p>
+    <%= content_tag(:p, "Buyer: #{@task.buyer.first_name_n_last_initial}") if current_seller and @task.buyer.first_name_n_last_initial %>
+    <% if @task.task_attachments.present? %>
+      <div class="attachment-section">
+        <h4 class="sub-sec-title attachments"> <%= pluralize(@task.task_attachments_count, "Attachment") if @task.task_attachments_count > 0  %></h4>
+        <div class="attachmentlist">
+          <% @task.task_attachments.each do |task_attachment| %>
+            <%= link_for_task_attachment_according_to_extention(@task, task_attachment) %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% if current_seller.present? and @task.notes.present? %>
+      <div class="admin-section">
+        <h4 class="sub-sec-title admin">Admin Comments</h4>
+        <ul class="speedlancelist">
+          <% @task.notes.each do |note| %>
+            <li> <%= note.content %> </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+
+  <% if seller_signed_in? and @task.active? and @task.present_seller.blank?%>
+    <div class="ghost-box">
+      <div class="actions">
+        <p class="six-icon watchers in-block nomargin"><%= @task.watchers_count %> watchers</p>
+        <%= link_to "Accept Task", "javascript:void(0)", data: accept_task_task_path(@task), class: "button green icon-btn", onclick: "taskModal(event)" %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if buyer_signed_in? && @task.buyer == current_buyer && @task.present_seller_id? or seller_signed_in? && @task.present_seller_id == current_seller.id %>
+
+    <div class="tabswrap">
+      <div class="tasktabs">
+        <span data-class="tab1" class="tab1 activetab">Status Tracking</span>
+        <span data-class="tab2" class="tab2">Private Messages</span>
+        <span data-class="tab3" class="tab3">Comments</span>
+      </div>
+      <div class="tab-box tab1box">
+        <%= render "task_status_block" %>
+      </div>
+      <div class="tab-box tab2box hidden">
+        <%= render "private_message_block" %>
+      </div>
+      <div class="tab-box tab3box hidden" id="comment-block">
+        <%= render 'comment_block' %>
+      </div>
+    </div>
+
+  <% else %>
+    <div id="comment-block">
+      <%= render 'comment_block' %>
+    </div>
+  <% end %>
+
+</div>
+
+<% if current_seller.present? and @task.active? %>
+  <%= render "tasks/watchers_update" %>
+<% end %>
+
+<script type="text/javascript">
+  <% if params[:tab].present? %>
+    tabclass = "<%= params[:tab] %>"
+    $(function(){
+      $("." + tabclass).trigger("click");
+    });
+  <% end %>
+</script>

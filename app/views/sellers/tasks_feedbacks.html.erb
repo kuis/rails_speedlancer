@@ -1,0 +1,11 @@
+<%= render "shared/seller_profile_sidebar" %>
+<div class="content">
+  <h1 class="main-title">Feedbacks</h1>
+  <% @tasks.each do |task| %>
+    <div class="item-box">
+      <% if task.feedback.present? %>
+        <%= render partial: "feedbacks/feedback", locals: {task: task} %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

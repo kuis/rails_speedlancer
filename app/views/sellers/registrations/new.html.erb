@@ -1,0 +1,22 @@
+<div class="logout-wrap">
+<div class="logout-form-wrap">
+<h2 class="formtitle">Sign Up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, label: "Category" %>
+  <%= f.text_field :name, placeholder: "Your Name", required: true, label: "Name" %>
+  <%= f.email_field :email, required: true, autofocus: true, placeholder: "Your email", label: "Email"  %>
+  <%= f.password_field :password, required: true, placeholder: "Your password", label: "Password" %>
+  <%= f.password_field :password_confirmation, required: true, placeholder: "Confirm password", label: "Confirm Password" %>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up", class: "blue" %>
+  </div>
+<% end %>
+
+<div class="devise_links">
+<%= render "sellers/shared/links" %>
+</div>
+</div>
+</div>

@@ -1,0 +1,5 @@
+<%= render "shared/buyer_profile_sidebar" %>
+<div class="content">
+  <%= render partial: "tasks/task", collection: @tasks %>
+  <%= will_paginate @tasks %>
+</div>

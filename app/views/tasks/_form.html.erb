@@ -1,0 +1,55 @@
+<%= simple_form_for(@task) do |f| %>
+  <%= f.input :category_id, collection: @categories, include_blank: false, :required => false %>
+  <%= f.input :title, placeholder: "Task Title", :required => false %>
+  <%= f.input :description, placeholder: "Task Description", :required => false  %>
+  <div class="input">
+    <%= f.label :price_in_dollars %>
+    <%= f.input_field :price_in_dollars, label: "Price in Dollars", placeholder: "Price in Dollars" %>
+    <div id="slider" class="costslider"></div>
+  </div>
+  <label>Attachments</label>
+	<p class="uploadhint">Upload size limit is set to 100mb per attached file.</p>
+  <%= f.fields_for :task_attachments do |builder| %>
+    <%= render "task_attachment_fields", :f => builder %>
+  <% end %>
+  <div class="addattachment">
+    <%= link_to_add_fields "Add Attachment", f, :task_attachments %>
+  </div>
+  <div class="form-actions">
+    <% submit_button_value = f.object.new_record? ? "Submit Task" : "Update Task" %>
+    <%= f.submit submit_button_value, class: "blue" %>
+  </div>
+<% end %>
+
+
+<script>
+
+  $(function() {
+    $( "#slider" ).slider({
+      range: "min",
+      min: 5,
+      value: "<%= @task.price_in_dollars %>",
+      max: 100,
+      slide: function( event, ui ) {
+        $( "#task_price_in_dollars" ).val(ui.value).trigger("change");
+      }
+    });
+  });
+
+  <% if ["update", "edit"].include? action_name %>
+    old_value = parseInt($("#task_price_in_dollars").val());
+
+    $( "#task_price_in_dollars" ).on("change",function() {
+      current_value = parseInt($(this).val());
+      if (old_value <= current_value){
+         $( "#slider" ).slider({
+          value: current_value
+         })
+      }
+      else{
+        $( "#task_price_in_dollars" ).val(old_value)
+      }
+    });
+  <% end %>
+
+</script>

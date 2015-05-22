@@ -1,0 +1,23 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Hi <%= @buyer.first_name_for_email %>,</h1>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">It appears that your task <strong>"<%= @task.title %>"</strong> has not yet been selected by any of our Speedlancers, and has therefore been removed from our queue. Don't worry, your credits have been returned to your account.</p>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">This could be for any number of reasons. At this point:</p>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">1. You may have reached us in a high-volume time whereby no sellers were available to complete your task. Feel free to post it again soon, by submitting it again at <a style="color: #069;text-decoration:none; border-bottom: 1px dashed #069;" href="http://app.speedlancer.com">Speedlancer</a> or contacting <a href="mailto:support@speedlancer.com" style="color: #069;text-decoration:none; border-bottom: 1px dashed #069;" href="http://app.speedlancer.com">support@speedlancer.com</a>.</p>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">2. Your task may be too complex and is not small enough to be done in 4 hours. Solution: Can you split your task into multiple sub-tasks? If so, we'd recommending that you post your tasks again or simplify it. If you need some help with this, feel free to reach out.</p>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">3. Your price may be too low and our Speedlancers were not willing to complete it for that price. Solution: Try posting your task again at a higher price.</p>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">4. Your task may appear complicated as it was not described in enough detail. Our Speedlancers will only pick up tasks they feel confident in fulfilling. Solution: Post your task again in more detail so that it is clear exactly what you need done.</p>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">If you have any queries, don't hesitate to email us at <a href="mailto:support@speedlancer.com" style="color: #069;text-decoration:none; border-bottom: 1px dashed #069;" href="http://app.speedlancer.com">support@speedlancer.com</a>.</p>
+
+
+<%= render "notifier/email_footer" %>
+
+
+

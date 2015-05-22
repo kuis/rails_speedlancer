@@ -1,0 +1,12 @@
+<div class="modalwrap invisible">
+	<div class="modal">
+			<%= simple_form_for [@support_ticket], remote: true do |f| %>
+			<h2 class="formtitle">Contact Us</h2>
+			<span class="closemodal" onclick="hidemodal()">X</span>
+			  <%= f.input :name, placeholder: "Name", class: 'smallfont', required: false,  label: false %>
+			  <%= f.input :email, placeholder: "Email", class: 'smallfont', required: false,  label: false %>
+			  <%= f.input :content, placeholder: "Your Message", class: 'smallfont', required: false,  label: false %>
+			  <%= f.button :submit, "Submit", class: "blue" %>
+			<% end %>
+		</div>
+</div>

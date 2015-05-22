@@ -1,0 +1,19 @@
+<div class="logout-wrap">
+	<div class="logout-form-wrap">
+
+		<h2 class="formtitle">Resend confirmation instructions</h2>
+
+		<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+		  <%= devise_error_messages! %>
+
+		  <div class="input"><%= f.label :email %><br />
+		  <%= f.email_field :email, autofocus: true %></div>
+
+		  <div class="form-actions"><%= f.submit "Resend confirmation instructions" %></div>
+		<% end %>
+
+		<div class="devise_links">
+		  <%= render "devise/shared/links" %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="item-box" id="progress_block">
+  <div class="taskline">
+    <div class="progressbar">
+      <div class="progressline"></div>
+      <div class="progress" style="<%= @task.progress_percentage %>"></div>
+    </div>
+    <div class="cstep1 <%= check_completed_checkpoints 1, @task %>" data-label="Submitted">
+    </div>
+    <div class="step1message completed"></div>
+    <div class="cstep2 <%= check_completed_checkpoints 2, @task %>" data-label="Accepted"></div>
+    <div class="step2message"><%= task_timer_status(@task) %></div>
+    <%= content_tag :div, "", class: "timermessage waiting", id: "timer" if @task.in_progress?%>
+    <%= content_tag :div, "", class: "steptimeindicator" if @task.progress_or_review?%>
+    <div class="cstep3 <%= check_completed_checkpoints 3, @task %>" data-label="Delivered"></div>
+  </div>
+</div>
+<%= render "tasks/task_submissions" %>
+<%= render "feedbacks/feedback_block" %>
+
+<script type="text/javascript">
+  date = parseDate("<%= @task.deadline %>");
+  $('#timer').countdown({until: date, format: 'HMS', onExpiry: timeUp});
+  function timeUp(){
+    location.reload();
+  }
+</script>

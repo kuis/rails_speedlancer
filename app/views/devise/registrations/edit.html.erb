@@ -1,0 +1,14 @@
+<div class="logout-wrap">
+  <div class="logout-form-wrap">
+  <h2 class="formtitle">Edit <%= resource_name.to_s.humanize %> Account</h2>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :bot_key %>
+    <%= f.input :password, label: "New password" %>
+    <%= f.input :current_password %>
+    <%= f.input :avatar, as: :file %>
+    <%= f.button :submit, class: "blue" %>
+  <% end %>
+</div>

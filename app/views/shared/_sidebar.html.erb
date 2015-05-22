@@ -1,0 +1,7 @@
+<% if seller_signed_in? %>
+  <% @seller = current_seller unless @seller.present? %>
+  <%= render "shared/seller_profile_sidebar" %>
+<% elsif buyer_signed_in? %>
+  <% @buyer = current_buyer unless @buyer.present? %>
+  <%= render "shared/buyer_profile_sidebar" %>
+<% end %>

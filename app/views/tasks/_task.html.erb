@@ -1,0 +1,34 @@
+<div class="item-box">
+  <h1 class="item-title"><%= link_to task.title, task_path(task), class: 'task_title' %></h1>
+  <p><%= task.description %></p>
+  <% if task.buyer == current_buyer %>
+    <p class="item-stamp"><%= task.created_at.mday %> <%= I18n.t("date.abbr_month_names")[task.created_at.month] %>, <%= task.created_at.year %> at <%= task.created_at.strftime(("%H:%M")) %>
+    </p>
+  <% end %>
+  <% if task.feedback.present? %>
+    <p>Feedback: <%= task.feedback.body %></p>
+  <% end %>
+
+  <div class="box-meta">
+
+    <h2 class="cost in-block"><%= pricing_wrt_current_user(task) unless task.lapse?%></h2>
+    <div class="task-meta in-block">
+      <p class="six-icon attachments">
+        <%= pluralize(task.task_attachments_count, "attachment") if task.task_attachments_count > 0 %>
+      </p>
+      <p class="six-icon comments">
+        <%= pluralize(task.comments_count, "comment") if task.comments_count > 0  %>
+      </p>
+    </div>
+
+
+    <div class="actions">
+      <% if seller_signed_in? and task.present_seller_id.nil? %>
+        <p class="six-icon watchers in-block nomargin"><%= task.watchers_count %> watchers</p>
+        <%= link_to "Accept Task", "javascript:void(0)", data: accept_task_task_path(task), class: "button green icon-btn", onclick: "taskModal(event)" %>
+      <% end %>
+      <%= link_to "View Task", task_path(task), class: "button gray icon-btn" %>
+    </div>
+
+  </div>
+</div>

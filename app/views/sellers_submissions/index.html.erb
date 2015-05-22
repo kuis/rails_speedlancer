@@ -1,0 +1,17 @@
+<div class="content">
+  <% @sellers_submissions.each_with_index do |sellers_submission, index| %>
+    <div class="submission">
+      <p>Submission Number: <%= (index + 1) %></p>
+      <%= sellers_submission.submission %><br/>
+      <%= sellers_submission.remark %><br/>
+      <% if sellers_submission.in_review? %>
+        <%= link_to "Apprve Submission",  approve_task_sellers_submission_path(@task, sellers_submission) %> |
+        <%= link_to "Needs Revision", revise_task_sellers_submission_path(@task, sellers_submission) %>
+      <% elsif sellers_submission.needs_revision? %>
+        <%= "This submission was marked for revision" %>
+      <% elsif sellers_submission.approved? %>
+        <%= "This submission has been accpeted!" %>
+      <% end %><br/><br/>
+    </div>
+  <% end %>
+</div>

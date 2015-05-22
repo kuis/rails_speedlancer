@@ -1,0 +1,167 @@
+@import "varmixins";
+
+.header{
+	background-color: $speedlancer;
+	padding: 0px 20px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	min-width: 800px;
+	@include tranz(0);
+}
+.logo{
+	font-weight: 700;
+	@include condensed;
+	float: left;
+	margin-top: 10px;
+}
+.head-nav{
+	float: right;
+	ul{
+		list-style-type: none;
+	}
+	&.onleft{
+		float: left;
+		margin-left: 75px;
+	}
+	li{
+		float: left;
+		&.has-dd{
+			position: relative;
+			&:hover{
+				.dd-link{
+					background-color: darken($speedlancer, 5%);
+				}
+				.dd-wrap{
+					display: block;
+				}
+			}
+			.dd-wrap{
+				position: absolute;
+				top: 59px;
+				right: 0;
+				display: none;
+				white-space: nowrap;
+				background-color: $blue;
+				border-top: 1px solid darken($blue, 5%);
+				&.panel{
+					right: auto;
+					left:0;
+					width: 300px;
+					max-height: 400px;
+					background-color: #fff;
+					@include shadow(0px,1px,4px,0px,rgba(0,0,0,.1));
+					*{
+						line-height: 1.3;
+						text-transform: none;
+						white-space: normal;
+						@include roboto;
+					}
+					a{
+						border-bottom: 1px solid $border;
+						color: $dgray;
+						padding: 20px;
+						&:hover{
+							background-color: #f9f9f9;
+						}
+					}
+					li{
+						border: none;
+					}
+					h6{
+						font-weight: 700;
+						color: $blue;
+					}
+					p{
+						font-size: 13px;
+					}
+				}
+				li{
+					display: block;
+					float: none;
+					border-bottom: 1px solid darken($blue, 5%);
+				}
+				a{
+					display: block;
+					line-height: 50px;
+				}
+			}
+		}
+	}
+	a{
+		display: block;
+		color: #fff;
+		line-height: 60px;
+		padding: 0 20px;
+		@include condensed;
+		font-weight: 700;
+		font-size: 14px;
+		text-transform: uppercase;
+		&:hover{
+			background-color: darken($speedlancer, 5%);
+		}
+		&.activelink{
+			background-color: darken($speedlancer, 5%);
+		}
+		&.dd-link{
+			height: 60px;
+			overflow: hidden;
+			img{
+				width: 40px;
+				height: 40px;
+				display: inline-block;
+				vertical-align: middle;
+				@include radius(50%);
+			}
+			.curr-info{
+				display: inline-block;
+				vertical-align: middle;
+				margin-left: 7px;
+				line-height: 1;
+				text-transform: none;
+			}
+			.name, em{
+				display: block;
+			}
+			.name{
+				font-weight: 700;
+				margin-bottom: 3px;
+			}
+			em{
+				font-style: normal;
+				font-size: 12px;
+				font-weight: 400;
+			}
+		}
+		&.profilelink{
+			padding-left: 15px;
+		}
+		&.newtask{
+			background: $bloo url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABMklEQVRIx7VWOxKDIBClzDEyKVLmRJ7DgtuktEhh7TFyCEoLOn9k11kSXBAwqjNvEpm3u+zjAQoRecZxvE3TJAENQAF6gqIxiRyx9YGgKwRXgNEkHuQgF2OykgO5AGiATWAy/2NMkUpe2sAdKGMzj0nRM6zxjNcJaR6VZRiGB5vQO8Snd71YE1rQaOtrBSKoXCsm3RIqkHLXbGH0co5bNkpkf6WgDZN0xx8SIRokKu4WTMbRdd3FLQBjd86B2JrlUligd9vE981b/9fVk09WWE8fVcDLFZLowA5miRomkaEFXAA1Z8leAV7LCsyLLE90kTx/o/Gj4oiNRmPVl+wedgdJpL0LKOO4rsmGFu0Kzz+unSKLCyfnjAo4MHzhsE70lOEsLkvyymRrcs6lzwrt/mz5AO3iIpUgTaliAAAAAElFTkSuQmCC") no-repeat 15px 18px;
+			padding-left: 50px;
+			&:hover{
+				background-color: darken($bloo, 5%);
+			}
+			&:active{
+				background-color: darken($bloo, 10%);
+			}
+		}
+		&.availabletasks{
+			background: $bloo url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABmUlEQVRIx71VvUrEQBAOQY4gcliI1SEWFlekEotDjissxMJnELESsfIdLHyEK0SsrrjKwsrSB7CSKyytRERILgn5Pb+BXRnXuyS7hFv42M3M7MzuNzNZy1owkiRZKYpiBMwqMCJbq2xkWbaW53mXYQ8bH2Y1B9nSHu6DfP4GgOBInkhsMF7Lb/I5N0BT+BdARsd6F5NLgGEfeC+h5hugw5Gti70D5mf+DTzPc3h+oNuB/A64V0G8c9s0TTcrKVID6AwKUElRWQA4WPd93y4LoE0RszkEbuM4bsHRKtZ9CZRkT5sizDbTn0P3jIZyRN90RYIl3rQpgtEjcAPdBeYvOO1I+yAI7DAM2xzaFMHhBr5fxWlOlc53lUb7NMoBnRqy8XQ6/ZNYUNWCbouh00gV1SlT4yqik8JuGEWR03gA6Pehe5FUiPxcSVCVmVTREPJjoEelSDO7zTZkTwxj7RvQT0/UeARcK1TQ+3HAMDCiiLoUsgl1rpIParQPholxFaEk20uporoBFt6AKc4wn5gAey8rKWpqLO1N/gEpMm3oZWQO6QAAAABJRU5ErkJggg==") no-repeat 15px 18px;
+			padding-left: 50px;
+			&:hover{
+				background-color: darken($bloo, 5%);
+			}
+			&:active{
+				background-color: darken($bloo, 10%);
+			}
+		}
+		&.notificlink{
+			text-indent: -1000px;
+			width: 60px;
+			background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABg0lEQVRIx2NgIBL8+/cvCohfQ3EUsfqIAn/+/OECGvoViDuBuB2IvwPFeKhmAdBAnf9AAKSDgDgAytajluvZgIatBOL/aHg1SI4iw//+/SsFNOj8fxwAKHcRqEaGLMN///7NAjTgJNS1n4H4Ocz1UMNh+DRILTnhHoNkSAEQ/8USTDAcR44F+6EuPQzEKf/xAKD8QVIjlg+o6TdUcxIQT0QOFizs30A9AqS43gVmACgSgfRaPMEDw26kWFAGddljKP/gfwIAqKaCFAtg6X4zlH+ZQBCB8wUpFtyFamqH8p8SEUT3iTIcGOZySC6L+PbtGxOQ/klEEIHiS4EY15cgRbAKmoX4ggiEywi5ng8pOG5CLQwiInhg+DnQDAFchosAFexFclEcLMIJBQ9aUO0FmYUeLGJA/BGLlwkGCzobygeZJYFsgRwJwUAsVkC2gAtauMUAHRBDLhvGh2Lq1XgUA6DLdkNTFzI+TU0LarCkln6qWQCt3bqhqQNUu00HFs8cxOgFAPi8PngrMqzLAAAAAElFTkSuQmCC") no-repeat 18px 18px;
+		}
+	}
+}

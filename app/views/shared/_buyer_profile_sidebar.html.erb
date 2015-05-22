@@ -1,0 +1,60 @@
+<div class="sidebar">
+
+  <div class="userprofile buyer">
+    <div class="userdp">
+      <%= display_profile_image(@buyer) %>
+    </div>
+    <div class="userinfo">
+      <h1><%= @buyer.full_name.capitalize %></h1>
+      <h2>Buyer</h2>
+    </div>
+  </div>
+
+  <div class="usertasks">
+    <h5 class="listtitle tasks">Tasks Posted by You</h5>
+    <ul class="sidelist">
+      <li>
+        <%= link_to  buyer_active_tasks_path(@buyer), class: "#{'active' if action_name == 'active_tasks'}" do %>
+          <%= "Pending Tasks" %>
+          <span>
+            <%= @buyer.tasks.available_tasks.count  %>
+          </span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to buyer_in_progress_tasks_path(@buyer), class: "#{'active' if action_name == 'in_progress_tasks'}" do %>
+          <%= "Tasks in Progress" %>
+          <span>
+            <%= @buyer.tasks.progress_or_review.count  %>
+          </span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to buyer_completed_tasks_path(@buyer), class: "#{'active' if action_name == 'completed_tasks'}" do %>
+          <%= "Completed Tasks" %>
+          <span>
+            <%= @buyer.tasks.completed.count  %>
+          </span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to buyer_lapsed_tasks_path(@buyer), class: "#{'active' if action_name == 'lapsed_tasks'}" do %>
+          <%= "Lapsed Tasks" %>
+          <span>
+            <%= @buyer.tasks.lapse.count  %>
+          </span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="credits">
+    <h5 class="listtitle credits">SPEEDLANCER CREDITS</h5>
+    <p class="scredits"><span class="thin">$</span><%= (@buyer.speedlancer_credits_in_cents)/100 %> </p>
+      <div class="links">
+        <%= link_to "Add Credits",  "javascript:void(0);", onclick: "creditsformtoggle();", class: "button small outline iconbutton ccredits addcredit" %>
+      </div>
+    <%= render 'shared/add_credits' %>
+  </div>
+
+</div>

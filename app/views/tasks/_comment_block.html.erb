@@ -1,0 +1,39 @@
+<% if @task.buyer == current_buyer or seller_signed_in? %>
+  <div class="item-box">
+    <h1 class="rel-section-head comment"><%= pluralize(@task.comments_count, "comment") %>
+      <% if @task.present_seller_id? %><small>These messages are visible to everyone.</small><% end %>
+    </h1>
+    <% if @task.comments_count > 0 %>
+      <% @task.comments.each do |comment| %>
+        <div class="commentblock">
+          <% if comment.commentable_type == "Seller" %>
+            <%= link_to  seller_active_tasks_path(comment.commentable) , class: "com-img" do %>
+              <%= image_tag comment.commentable.gravatar_url %>
+            <% end %>
+          <% else %>
+            <%= link_to  buyer_active_tasks_path(comment.commentable) , class: "com-img" do %>
+              <%= image_tag comment.commentable.gravatar_url %>
+            <% end %>
+          <% end %>
+
+          <div class="com-info">
+            <%= link_to comment.commentable.first_name_n_last_initial, "", class: "commenter" %></h6>
+            <p><%= comment.body %></p>
+            <p class="com-stamp"><%= comment.created_at.mday %> <%= I18n.t("date.abbr_month_names")[comment.created_at.month] %>, <%= comment.created_at.year %> at <%= comment.created_at.strftime(("%H:%M")) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if (current_buyer == @task.buyer or seller_signed_in?) and @task.active? and @task.present_seller.blank?%>
+      <%= simple_form_for([@task, @task.comments.build], remote: true) do |f| %>
+        <%= f.input :body, placeholder: "Add a comment", class: 'smallfont', required: false,  label: false %>
+        <div class="form-actions">
+         <%= f.button :submit, "Post Comment", class: "button medium" %>
+        </div>
+      <% end %>
+    <% else %>
+    <p class="msgtxt"><%= display_relevant_comments_closed_message(@task) %></p>
+    <% end %>
+  </div>
+<% end %>

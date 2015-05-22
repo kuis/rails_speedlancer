@@ -1,0 +1,24 @@
+<h1 class="rel-section-head uploaded">Task Submissions</h1>
+  <div class="attachmentlist">
+    <% @task.sellers_submissions.each do |sellers_submission| %>
+      <div class="submissions">
+        <p><%= sellers_submission.remark %></p>
+        <% sellers_submission.submission_attachments.each do |submission_attachment| %>
+          <%= link_for_sellers_submissions_according_to_extention(sellers_submission, submission_attachment) %>
+        <% end %>
+        <% if sellers_submission.in_review? and action_links == true %>
+          <div class="sbsbuttons">
+            <%= link_to "Approve Submission",  approve_task_sellers_submission_path(@task, sellers_submission), class: "button green" %>
+            <!-- No disapproval -->
+            <%# if @task.sellers_submissions.count <= 2 %>
+              <%#= link_to "Needs Revision", revise_task_sellers_submission_path(@task, sellers_submission), class: "button orange" %>
+            <%# else %>
+              <%#= link_to "Disapprove Task", revise_task_sellers_submission_path(@task, sellers_submission), class: "button orange" %>
+            <%# end %>
+            <!-- No disapproval ends -->
+            <%= link_to "Needs Revision", revise_task_sellers_submission_path(@task, sellers_submission), class: "button orange" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>

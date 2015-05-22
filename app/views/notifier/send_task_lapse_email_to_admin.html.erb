@@ -1,0 +1,11 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Hi Admin,</h1>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">'<%= @tasks.size %>' tasks have been elapsed in last 8 hours.</p>
+
+<% @tasks.each do |task| %>
+  <%= link_to task.title, task_url(task), style: "display:inline-block; color: #069;font-weight:700;font-size: 14px;text-decoration:none;" %><br/>
+<% end %>
+
+<%= render "notifier/email_footer" %>

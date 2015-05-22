@@ -1,0 +1,15 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Hi <%= @seller.first_name_for_email %>,</h1>
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">There's a new Speedlancer <strong>{<%= @task.category.name %>}</strong> task you might be interested in, find the details below.</strong></p>
+
+<div style="padding: 5px 20px; background: #f9f9f9;margin-bottom: 20px">
+    <p style="font-size: 16px;color: #444;line-height:1.4;font-weight: 700;"><%= @task.title.capitalize %></p>
+    <p style="font-size: 14px;color: #444;line-height:1.4;font-weight: 300;"><%= @task.description %></p>
+    <p style="font-size: 18px;color: #444;font-weight: 370;">$<%= @task.seller_pice_in_dollars %></p>
+</div>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">You can accept the task or ask for clarification using the link below.</p>
+<%= link_to "View Task", task_url(@task), style: "display:inline-block;padding: 0 20px; line-height:40px; background: #069; color: #fff;font-weight:700;font-size: 14px;" %>
+
+<%= render "notifier/email_footer" %>

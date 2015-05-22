@@ -1,0 +1,17 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Hi <%= @seller.first_name_for_email %>,</h1>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">There is new task in the '<%= @category.name %>' category that you may be interested in!</p>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">To view or accept the task, please click here:</p>
+<div style="padding-bottom: 15px; border-bottom: 1px dashed #eee;margin-bottom:15px">
+    <%= link_to "View Task", task_url(@task), style: "display:inline-block;padding: 0 20px; line-height:40px; background: #069; color: #fff;font-weight:700;font-size: 14px;text-decoration:none" %>
+</div>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">*Note if the task has since been accepted, you will be directed to available tasks page.</p>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">Paid to you: <%= number_to_currency(@task.seller_pice_in_dollars) %></p>
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">Task details: <%= @task.description %></p>
+
+<%= render "notifier/email_footer" %>

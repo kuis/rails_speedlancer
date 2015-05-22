@@ -1,0 +1,17 @@
+<% if @time_up == true %>
+  custom_push_alert("Timeout", "alert");
+  $("#new_sellers_submission, #timer").remove();
+<% elsif @submission_error.present? %>
+  $("#new_sellers_submission").removeClass("loading");
+  custom_push_alert("<%= @submission_error %>", "alert");
+<% else %>
+  $("#new_sellers_submission, #timer").remove();
+  $(".step2message").html("<%= task_timer_status(@task) %>")
+  if ($("#sellers_submissions_block").length){
+    $("#sellers_submissions_block").html("<%=j render( partial: 'tasks/sellers_submissions', locals: {action_links: false}) %>");
+  }
+  else{
+    $("#progress_block").after("<%=j render( partial: 'tasks/task_submissions') %>");
+  }
+  custom_push_alert("Submission uploaded successfully", "notice");
+<% end %>

@@ -1,0 +1,13 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Hi Admin,</h1>
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">The delivery of <%= @tasks.count %> tasks ran out of time.</p>
+
+<% @tasks.each do |task| %>
+  <div style="padding-bottom: 15px; border-bottom: 1px dashed #eee;margin-bottom:15px">
+      <p style="font-size: 14px;color: #333;line-height:20px;font-weight: 700;"><%= link_to task.title.capitalize %></p>
+      <%= link_to "View Task", task_url(task), style: "display:inline-block; color: #069;font-weight:700;font-size: 14px;text-decoration:none;" %>
+  </div>
+<% end %>
+
+<%= render "notifier/email_footer" %>

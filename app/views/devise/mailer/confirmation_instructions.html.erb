@@ -1,0 +1,9 @@
+<%= render "notifier/email_header" %>
+
+<p>Welcome <%= @resource.first_name_for_email %>!</p>
+
+<p>You can confirm your account by clicking the button below:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) , style: "display:inline-block;padding: 0 20px; line-height:40px; background: #069; color: #fff;font-weight:700;font-size: 14px;"%></p>
+
+<%= render "notifier/email_footer" %>

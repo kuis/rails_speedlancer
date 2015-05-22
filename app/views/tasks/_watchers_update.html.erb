@@ -1,0 +1,16 @@
+<%= hidden_field_tag :current_seller_id, current_seller.id %>
+<%= hidden_field_tag :current_task_id, @task.id %>
+
+<script type="text/javascript">
+  seller_id = $("#current_seller_id").val();
+  task_id = $("#current_task_id").val();
+
+  add_watcher_to_task(seller_id, task_id)
+
+  $(window).on("beforeunload", function() {
+    add_watcher_from_task(seller_id, task_id)
+  });
+</script>
+
+
+<!-- put :update_status, on: :member -->

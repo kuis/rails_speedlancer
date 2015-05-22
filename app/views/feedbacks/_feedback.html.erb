@@ -1,0 +1,14 @@
+<h1 class="item-title"><%= feedback_header(task) %></h1>
+  <p class="item-rel"><%= task.buyer.name %></p>
+  <div class="feedrating">
+      <div class="rating" id="feedback_<%= task.feedback.id %>" data-rating="<%= task.feedback.rating %>"></div>
+  </div>
+  <div class="feedback-content"><%= task.feedback.body %></div>
+
+<script type="text/javascript">
+  $(".rating").each(function(){
+    rating = $(this).attr("data-rating");
+    id = $(this).attr('id');
+    readonly_stars(id, rating);
+  })
+</script>

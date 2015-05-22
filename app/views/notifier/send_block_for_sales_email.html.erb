@@ -1,0 +1,6 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Hi <%= @seller.first_name_for_email %>,</h1>
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">Your account has been blocked for sales by Admin. Please contact our support for more details.</p>
+
+<%= render "notifier/email_footer" %>

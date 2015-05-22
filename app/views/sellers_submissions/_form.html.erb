@@ -1,0 +1,14 @@
+<%= simple_form_for([@task, @task.sellers_submissions.build], :remote => true) do |f| %>
+	<h1 class="rel-section-head upload">Deliver Task</h1>
+	<p>Please ensure that you upload all relevant source files.</p>
+	<p class="uploadhint">Upload size limit is set to 100mb per attached file.</p>
+  <%= f.fields_for :submission_attachments do |builder| %>
+    <%= render "task/submission_attachment_fields", :f => builder %>
+   <% end %>
+  <div class="addattachment">
+    <%= link_to_add_fields "Add Attachment", f, :submission_attachments %>
+  </div>
+
+  <%= f.input :remark, required: false, label: false, placeholder: "Add your comment" %>
+  <%= f.button :submit, "Deliver Task", class: "blue" %>
+<% end %>

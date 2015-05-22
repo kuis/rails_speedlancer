@@ -1,0 +1,23 @@
+<div class="item-box">
+  <h1 class="rel-section-head message"><%= pluralize(@task.messages.count, "private message") %><small><%= personal_messages(@task)%></small></h1>
+
+  <% @task.messages.each do |message| %>
+    <div class="commentblock">
+      <%= image_tag message.messagable.gravatar_url, class: "com-img" %>
+      <div class="com-info">
+        <%= link_to message.messagable.first_name_n_last_initial, "", class: "commenter" %></h6>
+        <p><%= message.content %></p>
+        <p class="com-stamp"><%= message.created_at.mday %> <%= I18n.t("date.abbr_month_names")[message.created_at.month] %>, <%= message.created_at.year %> at <%= message.created_at.strftime(("%H:%M")) %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <%= simple_form_for([@task, @task.messages.build], remote: true) do |f| %>
+    <div class="input">
+      <%= f.input :content, placeholder: "Leave a private message here", class: 'smallfont', required: false, label: false %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, value: "Leave Message", class: "button medium" %>
+    </div>
+  <% end %>
+</div>

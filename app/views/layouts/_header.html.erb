@@ -1,0 +1,50 @@
+<%= link_to image_tag('sl-header-logo.png'), root_path, class: "logo" %>
+<%#= render "layouts/notifications" %>
+
+<div class="head-nav">
+  <ul>
+    <% if buyer_signed_in? %>
+      <li><%= link_to 'New Task', new_task_path, class: "newtask" %></li>
+      <li class="has-dd">
+        <%= link_to buyer_active_tasks_path(current_buyer), class: "dd-link profilelink" do %>
+          <%= display_profile_image(current_buyer) %>
+          <div class="curr-info">
+            <span class="name"><%= current_buyer.full_name %></span>
+            <em>Buyer</em>
+          </div>
+        <% end %>
+        <ul class="dd-wrap">
+          <li><%= link_to 'View Profile', buyer_active_tasks_path(current_buyer) %></li>
+          <li><%= link_to 'Edit Profile', edit_buyer_registration_path %></li>
+          <li><%= link_to 'Sign Out', destroy_buyer_session_path, method: :delete %></li>
+        </ul>
+      </li>
+    <% elsif seller_signed_in? %>
+      <li><%= link_to 'Available Tasks', root_path, class: "availabletasks" %></li>
+      <li class="has-dd">
+        <%= link_to profile_seller_path(current_seller), class: "dd-link" do %>
+          <%= display_profile_image(current_seller) %>
+          <div class="curr-info">
+            <span class="name"><%= current_seller.full_name %></span>
+            <em>Seller</em>
+          </div>
+        <% end %>
+        <ul class="dd-wrap">
+          <li><%= link_to "View Profile", seller_active_tasks_path(current_seller) %></li>
+          <li><%= link_to 'Edit Profile', edit_seller_registration_path %></li>
+          <li><%= link_to 'Sign Out', destroy_seller_session_path, method: :delete %></li>
+        </ul>
+      </li>
+    <% else %>
+<!--       <li class="has-dd">
+        <%#= link_to "Log In", "#", class: "dd-link" %>
+        <ul class="dd-wrap">
+          <li><%#= link_to "As Buyer", login_path %></li>
+          <li><%#= link_to "As Seller", new_seller_session_path %></li>
+        </ul>
+      </li> -->
+      <li><%= link_to "Log In", login_path %></li>
+      <li><%= link_to "Sign Up", signup_path %></li>
+    <% end %>
+  </ul>
+</div>

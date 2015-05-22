@@ -1,0 +1,9 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Hi <%= @buyer.first_name_for_email %>,</h1>
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">Good news! This is just a quick email to notify you that <strong><%= @seller.first_name_for_email %></strong>, a talented Speedlancer, has begun working on your task, and it will be delivered within just 4 hours.</p>
+
+<p style="font-size: 14px;color: #444;line-height:1.4;font-weight: 300;">You can communicate with <%= @seller.first_name_for_email %> from the task tracking page. We’d recommend responding ASAP to any queries your Speedlancer may send, to ensure that any questions are answered before they deliver. You will be updated by email of its progress.</p>
+<%= link_to "Track Task", task_url(@task), style: "display:inline-block;padding: 0 20px; line-height:40px; background: #069; color: #fff;font-weight:700;font-size: 14px;text-decoration:none" %>
+
+<%= render "notifier/email_footer" %>

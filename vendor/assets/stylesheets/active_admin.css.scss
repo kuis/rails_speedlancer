@@ -1,0 +1,55 @@
+// SASS variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.css.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+// Active Admin's got SASS!
+@import "active_admin/mixins";
+@import "active_admin/base";
+
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   .status_tag { background: #6090DB; }
+
+.imagelink{
+		display: inline-block;
+		margin-right: 11px;
+		height: 100px;
+		vertical-align: top;
+		padding: 5px;
+		border: 1px solid #ddd;
+		margin-bottom: 15px;
+		img{
+			height: 100%;
+			width: auto;
+		}
+	}
+	.normallink{
+		display: inline-block;
+		margin-right: 11px;
+		height: 30px;
+		max-width: 240px;
+		word-wrap: break-word;
+		vertical-align: top;
+		padding: 15px 15px 15px 80px;
+		font-size: 14px;
+		background-color: #fff;
+		border: 1px solid #ddd;
+		margin-bottom: 15px;
+		position: relative;
+		&:before{
+			width: 70px;
+			position: absolute;
+			top: 0;
+			left:0;
+			bottom: 0;
+			content: " ";
+			display: block;
+			background: #069 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACS0lEQVRYw9WWMUgjQRSGg0gQCSJBLKxCCguxELGwsBCLQ+SwEBGxshIRERErC8HKwkIOkdRXWaeQcIXIVRYiliIiIiJWFrJsTLLZxP+XWR32MruzyayHAz/G7Hvv++ftztskEt99VSqVDtd1x2u12hK0Bs1Vq9VM7GDHcdKA7UMvdd/Cd9QZjE3GAkfhUQCe6iFLGMmVSqX2loDFYrHDtu0kP6O9wyhqhcF9Rn43u9NZJF9CLuRAp9BdFLi3UGsxKnyTLTS1UOuxXC4nteBoc5Y7Nkb/7MJPLQOAb5iGiy7shbV9BkGFRkfLkIFbMv4B40yncPE4DqjCyDGZ73DLstq46yaKPEC/sKMFaAwagX6IaZiHyiH5BbLZ9vmIYAs5K2HDBTvsRewu9KqqRTYfuJMI8GckDXkQmEjh/yloHdqCVjl+cdzS0okaQN6Vot5JQveB40xA8WnvthHYaCLyvAM6K3cDL6wefH/dIPaFBlxNA3+l07KviHEAH2QMRjdNLvOlBNmKeDehO1q9UYp7O6AyzVEtzZIDjU3dMfBQxwB21i92vx1QMMcYPAMpnUlKNh+SjKpFUmAd9z0pdnYUELcnTGY14PbHDxckzAU55jWptfkwA/gbaID1yPSP4QlcuFHkGDNABlkNhwePF9oyLl7FO7KiGEB+2p/Pmqz9Pv1aWToGjC+470L9PgqQPwEGcl4ccjqNGRAn5T7syZaMnGNedBvtgq6JWOCSiWyQiVjhYSa+BK4ygc8XXwb3mxDwdOsVmzOR+W9wU+sNpC6FdOlTuM8AAAAASUVORK5CYII=") no-repeat center;
+		}
+	}

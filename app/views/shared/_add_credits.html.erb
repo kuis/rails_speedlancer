@@ -1,0 +1,6 @@
+<div class="addform">
+<%= form_tag(add_credits_buyers_path, method: :get) do %>
+    <%= number_field(:buyer, :credits_to_add, step: 1.0, placeholder: "Credits in $ to add") %>
+    <%= submit_tag "Add Credits", class: "button medium red" %>
+<% end %>
+</div>

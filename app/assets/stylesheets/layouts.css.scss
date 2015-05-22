@@ -1,0 +1,107 @@
+@import "varmixins";
+
+.wrapper{
+	width: 100%;
+	max-width: 1180px;
+	margin: 0 auto;
+	min-width: 800px;
+}
+.logout-wrap{
+	padding-top: 40px;
+}
+.logout-form-wrap{
+	max-width: 400px;
+	margin: 0 auto 40px;
+	padding: 20px;
+	margin-top: 5%;
+	background-color: #fff;
+	@include radius(4px);
+	&.wider{
+		max-width: 600px;
+	}
+}
+.sidebar{
+	width: 260px;
+	position: fixed;
+	left: 0;
+	top: 60px;
+	bottom: 0;
+	background-color: #fff;
+	padding: 20px;
+	color: #fff;
+	overflow: auto;
+}
+.maincontent{
+	min-height: 100%;
+}
+.content{
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 20px;
+	position: relative;
+	margin-left: 260px;
+	margin-top: 60px;
+}
+.grid-wrap{
+	overflow: auto;
+	.half-column{
+		width: 48.5%;
+		float: left;
+		margin-right: 3%;
+		margin-bottom: 3.25%;
+		&:nth-of-type(2n+2){
+			margin-right: 0;
+		}
+	}
+	.third-column{
+		width: 31.5%;
+		float: left;
+		margin-right: 2.75%;
+		margin-bottom: 3%;
+		&:nth-of-type(3n+3){
+			margin-right: 0;
+		}
+	}
+	.quarter-column{
+		width: 23%;
+		float: left;
+		margin-right: 2.6%;
+		margin-bottom: 3%;
+		&:nth-of-type(4n+4){
+			margin-right: 0;
+		}
+	}
+}
+.modalwrap{
+	position: fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left: 0;
+	overflow: auto;
+	z-index: 10;
+	opacity: 1;
+	@include transitions;
+	background-color: rgba(0,0,0,.8);
+	&.invisible{
+		z-index: -1;
+		opacity: 0;
+	}
+}
+.modal{
+	position: relative;
+	width: 500px;
+	padding: 20px;
+	background-color: #fff;
+	@include radius(4px);
+	margin: 10% auto 0;
+	@include scale(1,1);
+	@include transitions;
+	opacity: 1;
+	@include animdelay(1s);
+}
+.invisible .modal{
+	opacity: 0;
+	@include animdelay(.8s);
+	@include scale(.8,.8);
+}

@@ -1,0 +1,29 @@
+<% if buyer_signed_in? %>
+  <div class="head-nav onleft">
+    <ul>
+        <li class="has-dd">
+          <%= link_to "Notifications", "javascript:void(0)", class: "dd-link notificlink" %>
+          <ul class="dd-wrap panel">
+            <li>
+              <%= link_to "#" do %>
+                <h6>New Message from Adam Stone</h6>
+                <p>You need to make the logo look slightly richer in colors, right now it is looking too bland.</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <h6>New Message from Adam Stone</h6>
+                <p>You need to make the logo look slightly richer in colors, right now it is looking too bland.</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <h6>New Message from Adam Stone</h6>
+                <p>You need to make the logo look slightly richer in colors, right now it is looking too bland.</p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+<% end %>

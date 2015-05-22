@@ -1,0 +1,59 @@
+<div class="sidebar">
+
+  <div class="userprofile">
+    <div class="userdp">
+      <%= display_profile_image(@seller) %>
+    </div>
+    <div class="userinfo">
+      <h1><%= @seller.full_name %></h1>
+      <% @seller.categories.each do |category| %>
+        <h2><%= category.name %></h2>
+      <% end %>
+    </div>
+    <div class="feedbackscore">
+      <% if @seller.average_rating.nan? %>
+        <p>No Rating Yet! 5/5</p>
+      <% else %>
+        <div class="stars" id="seller_rating"></div>
+        <div class="fbcount"><%= @seller.average_rating.round(1) %><strong>/5</strong></div>
+      <% end %>
+    </div>
+    <div class="links">
+       <%= link_to "View All Feedback", seller_tasks_feedbacks_path(@seller), class: "button small outline iconbutton feedback" %>
+    </div>
+  </div>
+
+  <div class="usertasks">
+    <h5 class="listtitle tasks">Your Tasks</h5>
+    <ul class="sidelist">
+      <li>
+        <%= link_to seller_active_tasks_path(@seller), class: "#{'active' if action_name == 'active_tasks'}" do %>
+          <%= "Tasks in progress" %>
+          <span><%= @seller.accepted_tasks.progress_or_review.count  %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to seller_completed_tasks_path(@seller), class: "#{'active' if action_name == 'completed_tasks'}" do %>
+          <%= "Completed Tasks" %>
+          <span>
+            <%= @seller.accepted_tasks.completed.count %>
+          </span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="credits">
+    <h5 class="listtitle credits">SPEEDLANCER CREDITS</h5>
+    <p class="scredits"><span class="thin">$</span><%= @seller.speedlancer_credits_in_dollars %></p>
+    <!-- <div class="links"> -->
+       <%#= link_to "Take Away", "#", class: "button small outline iconbutton ccredits" %>
+    <!-- </div> -->
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+  readonly_stars("seller_rating", "<%= @seller.average_rating.round(1) %>" )
+</script>

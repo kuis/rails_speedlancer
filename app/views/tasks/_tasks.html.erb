@@ -1,0 +1,15 @@
+<%= render 'shared/sidebar' %>
+<div class="content">
+  <h5 class="main-title">
+    <% if @category.try(:name) %>
+      <%= link_to "Tasks", tasks_path %><span class="crumb"></span>
+    <% end %>
+    <% if @tasks.blank? and current_seller %>
+      <%= "No tasks available. We will notify you when new tasks become available in your account!" %>
+    <% else %>
+      <%= @category.try(:name) or "Available tasks" %>
+    <% end %>
+  </h5>
+  <%= render partial: "tasks/task", collection: @tasks %>
+  <%= will_paginate @tasks %>
+</div>

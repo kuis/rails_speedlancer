@@ -1,0 +1,9 @@
+<% if current_buyer == @task.buyer && @task.completed? %>
+<div id="feedback_section" class="item-box">
+  <% if @task.feedback.blank? %>
+    <%= render "feedbacks/form" %>
+  <% else %>
+    <%= render partial: "feedbacks/feedback", locals: {task: @task} %>
+  <% end %>
+</div>
+<% end %>

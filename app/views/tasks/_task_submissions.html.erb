@@ -1,0 +1,38 @@
+<% if @task.present_seller == current_seller %>
+  <% if @task.sellers_submissions.present? %>
+    <div id="sellers_submissions_block" class="item-box">
+      <%= render partial: "tasks/sellers_submissions", locals: {action_links: false} %>
+    </div>
+  <% end %>
+  <% if @task.in_progress? and @task.deadline >= Time.zone.now %>
+    <div class="item-box">
+      <%= render partial: "sellers_submissions/form" %>
+    </div>
+  <% elsif @task.completed? %>
+    <div class="item-box">
+      <p class="msgtxt delivered">This task has been delivered.</p>
+    </div>
+  <% elsif @task.active? %>
+    <div class="item-box">
+      <p>Task is active. Approved sellers can accept it.</p>
+    </div>
+  <% elsif @task.in_review? %>
+    <div class="item-box">
+      <p class="msgtxt wait">Your submission is under review.</p>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @task.buyer == current_buyer %>
+
+  <% if @task.sellers_submissions.present? %>
+    <div class="item-box">
+      <%= render partial: "sellers_submissions", locals: {action_links: true} %>
+    </div>
+  <% else %>
+    <div class="item-box">
+      <p class="msgtxt wait">Waiting for task submission.</p>
+    </div>
+  <% end %>
+
+<% end %>

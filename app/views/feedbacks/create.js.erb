@@ -1,0 +1,6 @@
+<% if @feedback.errors.present? %>
+  custom_push_alert("<%= @feedback.errors.full_messages.first %>", "alert")
+<% else %>
+  $('#feedback_section').replaceWith("<%=j render( 'feedbacks/feedback_block') %>");
+  custom_push_alert("Feedback Submitted successfully", "notice")
+<% end %>

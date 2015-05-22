@@ -1,0 +1,16 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Hey <%= @seller.first_name_for_email %>,</h1>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">We thought you’d like to know <%= @buyer.first_name_for_email %> has given you feedback for your task: <strong> <%= @task.title %> </strong></p>
+
+<div><%= image_tag @feedback.star_file_name, style: "height:40px;width:auto;" %></div>
+<div style="padding: 5px 20px; background: #f6f6f6;margin-bottom: 20px">
+  <p style="font-size: 14px;color: #444;line-height:1.4;font-weight: 300;"><%= @feedback.body %></p>
+</div>
+
+<%= link_to "View Task", task_url(@task), style: "display:inline-block;padding: 0 20px; line-height:40px; background: #069; color: #fff;font-weight:700;font-size: 14px;text-decoration:none" %>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">If you have any questions about this feedback, please contact us.</p>
+
+<%= render "notifier/email_footer" %>

@@ -1,0 +1,28 @@
+<% if current_buyer == @task.buyer && @task.completed? && @task.feedback.blank? %>
+  <h1 class="rel-section-head feedback">Leave feedback</h1>
+    <%= simple_form_for([@task, @task.build_feedback], remote: true) do |f| %>
+      <div id="fb_stars"></div>
+      <%= f.hidden_field :rating,required: false, label: false, placeholder: "Rate between 1-5" %>
+      <%= f.input :body, required: false, label: false, placeholder: "Write your feedback", class: 'smallfont'%>
+      <%= f.button :submit, value: "Submit", class: "button medium blue" %>
+    <% end %>
+<% end %>
+
+
+
+<script type="text/javascript">
+  $(function () {
+    $("#fb_stars").rateYo({
+      rating: 0,
+      starWidth: "40px",
+      fullStar: true
+    });
+  });
+
+  $(function () {
+    $("#fb_stars").rateYo().on("rateyo.set", function (e, data) {
+      var rating = data.rating;
+      $("#feedback_rating").val(rating);
+    });
+  });
+</script>

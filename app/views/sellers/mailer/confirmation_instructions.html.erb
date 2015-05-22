@@ -1,0 +1,9 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Welcome <%= @email %>!</h1>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">You can confirm your account email through the link below:</p>
+
+<%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token),  style: "display:inline-block;padding: 0 20px; line-height:40px; background: #069; color: #fff;font-weight:700;font-size: 14px;" %>
+
+<%= render "notifier/email_footer" %>
