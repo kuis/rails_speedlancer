@@ -61,6 +61,22 @@ ActiveAdmin.register Seller do
       end
     end
 
+    if seller.pay_outs.present?
+      panel "Payouts" do
+        table_for seller.pay_outs do
+          column "Id" do |payout|
+            link_to payout.id, admin_pay_out_path(payout)
+          end
+          column :seller
+          column :amount
+          column :status
+          column :paypal_email
+          column :paid_at
+          column :created_at
+        end
+      end
+    end
+
   end
 
   member_action :approve_seller, :method => :get do

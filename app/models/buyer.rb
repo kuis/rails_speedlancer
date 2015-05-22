@@ -111,7 +111,7 @@ class Buyer < ActiveRecord::Base
   end
 
   def create_bot
-    pid = fork {  exec 'node', 'bin/bot.js'}
+    pid = fork {  exec 'node', 'bin/bot.js', bot_key}
     logger.info "#############"
     logger.info "New bot #{pid}"
     logger.info "#############"

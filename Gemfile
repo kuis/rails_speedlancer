@@ -16,7 +16,7 @@ gem 'simple_form'
 gem 'activeadmin', github: 'activeadmin'
 gem 'will_paginate'
 
-# gem 'capistrano', "2.14.2", group: :development, require: false
+gem 'capistrano', "~>2.15.5", group: :development, require: false
 gem 'rvm-capistrano'
 gem 'delayed_job_active_record'
 gem "delayed_job_web"

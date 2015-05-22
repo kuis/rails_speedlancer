@@ -199,22 +199,23 @@ class Task < ActiveRecord::Base
       cmd: "_xclick",
       upload: 1,
       # return: "#{return_path}",
-      # notify_url: "#{Rails.application.secrets.app_host}/hook",
       invoice: "#{self.id}-#{self.updated_at}".parameterize,
       item_name: self.title,
       item_number: self.id,
       amount: required_credits,
+      # notify_url: "#{Rails.application.secrets.app_host}/hook",
       on0: "buyer_credits_to_remove",
       os0: buyer_credits_to_remove,
       page_style: "Speedlancer",
       on1: "from_api",
       os1: from_api
-
     }
-    notify_url = {
+
+    notify = {
       notify_url: "#{Rails.application.secrets.app_host}/hook"
     }
-    "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + notify_url.to_query + "&" + values.to_query
+
+    "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + notify.to_query + "&" + values.to_query
   end
 
   def payment_url(return_path, required_credits, buyer_credits_to_remove, from_api=false)
@@ -293,4 +294,6 @@ end
 #  watchers               :text
 #  accepted_at            :datetime
 #  delivered_at           :datetime
+#  payment_method         :string(255)      default("paypal")
+#  source                 :string(255)      default("wordpress")
 #

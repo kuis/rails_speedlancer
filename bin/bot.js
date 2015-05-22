@@ -1,6 +1,12 @@
+process.argv.forEach(function(val, index, array) {
+  if (index == 2) {
+    inputToken = val;
+  }
+});
+
 var slackbot = require('node-slackbot');
 
-var bot = new slackbot('xoxb-4651804618-C87QBd3fNdoz6je2Ebn2JDbr');
+var bot = new slackbot(inputToken);
 
 bot.use(function(message, cb) {
   if ('message' == message.type) {

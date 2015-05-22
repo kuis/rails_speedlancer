@@ -44,7 +44,9 @@ class Seller < ActiveRecord::Base
         paypal_email: _seller.paypal_email,
         currency: "USD"
       }
-      if _seller.pay_outs.create(payout_params)
+      _payout = _seller.pay_outs.create(payout_params)
+      if _payout.persisted?
+        puts "New payout: Seller( #{_seller.id} ) ( #{_payout.id} amounted #{_payout.amount} )"
         _seller.reset_credits
       end
     end

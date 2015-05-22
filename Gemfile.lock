@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/stripe/stripe-ruby
-  revision: 97b3f397fc7b77900882b1db1487e1f9d95ca8e8
+  revision: 8ba1a0e4908cccf20198791aa8f72acc63575589
   specs:
     stripe (1.21.0)
       json (~> 1.8.1)
@@ -152,7 +152,7 @@ GEM
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
-    highline (1.6.21)
+    highline (1.7.2)
     hike (1.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -347,6 +347,7 @@ DEPENDENCIES
   browser-timezone-rails
   bullet
   byebug
+  capistrano (~> 2.15.5)
   carrierwave
   carrierwave-base64
   coffee-rails (~> 4.0.0)
