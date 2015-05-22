@@ -2,4 +2,4 @@ development:
   paypal_merchant_account: ivan-b@gmail.com
 
 production:
-  paypal_merchant_account: support@speedlancer.com
+  paypal_merchant_account: adam@idealconnection.com

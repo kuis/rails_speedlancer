@@ -5,7 +5,6 @@ class SellersSubmissionsController < ApplicationController
   before_action :validate_task
   before_action :authorize_buyer, only: [:approve, :revise]
   before_action :fetch_submission_from_params, only: [:approve, :revise, :download_submission]
-  before_action :task_in_progress, only: [:create]
   before_action :check_submission_status, only: [:approve]
 
   def index
@@ -61,7 +60,7 @@ class SellersSubmissionsController < ApplicationController
     end
 
     def check_submission_status
-      redirect_to task_path(@task), notice: "Unauthorized access!" unless (@sellers_submission.in_review? and @task.in_review?)
+      redirect_to task_path(@task), notice: "Unauthorized access!" unless @sellers_submission.in_review?
     end
 
     def authenticate!
@@ -70,10 +69,6 @@ class SellersSubmissionsController < ApplicationController
       else
         redirect_to new_buyer_session_path, notice: "Please sign in before continuing" unless current_buyer_or_seller.present?
       end
-    end
-
-    def task_in_progress
-      (render :not_in_progress and return) unless @task.in_progress?
     end
 
 end

@@ -1,7 +1,6 @@
 ActiveAdmin.register Feedback do
 
   menu priority: 6
-  permit_params :body, :rating
 
   # Index section
   filter :body, as: :string

@@ -6,7 +6,7 @@ task approve_submissions: :environment do
     if last_seller_submission.present?
       if last_seller_submission.created_at < 72.hours.ago
         puts "=========================================="
-        puts "Approving: #{task.title} #{task.id}"
+        puts "Updating: #{task.title}"
         last_seller_submission.add_credits_and_update_task!
         puts last_seller_submission.inspect
         puts "=========================================="

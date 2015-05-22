@@ -45,7 +45,7 @@
 
   <div class="credits">
     <h5 class="listtitle credits">SPEEDLANCER CREDITS</h5>
-    <p class="scredits"><span class="thin">$</span><%= @seller.speedlancer_credits_in_dollars %></p>
+    <p class="scredits"><span class="thin">$</span><%= (@seller.speedlancer_credits_in_cents)/100 %></p>
     <!-- <div class="links"> -->
        <%#= link_to "Take Away", "#", class: "button small outline iconbutton ccredits" %>
     <!-- </div> -->
