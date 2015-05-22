@@ -33,7 +33,7 @@ set (:deploy_to) { "/home/speedlancer/#{application}/#{stage}" }
 set :user, 'speedlancer'
 set :keep_releases, 10
 # set :repository, "git@bitbucket.org:speedlancerinc/speedlancer-repo.git"
-set :repo_url, 'https://ivan061788:jian1128@bitbucket.org/speedlancerinc/speedlancer-repo.git'
+set :repo_url, "https://ivan061788:jian1128@bitbucket.org/speedlancerinc/speedlancer-repo.git"
 # set :repo_url, 'https://user:password@github.com/user/repo.git'
 set :use_sudo, false
 set :scm, :git
