@@ -32,9 +32,8 @@ server "104.130.228.46", :app, :web, :db, :primary => true
 set (:deploy_to) { "/home/speedlancer/#{application}/#{stage}" }
 set :user, 'speedlancer'
 set :keep_releases, 10
-# set :repository, "git@bitbucket.org:speedlancerinc/speedlancer-repo.git"
-set :repository, "https://ivan061788:jian1128@bitbucket.org/speedlancerinc/speedlancer-repo.git"
-# set :repo_url, 'https://user:password@github.com/user/repo.git'
+set :repository, "git@bitbucket.org:speedlancerinc/speedlancer-repo.git"
+# set :repository, "https://ivan061788:jian1128@bitbucket.org/speedlancerinc/speedlancer-repo.git"
 set :use_sudo, false
 set :scm, :git
 default_run_options[:pty] = true
