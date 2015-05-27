@@ -50,7 +50,7 @@ module Api
       private
 
       def task_params
-        params.require(:task).permit(:title, :description, :price_in_dollars, :buyer_id, :category_id, :payment_method, :source, attachments: [])
+        params.require(:task).permit(:title, :description, :price_in_dollars, :buyer_id, :category_id, :payment_method, :fee_by_percent ,:source, attachments: [])
       end
 
       def validate_buyer_email
