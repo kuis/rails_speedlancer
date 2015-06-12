@@ -12,9 +12,7 @@ module Api
 
         if @task.save
 
-          @task.create_attachments(params[:attachments]) if params[:attachments].present?
-
-          if params.has_key?(:stripeToken)
+          if @task.payment_method == 'stripe' and params.has_key?(:stripeToken)
 
             begin
               customer = Stripe::Customer.create(
@@ -40,7 +38,16 @@ module Api
               }
 
               @task.update_after_payment(_params)
+          elsif @task.payment_method == 'credits'
+            if  @buyer.speedlancer_credits_in_dollars >= @task.price_in_dollars
+              @task.activate_n_deduct_credit_from_buyer(@task.price_in_dollars)
+            else
+              render 'credits_error'
+              return
+            end
           end
+
+          @task.create_attachments(params[:attachments]) if params[:attachments].present?
 
         else
           render 'task_errors'
@@ -54,12 +61,13 @@ module Api
       end
 
       def validate_buyer_email
-        render 'please_add_email' unless params[:buyer].present? and params[:buyer][:email].present?
+        render 'please_add_email' unless params[:buyer].present? and ( params[:buyer][:email].present? or params[:buyer][:bot_key].present? )
       end
 
       def fetch_buyer
         @buyer = Buyer.get_buyer_for_api(params[:buyer])
-        render 'invalid_buyer' if @buyer.errors.present?
+        render 'invalid_bot_key' if @buyer.nil?
+        render 'invalid_buyer' if @buyer.present? and @buyer.errors.present?
       end
     end
   end

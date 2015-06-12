@@ -19,15 +19,22 @@ class Buyer < ActiveRecord::Base
   has_many :payment_notifications
   # has_many :received_messages, :class_name => "Message", :as => :receiver
 
+  validates :bot_key, uniqueness: true
+
   before_save :check_bot_key_changes
 
   def self.get_buyer_for_api(buyer_params)
-    _buyer = find_or_initialize_by email: buyer_params[:email]
-    if _buyer.new_record?
-      _buyer.name = buyer_params[:name]
-      _buyer.skip_confirmation_notification!
-      _buyer.password = Devise.friendly_token.first(8)
-      _buyer.save
+    _buyer = nil
+    if buyer_params[:bot_key].present?
+      _buyer = find_by bot_key: buyer_params[:bot_key]
+    else
+      _buyer = find_or_initialize_by email: buyer_params[:email]
+      if _buyer.new_record?
+        _buyer.name = buyer_params[:name]
+        _buyer.skip_confirmation_notification!
+        _buyer.password = Devise.friendly_token.first(8)
+        _buyer.save
+      end
     end
     return _buyer
   end
@@ -111,7 +118,8 @@ class Buyer < ActiveRecord::Base
   end
 
   def create_bot
-    pid = fork {  exec 'node', 'bin/bot.js', bot_key}
+    # pid = fork {  exec 'node', 'bin/bot.js', bot_key}
+    pid = fork {  exec 'node', 'slack-bot/bot_test/firstbot.js', bot_key}
     logger.info "#############"
     logger.info "New bot #{pid}"
     logger.info "#############"

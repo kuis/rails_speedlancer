@@ -1,2 +1,2 @@
 node(:status){"failure"}
-node(:error){ @task.errors.full_messages}
+node(:error){"You don't have enough credits on speedlacer account"}

@@ -76,6 +76,8 @@ class Task < ActiveRecord::Base
   handle_asynchronously :new_task_create_email
 
   def create_attachments(_attachments_params)
+    puts "attachment ++++ "
+    puts _attachments_params
     if _attachments_params.present?
       _attachments_params.each do |key, attachment|
         task_attachments.create(remote_attachment_file_url: attachment)
