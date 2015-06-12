@@ -314,8 +314,8 @@ function postNewJob(newFreelanceJob, channel) {
 
     var options = {
         method: 'POST',
-        // url: 'https://api.parse.com//1/classes/jobs',
-        url: "http://localhost:3000/api/v1/tasks.json",
+        // url: "http://localhost:3000/api/v1/tasks.json",
+        url: "http://app.speedlacer.com/api/v1/tasks.json",
         headers: {
             // 'X-Parse-Application-Id': 'yvHvEkne9jgX5ld3Gc2m3X9dC6ykkZq5aAYcyXKY',
             // 'X-Parse-REST-API-Key': 'xn6eb48pKothnOnhZNJRW12pX6x5GZ4nVJXwwCaE',
