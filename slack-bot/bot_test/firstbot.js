@@ -85,11 +85,12 @@ var messageDictionary = {
                 newJobs[channel]['task']['category_id'] = 2;
             } else if (reply == 'data entry') {
                 newJobs[channel]['task']['category_id'] = 3;
+            } else if (reply -- 'four') {
+                newJobs[channel]['task']['category_id'] = 4;
             } else {
                 return false;
             }
 
-            newJobs[channel]['task']['category_id'] = 4;
             return true;
         },
         response: "Ok, that’ll be $39. Please type ‘yes’ to authorize a $39 deduction from your Speedlancer account."
@@ -322,19 +323,12 @@ function postNewJob(newFreelanceJob, channel) {
         if (!error && response.statusCode == 200 ) {
             info = JSON.parse(body);
             if (info['status'] == 'success') {
-                // console.log("true");
-                // return true;
                 bot.sendMessage(channel, "Awesome sauce. Your task has been submitted to my network of Speedlancers and you’ll be updated of its progress by email. Good day!");
             } else {
-                // console.log(info['error']);
-                // return info['error'];
                 bot.sendMessage(channel, "Oh no. Looks like you’ve run out of cheese. Please head to http://My.Speedlancer.com to top up your account and then re-post");
                 bot.sendMessage(channel, info['error']);
             }
         } else {
-            // console.log(error);
-            // console.log(response);
-            // console.log(body);
             bot.sendMessage(channel, "There's a error on API connection, please try it again.");
         }
 
