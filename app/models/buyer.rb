@@ -19,7 +19,7 @@ class Buyer < ActiveRecord::Base
   has_many :payment_notifications
   # has_many :received_messages, :class_name => "Message", :as => :receiver
 
-  validates :bot_key, uniqueness: true
+  # validates :bot_key, uniqueness: true
 
   before_save :check_bot_key_changes
 
