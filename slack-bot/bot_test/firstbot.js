@@ -56,7 +56,8 @@ var messageDictionary = {
             }
 
             newJobs[channel] = {
-                'access_token': 'test',
+                // 'access_token': 'test',
+                'access_token': '4882497303',
                 'task': {
                     'price_in_dollars': 39.00,
                     'source': 'slack',
@@ -301,13 +302,6 @@ bot.use(function (message, cb) {
 });
 
 
-// function createNewJob(jobType, userId) {
-//     var newFreelanceJob = {
-//         job: jobType,
-//         userId: userId
-//     }
-//     postNewJob(newFreelanceJob);
-// }
 
 function postNewJob(newFreelanceJob, channel) {
     console.log(newFreelanceJob);
@@ -315,7 +309,7 @@ function postNewJob(newFreelanceJob, channel) {
     var options = {
         method: 'POST',
         // url: "http://localhost:3000/api/v1/tasks.json",
-        url: "http://app.speedlacer.com/api/v1/tasks.json",
+        url: "http://app.speedlancer.com/api/v1/tasks.json",
         headers: {
             // 'X-Parse-Application-Id': 'yvHvEkne9jgX5ld3Gc2m3X9dC6ykkZq5aAYcyXKY',
             // 'X-Parse-REST-API-Key': 'xn6eb48pKothnOnhZNJRW12pX6x5GZ4nVJXwwCaE',
@@ -338,6 +332,9 @@ function postNewJob(newFreelanceJob, channel) {
                 bot.sendMessage(channel, info['error']);
             }
         } else {
+            // console.log(error);
+            // console.log(response);
+            // console.log(body);
             bot.sendMessage(channel, "There's a error on API connection, please try it again.");
         }
 
@@ -346,14 +343,6 @@ function postNewJob(newFreelanceJob, channel) {
 
     request(options, callback);
 }
-
-// bot.use(function(message, cb) {
-//   if ('message' == message.type) {
-//     bot.sendMessage('C046S49GZ', message)
-//     console.log(bot.channels[0].id);
-//   }
-//   cb();
-// });
 
 
 bot.connect();
