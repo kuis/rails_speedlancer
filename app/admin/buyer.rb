@@ -64,8 +64,47 @@ ActiveAdmin.register Buyer do
     end
   end
 
+  collection_action :restart_all_bots, method: :get do
+    _buyers = Buyer.where("(bot_key IS NOT NULL AND bot_key!='') OR (bot_pid IS NOT NULL AND bot_pid!='')")
+
+    for _buyer in _buyers
+      unless _buyer.bot_pid.blank?
+        _buyer.kill_bot
+      end
+      unless _buyer.bot_key.blank?
+        _buyer.create_bot
+      end
+      _buyer.save
+    end
+
+    redirect_to collection_path
+  end
+
+  member_action :restart_bot, method: :get do
+    redirect_to "#{collection_path}/#{resource.id}"
+    unless resource.bot_pid.blank?
+      resource.kill_bot
+    end
+    unless resource.bot_key.blank?
+      resource.create_bot
+    end
+      resource.save
+  end
+
+  action_item :view, only: :show do
+    unless resource.bot_key.blank?
+      link_to "Restart bot", "#{collection_path}/#{resource.id}/restart_bot"
+    end
+  end
+
   action_item :view, only: :show do
     link_to 'Login as Buyer', sign_in_as_buyer_path(buyer_id: resource.id), :target => "_blank"
+  end
+
+  action_item :view, only: :index do
+    _buyers = Buyer.where("bot_key IS NOT NULL AND bot_key!=''")
+    link_to "Restart #{_buyers.count} #{'bot'.pluralize(_buyers.count)}", "#{collection_path}/restart_all_bots"
+    # '/admin/buyers/restart_all_bots'
   end
 
   # form section
