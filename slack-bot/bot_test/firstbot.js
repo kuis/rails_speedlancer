@@ -179,7 +179,7 @@ var messageDictionary = {
 var previousResponses = {};
 
 var interval = setInterval(function() {
-    var timeout = 1000 * 30;
+    var timeout = 1000 * 60 * 10;
 
     for (channel in previousResponses) {
         var previousRes = previousResponses[channel];
