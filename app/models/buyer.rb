@@ -20,8 +20,20 @@ class Buyer < ActiveRecord::Base
   # has_many :received_messages, :class_name => "Message", :as => :receiver
 
   # validates :bot_key, uniqueness: true
+  validate :has_empty_or_unique_bot_key
 
   before_save :check_bot_key_changes
+
+  def has_empty_or_unique_bot_key
+    unless bot_key.blank?
+      _buyer = Buyer.find_by bot_key: self.bot_key
+      if (!_buyer.nil?)
+        unless _buyer.id == self.id
+          self.errors.add(:bot_key, 'Your bot_key is not unique.')
+        end
+      end
+    end
+  end
 
   def self.get_buyer_for_api(buyer_params)
     _buyer = nil

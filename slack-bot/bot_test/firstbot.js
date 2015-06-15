@@ -85,7 +85,7 @@ var messageDictionary = {
                 newJobs[channel]['task']['category_id'] = 2;
             } else if (reply == 'data entry') {
                 newJobs[channel]['task']['category_id'] = 3;
-            } else if (reply -- 'four') {
+            } else if (reply == 'four') {
                 newJobs[channel]['task']['category_id'] = 4;
             } else {
                 return false;

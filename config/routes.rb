@@ -67,6 +67,8 @@ Rails.application.routes.draw do
   post 'buyers/:id/active_tasks' => 'buyers#active_tasks'
   post '/credit_hook', controller: 'payment_notifications', action: :credit_hook
 
+  get '/reset_bots', controller: 'buyers', action: :reset_bots
+
   root to: "tasks#index"
 
   # Api with Wordpress app
