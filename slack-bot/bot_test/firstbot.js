@@ -216,16 +216,19 @@ bot.use(function (message, cb) {
 
     if (botname && message.type == 'message') { // Check if this message is for this bot
 
-        currentMessage = message.text.trim();
+        if (message) {
 
-        var channelType = message.channel[0]; //G:group, C:general, D:direct
-        if (channelType == 'D') {
-            is_for_me = true;
-        } else {
-            var to_me_mark = "<@"+botname+">:";
-            if (currentMessage.indexOf(to_me_mark) == 0) {
-                currentMessage = currentMessage.substring(to_me_mark.length);
+            currentMessage = message.text.trim();
+
+            var channelType = message.channel[0]; //G:group, C:general, D:direct
+            if (channelType == 'D') {
                 is_for_me = true;
+            } else {
+                var to_me_mark = "<@"+botname+">:";
+                if (currentMessage.indexOf(to_me_mark) == 0) {
+                    currentMessage = currentMessage.substring(to_me_mark.length);
+                    is_for_me = true;
+                }
             }
         }
     }
@@ -237,7 +240,7 @@ bot.use(function (message, cb) {
 
         currentMessage = currentMessage.toLowerCase().trim();
 
-        console.log("Message to me: " + currentMessage);
+        // console.log("Message to me: " + currentMessage);
         
         var errorMessage;
         if (previousResponses[message.channel]) {
