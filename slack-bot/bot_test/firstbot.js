@@ -216,7 +216,7 @@ bot.use(function (message, cb) {
 
     if (botname && message.type == 'message') { // Check if this message is for this bot
 
-        if (message) {
+        if (message && message.user != botname) {
 
             currentMessage = message.text.trim();
 
@@ -240,7 +240,7 @@ bot.use(function (message, cb) {
 
         currentMessage = currentMessage.toLowerCase().trim();
 
-        // console.log("Message to me: " + currentMessage);
+        console.log(message.user + ": " + currentMessage);
         
         var errorMessage;
         if (previousResponses[message.channel]) {
