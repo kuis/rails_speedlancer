@@ -1,11 +1,16 @@
 <h1 class="rel-section-head uploaded">Task Submissions</h1>
   <div class="attachmentlist">
     <% @task.sellers_submissions.each do |sellers_submission| %>
-      <div class="submissions">
-        <p><%= sellers_submission.remark %></p>
+      <div class="submissions <%= sellers_submission.status %>">
+        <div class="remark">
+          <%= simple_format(sellers_submission.remark) %>
+        </div>
         <% sellers_submission.submission_attachments.each do |submission_attachment| %>
           <%= link_for_sellers_submissions_according_to_extention(sellers_submission, submission_attachment) %>
         <% end %>
+        <div class="sub-feedback">
+          <%= simple_format(sellers_submission.feedback) unless sellers_submission.feedback.blank? %>
+        </div>
         <% if sellers_submission.in_review? and action_links == true %>
           <div class="sbsbuttons">
             <%= link_to "Approve Submission",  approve_task_sellers_submission_path(@task, sellers_submission), class: "button green" %>

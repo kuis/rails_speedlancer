@@ -1,0 +1,5 @@
+<%= simple_form_for([@task, sellers_submission], :url=>task_sellers_submission_path(@task, sellers_submission), :remote => true, :method=>'put') do |f| %>
+	<%= f.input :feedback, required: false, label: false, placeholder: "Add your feedback" %>
+	<%= f.button :submit, "Approve Submission", class: "green" %>
+	<%= f.button :submit, "Needs Revision", class: "orange" %>
+<% end %>

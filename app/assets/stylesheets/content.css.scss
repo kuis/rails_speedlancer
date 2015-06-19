@@ -32,6 +32,22 @@
 	&:last-of-type, &:only-of-type{
 		margin-bottom: 0;
 	}
+
+	&.needs_revision {
+		.sub-feedback {
+			p {
+				color: #ff6600;
+			}
+		}
+	}
+
+	&.approved {
+		.sub-feedback {
+			p {
+				color: #99cc00;
+			}
+		}
+	}
 }
 .addform{
 	background-color: $border;

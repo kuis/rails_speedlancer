@@ -6,7 +6,7 @@
       <%= image_tag message.messagable.gravatar_url, class: "com-img" %>
       <div class="com-info">
         <%= link_to message.messagable.first_name_n_last_initial, "", class: "commenter" %></h6>
-        <p><%= message.content %></p>
+        <%= simple_format(message.content) %>
         <p class="com-stamp"><%= message.created_at.mday %> <%= I18n.t("date.abbr_month_names")[message.created_at.month] %>, <%= message.created_at.year %> at <%= message.created_at.strftime(("%H:%M")) %></p>
       </div>
     </div>
