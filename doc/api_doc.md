@@ -22,13 +22,28 @@ Sample call:-
     description: "Create logo for my website",
     category_id: "3",
     price_in_dollars: "15.4",
+    source: "shopify",
+    payment_method: "paypal",
+    fee_by_percent: "30",
     attachments: {"1" => "attachments.jpg", "2" => "attachments2.jpg"}
   }
   -buyer:{
     email: "peeyush@speedlancer.com",
     name: "Peeyush Singla"
   }
+  -stripeToken:{
+    email: "ivan@gmail.com",
+    id:"xxxxxxxxx"
+  }
 }
+
+
+For payment_method, value has to be "paypal", "stripe" or "credits"
+If payment_method is "stripe", stripeToken must be there.
+
+buyer can be {email, name} or {bot_key:"xoxo-xxxx-xxxx-xxxx"}
+
+
 
 ```
 Successful call:-
