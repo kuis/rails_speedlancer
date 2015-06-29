@@ -3,7 +3,7 @@
   <div class="feedrating">
       <div class="rating" id="feedback_<%= task.feedback.id %>" data-rating="<%= task.feedback.rating %>"></div>
   </div>
-  <div class="feedback-content"><%= task.feedback.body %></div>
+  <div class="feedback-content"><%= simple_format(task.feedback.body) %></div>
 
 <script type="text/javascript">
   $(".rating").each(function(){

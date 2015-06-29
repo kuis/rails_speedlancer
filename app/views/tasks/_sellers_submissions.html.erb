@@ -13,7 +13,7 @@
         </div>
         <% if sellers_submission.in_review? and action_links == true %>
           <div class="sbsbuttons">
-            <%= link_to "Approve Submission",  approve_task_sellers_submission_path(@task, sellers_submission), class: "button green" %>
+            <%#= link_to "Approve Submission",  approve_task_sellers_submission_path(@task, sellers_submission), class: "button green" %>
             <!-- No disapproval -->
             <%# if @task.sellers_submissions.count <= 2 %>
               <%#= link_to "Needs Revision", revise_task_sellers_submission_path(@task, sellers_submission), class: "button orange" %>
@@ -21,7 +21,8 @@
               <%#= link_to "Disapprove Task", revise_task_sellers_submission_path(@task, sellers_submission), class: "button orange" %>
             <%# end %>
             <!-- No disapproval ends -->
-            <%= link_to "Needs Revision", revise_task_sellers_submission_path(@task, sellers_submission), class: "button orange" %>
+            <%#= link_to "Needs Revision", revise_task_sellers_submission_path(@task, sellers_submission), class: "button orange" %>
+            <%= render partial: "sellers_submissions/feedback_form", :locals => {:sellers_submission => sellers_submission} %>
           </div>
         <% end %>
       </div>

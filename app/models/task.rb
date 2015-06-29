@@ -4,6 +4,7 @@ class Task < ActiveRecord::Base
 
   validates :title, :description, :category_id, :buyer_id, presence: true
   validates :price_in_dollars, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0.01}
+  validates :category, :presence => true
   validates_associated :category
 
   belongs_to :buyer

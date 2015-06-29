@@ -18,7 +18,7 @@
 
           <div class="com-info">
             <%= link_to comment.commentable.first_name_n_last_initial, "", class: "commenter" %></h6>
-            <p><%= comment.body %></p>
+            <%= simple_format(comment.body) %>
             <p class="com-stamp"><%= comment.created_at.mday %> <%= I18n.t("date.abbr_month_names")[comment.created_at.month] %>, <%= comment.created_at.year %> at <%= comment.created_at.strftime(("%H:%M")) %></p>
           </div>
         </div>

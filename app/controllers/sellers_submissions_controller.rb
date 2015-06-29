@@ -1,10 +1,10 @@
 class SellersSubmissionsController < ApplicationController
 
   before_action :authenticate!
-  before_action :check_submission_count, only: [:approve, :revise, :create]
+  before_action :check_submission_count, only: [:approve, :revise, :update, :create]
   before_action :validate_task
-  before_action :authorize_buyer, only: [:approve, :revise]
-  before_action :fetch_submission_from_params, only: [:approve, :revise, :download_submission]
+  before_action :authorize_buyer, only: [:approve, :revise, :update]
+  before_action :fetch_submission_from_params, only: [:approve, :revise, :update, :download_submission]
   before_action :task_in_progress, only: [:create]
   before_action :check_submission_status, only: [:approve]
 
@@ -27,13 +27,29 @@ class SellersSubmissionsController < ApplicationController
     end
   end
 
+  def update
+    if params[:sellers_submission][:feedback].blank?
+      redirect_to task_path(@task), alert: "Please leave feedback"
+    else
+      @sellers_submission.feedback = params[:sellers_submission][:feedback]
+
+      if params[:commit] == 'Approve Submission'
+        @sellers_submission.add_credits_and_update_task!
+        redirect_to task_path(@task), notice: "Task has approved!"
+      else
+        @sellers_submission.mark_for_revision!
+        redirect_to task_path(@task), notice: "Task needs revision"
+      end
+    end
+  end
+
   def approve
-    @sellers_submission.add_credits_and_update_task!
+    # @sellers_submission.add_credits_and_update_task!
     redirect_to task_path(@task), notice: "Task has approved!"
   end
 
   def revise
-    @sellers_submission.mark_for_revision!
+    # @sellers_submission.mark_for_revision!
     redirect_to task_path(@task), notice: "Task needs revision"
   end
 
