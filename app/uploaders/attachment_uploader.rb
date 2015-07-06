@@ -54,7 +54,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # end
 
   def extension_white_list
-    IMAGE_EXTENSIONS + DOCUMENT_EXTENSIONS + AUDIO_EXTENSIONS + VIDEO_EXTENSIONS
+    # IMAGE_EXTENSIONS + DOCUMENT_EXTENSIONS + AUDIO_EXTENSIONS + VIDEO_EXTENSIONS
   end
 
 
