@@ -28,6 +28,10 @@
     column :price_in_dollars, :sortable => :price_in_dollars do |task|
       number_to_currency (task.price_in_dollars)
     end
+    column "Fee" do |task|
+      task.fee_by_percent
+    end
+
     column "Buyer's email", :buyer do |task|
       task.buyer.email if task.buyer.present?
     end
