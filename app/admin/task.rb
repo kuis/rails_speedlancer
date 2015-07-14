@@ -39,6 +39,7 @@
     column "Seller's email", :present_seller do |task|
       task.present_seller.email if task.present_seller_id?
     end
+    column :source
   end
 
   # CSV customization
