@@ -130,7 +130,7 @@ class Task < ActiveRecord::Base
   end
 
   def seller_price_in_cents
-    (price_in_cents * (100 - fee_by_percent) / 100).to_i
+    (price_in_cents * (100 - self.fee_by_percent) / 100).to_i
     # (price_in_dollars * 0.8).to_d
   end
 
