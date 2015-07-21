@@ -203,7 +203,7 @@ class Task < ActiveRecord::Base
       business: ENV["PAYPAL_MERCHANT_ACCOUNT"],
       cmd: "_xclick",
       upload: 1,
-      # return: "#{return_path}",
+      return: "#{return_path}",
       invoice: "#{self.id}-#{self.updated_at}".parameterize,
       item_name: self.title,
       item_number: self.id,

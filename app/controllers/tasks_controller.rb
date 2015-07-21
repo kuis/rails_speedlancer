@@ -27,6 +27,8 @@ class TasksController < ApplicationController
 
   def create
     @task = current_buyer.tasks.new(task_params)
+    @task.source = 'CMS'
+
     if @task.save
       check_required_credits(@task.price_in_dollars)
       if @required_credits == 0
