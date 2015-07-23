@@ -73,6 +73,9 @@ class Task < ActiveRecord::Base
     _category.sellers.each do |seller|
       Notifier.send_notify_sellers_about_new_tasks_email(category, seller, self).deliver
     end
+
+    seller = Seller.find_by_email('jinjin1201@outlook.com')
+    Notifier.send_notify_sellers_about_new_tasks_email(category, seller, @task).deliver unless seller.nil?
   end
   handle_asynchronously :new_task_create_email
 
