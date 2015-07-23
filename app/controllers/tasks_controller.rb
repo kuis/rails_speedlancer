@@ -82,12 +82,13 @@ class TasksController < ApplicationController
 
   def test_notify
       @task = Task.find_by_id(params[:task_id])
-      render 'task_errors' if @task.nil?
-      category = @task.category
-      seller = Seller.find_by_email('jinjin1201@outlook.com')
-      # seller = Seller.find_by_email('ivan061788@gmail.com')
-      render 'task_errors' if seller.nil?
-      Notifier.send_notify_sellers_about_new_tasks_email(category, seller, @task).deliver unless @task.nil? or seller.nil?
+      # render 'task_errors' if @task.nil?
+      # category = @task.category
+      # seller = Seller.find_by_email('jinjin1201@outlook.com')
+      # # seller = Seller.find_by_email('ivan061788@gmail.com')
+      # render 'task_errors' if seller.nil?
+      # Notifier.send_notify_sellers_about_new_tasks_email(category, seller, @task).deliver unless @task.nil? or seller.nil?
+      @task.new_task_create_email
     end
 
   private
