@@ -88,7 +88,7 @@ class TasksController < ApplicationController
       # # seller = Seller.find_by_email('ivan061788@gmail.com')
       # render 'task_errors' if seller.nil?
       # Notifier.send_notify_sellers_about_new_tasks_email(category, seller, @task).deliver unless @task.nil? or seller.nil?
-      @task.new_task_create_email
+      # @task.new_task_create_email
     end
 
   private
