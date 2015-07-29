@@ -40,6 +40,7 @@ gem 'browser-timezone-rails'
 gem 'utf8-cleaner'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'intercom-rails'
 
 group :development, :test do
   gem 'mailcatcher'
