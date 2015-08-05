@@ -81,13 +81,12 @@ class TasksController < ApplicationController
   end
 
   def tasks_log
-    # puts ("========")
-    # qs = request.query_parameters
-    # id = qs['id']
-    # id = 1 if id.nil?
-    # id = id.to_i
+    qs = request.query_parameters
+    id = qs['id']
+    id = 1 if id.nil?
+    @ind = id.to_i
 
-    tasks = Task.all();
+    tasks = Task.where(["id >= ? and id < ?", @ind, @ind+100]);
     @count = 0
     for task in tasks
       task.submit_event
