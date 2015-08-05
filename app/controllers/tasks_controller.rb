@@ -86,12 +86,12 @@ class TasksController < ApplicationController
     id = 1 if id.nil?
     @ind = id.to_i
 
-    # tasks = Task.where(["id >= ? and id < ?", @ind, @ind+100]);
-    # @count = 0
-    # for task in tasks
+    tasks = Task.where(["id >= ? and id < ?", @ind, @ind+100]);
+    @count = 0
+    for task in tasks
     #   task.submit_event
-    #   @count = @count + 1
-    # end
+      @count = @count + 1
+    end
   end
 
   private
