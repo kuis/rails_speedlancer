@@ -132,6 +132,18 @@ ActiveAdmin.register Buyer do
     end
   end
 
+  csv do
+    column :id
+    column :email
+    column :first_name
+    column :last_name
+    column(:confirmed_at) { |buyer| buyer.confirmed_at.to_i }
+    column(:last_sign_in_at) { |buyer| buyer.last_sign_in_at.to_i }
+    column :speedlancer_credits_in_cents
+    column :avatar
+    column :bot_key
+  end
+
 end
 
 

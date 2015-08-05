@@ -70,6 +70,8 @@ Rails.application.routes.draw do
 
   get '/reset_bots', controller: 'buyers', action: :reset_bots
 
+  get '/tasks_log', controller: 'tasks', action: :tasks_log
+
   root to: "tasks#index"
 
   # Api with Wordpress app

@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 
   require 'will_paginate/array'
 
-
   def current_buyer_or_seller
     current_buyer or current_seller
   end

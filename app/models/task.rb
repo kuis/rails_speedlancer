@@ -40,6 +40,26 @@ class Task < ActiveRecord::Base
 
   serialize :watchers
 
+  # after_create :submit_event
+
+  def submit_event
+    meta_info = {
+      :title => self.title,
+      :category => self.category.name,
+      :description => self.description,
+      :price => self.price_in_dollars.to_s
+    }
+    
+    intercom = Intercom::Client.new(app_id: IntercomRails.config.app_id, api_key: IntercomRails.config.api_key)
+
+    intercom.events.create({
+      :event_name => "Task", 
+      :email => self.buyer.email, 
+      :created_at => self.created_at.to_i,
+      :metadata => meta_info
+    })
+  end
+
   def self.tasks_lapse
     lapse_task_array = []
     Task.active.find_each do |task|

@@ -51,6 +51,10 @@ IntercomRails.config do |config|
   #   :plan => Proc.new { |current_user| current_user.plan.name },
   #   :favorite_color => :favorite_color
   # }
+  config.user.custom_data = {
+    :confirmed_at => Proc.new { |current_user| current_user.confirmed_at.to_i },
+    :last_sign_in_at => Proc.new { |current_user| current_user.last_sign_in_at.to_i }
+  }
 
   # == User -> Company association
   # A Proc that given a user returns an array of companies

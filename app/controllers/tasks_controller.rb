@@ -80,16 +80,20 @@ class TasksController < ApplicationController
     end
   end
 
-  def test_notify
-      @task = Task.find_by_id(params[:task_id])
-      # render 'task_errors' if @task.nil?
-      # category = @task.category
-      # seller = Seller.find_by_email('jinjin1201@outlook.com')
-      # # seller = Seller.find_by_email('ivan061788@gmail.com')
-      # render 'task_errors' if seller.nil?
-      # Notifier.send_notify_sellers_about_new_tasks_email(category, seller, @task).deliver unless @task.nil? or seller.nil?
-      # @task.new_task_create_email
+  def tasks_log
+    # puts ("========")
+    qs = request.query_parameters
+    id = qs['id']
+    id = 1 if id.nil?
+    id = id.to_i
+
+    tasks = Task.where(["id >= ? and id < ?", id, id+100]);
+    @count = 0
+    for task in tasks
+      task.submit_event
+      @count = @count + 1
     end
+  end
 
   private
     def fetch_task
