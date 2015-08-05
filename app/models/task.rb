@@ -40,7 +40,7 @@ class Task < ActiveRecord::Base
 
   serialize :watchers
 
-  # after_create :submit_event
+  after_create :submit_event
 
   def submit_event
     meta_info = {
