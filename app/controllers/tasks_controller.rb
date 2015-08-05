@@ -89,7 +89,7 @@ class TasksController < ApplicationController
     tasks = Task.where(["id >= ? and id < ?", @ind, @ind+100])
     @count = 0
     for task in tasks
-      # task.submit_event
+      task.submit_event
       @count = @count + 1
     end
   end
