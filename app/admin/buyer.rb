@@ -135,11 +135,11 @@ ActiveAdmin.register Buyer do
   csv do
     column :id
     column :email
-    column :first_name
-    column :last_name
+    column(:name) { |buyer| buyer.name }
     column(:confirmed_at) { |buyer| buyer.confirmed_at.to_i }
     column(:last_sign_in_at) { |buyer| buyer.last_sign_in_at.to_i }
-    column :speedlancer_credits_in_cents
+    # column :speedlancer_credits_in_cents
+    column(:speedlancer_credits_in_dollars) { |buyer| buyer.speedlancer_credits_in_dollars }
     column :avatar
     column :bot_key
   end
