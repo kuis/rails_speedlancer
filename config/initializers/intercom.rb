@@ -52,8 +52,9 @@ IntercomRails.config do |config|
   #   :favorite_color => :favorite_color
   # }
   config.user.custom_data = {
-    :confirmed_at => Proc.new { |current_user| current_user.confirmed_at.to_i },
-    :last_sign_in_at => Proc.new { |current_user| current_user.last_sign_in_at.to_i }
+    :confirmed_at => Proc.new { |current_user| current_user.confirmed_at.strftime("%d/%m/%y") },
+    :last_sign_in_at => Proc.new { |current_user| current_user.last_sign_in_at.to_i },
+    :speedlancer_credits_in_dollars => Proc.new { |current_user| current_user.speedlancer_credits_in_dollars.to_s },
   }
 
   # == User -> Company association
