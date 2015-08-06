@@ -137,7 +137,7 @@ ActiveAdmin.register Buyer do
     column :email
     column(:name) { |buyer| buyer.name }
     # column(:confirmed_at) { |buyer| buyer.confirmed_at.to_i }
-    column(:confirmed_at) { |buyer| buyer.confirmed_at.strftime("%d/%m/%y") unless buyer.confirmed_at.nil? }
+    column(:confirmed_at) { |buyer| buyer.confirmed_at.to_i }
     column(:last_sign_in_at) { |buyer| buyer.last_sign_in_at.to_i }
     # column :speedlancer_credits_in_cents
     column(:speedlancer_credits_in_dollars) { |buyer| buyer.speedlancer_credits_in_dollars.to_s }
