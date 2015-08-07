@@ -28,6 +28,7 @@ class TasksController < ApplicationController
   def create
     @task = current_buyer.tasks.new(task_params)
     @task.source = 'CMS'
+    @task.fee_by_percent = 30
 
     if @task.save
       check_required_credits(@task.price_in_dollars)

@@ -112,7 +112,7 @@ class Task < ActiveRecord::Base
   end
 
   def self.build_with_default_price
-    self.new(price_in_dollars: 39)
+    self.new(price_in_dollars: 49)
   end
 
   def refund_credits(_buyer)
