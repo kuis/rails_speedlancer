@@ -52,7 +52,17 @@ class Task < ActiveRecord::Base
     
     intercom = Intercom::Client.new(app_id: IntercomRails.config.app_id, api_key: IntercomRails.config.api_key)
 
-    unless self.buyer.nil?
+    begin
+      unless self.buyer.nil?
+        intercom.events.create({
+          :event_name => "Task purchase", 
+          :email => self.buyer.email, 
+          :created_at => self.created_at.to_i,
+          :metadata => meta_info
+        })
+      end
+    rescue
+      self.buyer.submit_user
       intercom.events.create({
         :event_name => "Task purchase", 
         :email => self.buyer.email, 

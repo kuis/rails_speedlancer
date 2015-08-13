@@ -218,7 +218,11 @@ bot.use(function (message, cb) {
 
         if (message && message.user != botname) {
 
-            currentMessage = message.text.trim();
+            if (typeof message.text != 'undefined') {
+                currentMessage = message.text.trim();
+            } else {
+                currentMessage = message.text;
+            }
 
             var channelType = message.channel[0]; //G:group, C:general, D:direct
             if (channelType == 'D') {
@@ -240,7 +244,7 @@ bot.use(function (message, cb) {
 
         currentMessage = currentMessage.toLowerCase().trim();
 
-        console.log(message.user + ": " + currentMessage);
+        // console.log(message.user + ": " + currentMessage);
         
         var errorMessage;
         if (previousResponses[message.channel]) {

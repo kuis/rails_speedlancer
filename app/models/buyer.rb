@@ -24,6 +24,18 @@ class Buyer < ActiveRecord::Base
 
   before_save :check_bot_key_changes
 
+  def submit_user
+    user_info = {
+      :name => self.name,
+      :email => self.email,
+      :user_id => self.id
+    }
+
+    intercom = Intercom::Client.new(app_id: IntercomRails.config.app_id, api_key: IntercomRails.config.api_key)
+
+    intercom.users.create(user_info)
+  end
+
   def has_empty_or_unique_bot_key
     unless bot_key.blank?
       _buyer = Buyer.find_by bot_key: self.bot_key
