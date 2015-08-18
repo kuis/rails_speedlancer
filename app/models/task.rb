@@ -40,35 +40,32 @@ class Task < ActiveRecord::Base
 
   serialize :watchers
 
-  after_create :submit_event
+  after_save :submit_event
 
   def submit_event
-    meta_info = {
-      :title => self.title,
-      :category => self.category.name,
-      :description => self.description,
-      :price => self.price_in_dollars.to_s
-    }
-    
-    intercom = Intercom::Client.new(app_id: IntercomRails.config.app_id, api_key: IntercomRails.config.api_key)
+    if self.status_changed? and self.status_was == 'inactive' and self.status == 'active' and (not self.buyer.nil?)
 
-    begin
-      unless self.buyer.nil?
-        intercom.events.create({
-          :event_name => "Task purchase", 
-          :email => self.buyer.email, 
-          :created_at => self.created_at.to_i,
-          :metadata => meta_info
-        })
-      end
-    rescue
-      self.buyer.submit_user
-      intercom.events.create({
-        :event_name => "Task purchase", 
-        :email => self.buyer.email, 
+      obj = {
+        :event_name => "Task purchase",
+        :email => self.buyer.email,
         :created_at => self.created_at.to_i,
-        :metadata => meta_info
-      })
+        :metadata => {
+          :title => self.title,
+          :category => self.category.name,
+          :description => self.description,
+          :price => self.price_in_dollars.to_s
+        }
+      }
+
+      intercom = Intercom::Client.new(app_id: IntercomRails.config.app_id, api_key: IntercomRails.config.api_key)
+
+      begin
+        intercom.events.create(obj)
+      rescue
+        self.buyer.submit_user
+        intercom.events.create(obj)
+      end
+
     end
   end
 
