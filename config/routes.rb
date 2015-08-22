@@ -31,7 +31,6 @@ Rails.application.routes.draw do
 
   resources :tasks do
     get 'accept_task', on: :member 
-    get 'test', on: :member 
     get 'test_notify'
     put :add_watcher, on: :member
     put :remove_watcher, on: :member
@@ -70,8 +69,6 @@ Rails.application.routes.draw do
   post '/credit_hook', controller: 'payment_notifications', action: :credit_hook
 
   get '/reset_bots', controller: 'buyers', action: :reset_bots
-
-  get '/tasks_log', controller: 'tasks', action: :tasks_log
 
   root to: "tasks#index"
 

@@ -4,6 +4,7 @@ module Paypal
       business: ENV["PAYPAL_MERCHANT_ACCOUNT"],
       cmd: "_xclick",
       upload: 1,
+      # return: "#{Rails.application.secrets.app_host}#{return_path}",
       return: "#{Rails.application.secrets.app_host}#{return_path}",
       invoice: "#{self.id}-#{self.updated_at}".parameterize,
       item_name: self.email,

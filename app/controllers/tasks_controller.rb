@@ -81,24 +81,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def tasks_log
-    qs = request.query_parameters
-    id = qs['id']
-    id = 1 if id.nil?
-    @ind = id.to_i
-
-    tasks = Task.where(["id >= ? and id < ?", @ind, @ind+100])
-    @count = 0
-    for task in tasks
-      task.submit_event
-      @count = @count + 1
-    end
-  end
-
-  def test
-    @paypal_url = @task.paypal_url(task_url(@task), 100, 0)
-  end
-
   private
     def fetch_task
       @task = Task.includes(:comments, :task_attachments, :sellers_submissions).find_by_id(params[:id])
