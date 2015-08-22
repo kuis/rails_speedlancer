@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   resources :tasks do
     get 'accept_task', on: :member 
+    get 'test', on: :member 
     get 'test_notify'
     put :add_watcher, on: :member
     put :remove_watcher, on: :member
