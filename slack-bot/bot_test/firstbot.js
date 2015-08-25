@@ -206,17 +206,13 @@ var interval = setInterval(function() {
 }, 10*1000);
 
 bot.use(function (message, cb) {
-    // console.log("USER:" + message.user);
-    // console.log("message.type = " + message.type);
-    // console.log("bot.channels[0].id = " + bot.channels[0].id);
-    // console.log(bot.channels);
     var is_for_me = false;
 
     var currentMessage;
 
     if (botname && message.type == 'message') { // Check if this message is for this bot
 
-        if (message && message.user != botname) {
+        if (message && message.text && message.user != botname) {
 
             if (typeof message.text != 'undefined') {
                 currentMessage = message.text.trim();
