@@ -4,9 +4,9 @@ require 'bundler/capistrano'            # install all the new missing plugins...
 require 'capistrano/ext/multistage'     # deploy on all the servers..
 require 'rvm/capistrano'                # if you are using rvm on your server..
 require './config/boot'
-require 'whenever/capistrano'
 require 'airbrake/capistrano'
 require "delayed/recipes"
+# require 'whenever/capistrano'
 
 before "deploy:assets:precompile","deploy:config_symlink"
 
