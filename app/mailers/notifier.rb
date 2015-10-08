@@ -128,10 +128,29 @@ class Notifier < ActionMailer::Base
     mail(to: @seller.email, subject: "New Speedlancer #{@category.name} Task - #{@task.title.capitalize}")
   end
 
+  def send_notify_sellers_about_pending_tasks_email(_category, _seller, _task)
+    @seller   = _seller
+    @task     = _task
+    @category = _category
+    mail(to: @seller.email, subject: "Pending Speedlancer #{@category.name} Task - #{@task.title.capitalize}")
+  end
+
   def send_task_back_to_que_seller_email(_task, _seller)
     @task = _task
     @seller = _seller
     mail(to: @seller.email, subject: "Your '#{@task.title.capitalize}' task has been disapproved by buyer.")
+  end
+
+  def send_buyer_team_subscribed(_team)
+    @team = _team
+    @buyer = _team.buyer
+    mail(to: @buyer.email, subject: "Monthly subscription for your team has been paid.")
+  end
+
+  def send_buyer_team_inactivated(_team)
+    @team = _team
+    @buyer = _team.buyer
+    mail(to: @buyer.email, subject: "Your Team has been expired.")
   end
 
 end

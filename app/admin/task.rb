@@ -20,6 +20,7 @@
   scope :lapse
 
   index do
+    # selectable_column
     column :id
     column "Title" do |task|
       link_to task.title, admin_task_path(task)

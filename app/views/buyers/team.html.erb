@@ -1,0 +1,73 @@
+<div class="logout-wrap">
+  <div class="logout-form-wrap wider">
+  <h2 class="formtitle">
+    MyTeam
+    <span class="update-team-package">
+      <%= link_to "Update MyTeam plan", buyer_subscribe_path(@buyer) %>
+    </span>
+  </h2>
+    <%= form_tag buyer_update_team_path(@buyer), :method=>'put' do %>
+      <div class="myteam">
+        <p>
+          MyTeam is <%= @buyer.team.package.title.upcase %> level, it supports <%= @buyer.team.members %> <%= "freelancer".pluralize(@buyer.team.members) %>.
+          <br />
+          <% if @buyer.team.inactive? %>
+            It has been expired on <%= @buyer.team.deadline.strftime("%b %d, %Y") %>, please renew on <%= link_to "here", buyer_subscribe_path(@buyer) %>.
+          <% end %>
+          <br/>
+          <% if @buyer.team.sellers.count == 0 %>
+            There is no freelancer on MyTeam. Please add a freelancer on <%= link_to "here", buyer_completed_tasks_path(@buyer) %>
+          <% else %>
+            You have <%= @buyer.team.sellers.count %> <%= "freelancer".pluralize(@buyer.team.sellers.count) %> of <%= @buyer.team.members %>
+          <% end %>
+        </p>
+        <% if false %>
+        <%= collection_check_boxes :team, :seller_ids, @buyer.team.sellers, :id, :name, checked: @buyer.team.sellers.map(&:id) do |b| %>
+          <span>
+            <%= b.check_box %>
+            <%= b.label %>
+          </span>
+        <% end %>
+        <% end %>
+
+        <% @buyer.team.sellers.each do |seller| %>
+          <span class="seller">
+            <input checked="checked" id="team_seller_ids_<%= seller.id %>" name="team[seller_ids][]" type="checkbox" value="<%= seller.id %>">
+            <label for="team_seller_ids_<%= seller.id %>" class="checking">
+              <%= display_profile_image(seller) %>
+              <span class="name"><%= seller.name %></span>
+              <ul>
+                <% seller.categories.each do |c| %>
+                  <li><%= c.name %></li>
+                <% end %>
+              </ul>
+              <div class="rating" id="feedback_<%= seller.id %>" data-rating="<%= seller.average_rating.round(1) %>"></div>
+            </label>
+          </span>
+        <% end %>
+      </div>
+
+      <div class="form-actions">
+        <%= submit_tag "Update MyTeam", class: "blue" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(".rating").each(function(){
+    rating = $(this).attr("data-rating");
+    id = $(this).attr('id');
+    readonly_stars(id, rating);
+  });
+
+  $("span.seller label.checking").on('click', function() {
+    if ($(this).hasClass('re')) {
+      $(this).removeClass('re');
+      // alert(0);
+    } else {
+      $(this).addClass('re');
+      // alert(1);
+    }
+  });
+</script>

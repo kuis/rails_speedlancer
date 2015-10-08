@@ -2,11 +2,11 @@ class TasksController < ApplicationController
 
   protect_from_forgery except: [:show]
 
-  before_action :authenticate!
-  before_action :fetch_task, only: [:show, :edit, :update, :destroy, :accept_task, :add_watcher, :remove_watcher, :test]
+  before_action :authenticate!, except: [:status]
+  before_action :fetch_task, only: [:show, :edit, :update, :destroy, :accept_task, :add_watcher, :remove_watcher, :status]
   before_action :authorized_buyer, only: [:edit, :update]
   before_action :not_assigned, only: [:edit, :update, :accept_task]
-  before_action :fetch_categories, only: [:index, :show, :new, :edit]
+  before_action :fetch_categories, only: [:index, :show, :new, :edit, :create]
   before_action :fetch_seller, only: [:accept_task]
   before_action :fetch_seller_category, only: [:accept_task]
   before_action :check_buyer, only: [:new]
@@ -22,6 +22,7 @@ class TasksController < ApplicationController
   end
 
   def new
+    @sellers = Seller.approved
     @task = Task.build_with_default_price
   end
 
@@ -79,6 +80,16 @@ class TasksController < ApplicationController
       @task.remove_watcher(params[:seller_id].to_i)
       format.json{ render nothing: true }
     end
+  end
+
+  def status
+    # path = ActionController::Base.helpers.asset_path("sl-header-logo.png", type: :image)
+    if @task.active?
+      path = Rails.root.join('app', 'assets', 'images', 'active.png')
+    else
+      path = Rails.root.join('app', 'assets', 'images', 'inactive.png')
+    end
+    send_file path, :type=>"image/png", :disposition => 'inline'
   end
 
   private

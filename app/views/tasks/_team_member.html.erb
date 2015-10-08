@@ -1,0 +1,19 @@
+<% if current_buyer == @task.buyer && @task.completed? && @task.present_seller %>
+	<div class="add-team">
+		<% if !@task.buyer.has_teammember(@task.present_seller) %>
+			<%= link_to  add_teammember_path(@task.buyer, @task.present_seller) do %>
+				<%= display_profile_image(@task.present_seller) %>
+				<span>
+					<%= "Add #{@task.present_seller.first_name} to MyTeam" %>
+				</span>
+			<% end %>
+		<% else %>
+			<%= link_to buyer_team_path(@buyer) do %>
+				<%= display_profile_image(@task.present_seller) %>
+				<span>
+					<%= "Go and check MyTeam" %>
+				</span>
+			<% end %>
+		<% end %>
+	</div>
+<% end %>
