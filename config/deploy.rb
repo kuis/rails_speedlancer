@@ -28,12 +28,13 @@ set :whenever_identifier, defer { "#{application}_#{stage}" }
 set :rails_env, "production"
 set :delayed_job_args, "-n 2"
 set :delayed_job_command, "bin/delayed_job"
-server "104.130.228.46", :app, :web, :db, :primary => true
+# server "104.130.228.46", :app, :web, :db, :primary => true
+server "162.209.124.127", :app, :web, :db, :primary => true
 set (:deploy_to) { "/home/speedlancer/#{application}/#{stage}" }
 set :user, 'speedlancer'
 set :keep_releases, 10
 set :repository, "git@bitbucket.org:speedlancerinc/speedlancer-repo.git"
-# set :repository, "https://ivan061788:jian1128@bitbucket.org/speedlancerinc/speedlancer-repo.git"
+
 set :use_sudo, false
 set :scm, :git
 default_run_options[:pty] = true
