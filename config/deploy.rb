@@ -34,7 +34,7 @@ set (:deploy_to) { "/home/speedlancer/#{application}/#{stage}" }
 set :user, 'speedlancer'
 set :keep_releases, 10
 set :repository, "git@bitbucket.org:speedlancerinc/speedlancer-repo.git"
-
+set :branch, "dev"
 set :use_sudo, false
 set :scm, :git
 default_run_options[:pty] = true
