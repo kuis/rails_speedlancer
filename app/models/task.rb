@@ -62,8 +62,8 @@ class Task < ActiveRecord::Base
       begin
         intercom.events.create(obj)
       rescue
-        self.buyer.submit_user
-        intercom.events.create(obj)
+        # self.buyer.submit_user
+        # intercom.events.create(obj)
       end
 
     end
