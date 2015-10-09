@@ -144,7 +144,7 @@ class Task < ActiveRecord::Base
       end
     end
   end
-  # handle_asynchronously :new_task_create_email
+  handle_asynchronously :new_task_create_email
 
   def create_attachments(_attachments_params)
     puts _attachments_params
