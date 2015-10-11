@@ -63,7 +63,8 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { :host => 'app.speedlancer.com' }
+  # config.action_mailer.default_url_options = { :host => 'app.speedlancer.com' }
+  config.action_mailer.default_url_options = { :host => '162.209.124.127' }
 
   ActionMailer::Base.smtp_settings = {
     :user_name => "27424103bc9a0cb5ab8a8a67d81d321d",
