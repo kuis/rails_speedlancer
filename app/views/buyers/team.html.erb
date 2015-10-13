@@ -35,7 +35,7 @@
             <input checked="checked" id="team_seller_ids_<%= seller.id %>" name="team[seller_ids][]" type="checkbox" value="<%= seller.id %>">
             <label for="team_seller_ids_<%= seller.id %>" class="checking">
               <%= display_profile_image(seller) %>
-              <span class="name"><%= seller.name %></span>
+              <span class="name"><%= seller.first_name %></span>
               <ul>
                 <% seller.categories.each do |c| %>
                   <li><%= c.name %></li>
