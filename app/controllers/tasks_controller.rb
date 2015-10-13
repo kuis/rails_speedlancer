@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   protect_from_forgery except: [:show]
 
   before_action :authenticate!
-  before_action :fetch_task, only: [:show, :edit, :update, :destroy, :accept_task, :add_watcher, :remove_watcher, :test]
+  before_action :fetch_task, only: [:show, :edit, :update, :destroy, :accept_task, :add_watcher, :remove_watcher]
   before_action :authorized_buyer, only: [:edit, :update]
   before_action :not_assigned, only: [:edit, :update, :accept_task]
   before_action :fetch_categories, only: [:index, :show, :new, :edit]
