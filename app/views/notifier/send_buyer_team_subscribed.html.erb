@@ -1,0 +1,16 @@
+<%= render "notifier/email_header" %>
+
+<h1 style="font-size: 16px;color: #069">Hi <%= @buyer.first_name_for_email %>,</h1>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">
+	Your monthly subscription for Team has been paid. 
+	Now next payment should be on <%= @team.deadline.strftime("%b %d, %Y") %>.
+</p>
+
+<p style="font-size: 14px;color: #444;line-height:20px;font-weight: 300;">To view more details about your team, please click here:</p>
+<div style="padding-bottom: 15px; border-bottom: 1px dashed #eee;margin-bottom:15px">
+    <%= link_to "View Team", buyer_subscribe_url(@buyer), style: "display:inline-block;padding: 0 20px; line-height:40px; background: #069; color: #fff;font-weight:700;font-size: 14px;text-decoration:none;" %>
+</div>
+
+
+<%= render "notifier/email_footer" %>

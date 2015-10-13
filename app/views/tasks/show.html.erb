@@ -35,6 +35,7 @@
         </ul>
       </div>
     <% end %>
+    <%= render "tasks/team_member" %>
   </div>
 
   <% if seller_signed_in? and @task.active? and @task.present_seller.blank?%>

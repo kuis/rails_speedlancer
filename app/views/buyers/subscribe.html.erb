@@ -1,0 +1,50 @@
+<div class="logout-wrap">
+  <div class="logout-form-wrap wider">
+    <h2 class="formtitle">
+      Subscribe to MyTeam
+    </h2>
+
+    <p class='text-center'>
+      Get a dedicated freelancers team to work on your projects <br />
+      for a low monthly subscription fee!
+    </p>
+
+    <div class='my-team-status text-center'>
+      <h3>What is MyTeam?</h3>
+      <% if @buyer.team.nil? %>
+        <p class='no-team'>
+          You are not part of any team package.<br />
+          Please select a proper one.
+        </p>
+      <% else %>
+        <% if @buyer.team.active? %>
+          <p class='active-team'>
+            MyTeam is <span class='title'><%= @buyer.team.package.title %></span> and it will be expired on <%= @buyer.team.deadline.strftime("%b %d, %Y") %> <br/>
+            Upgrade your plan or expand your exiration date.
+          </p>
+        <% else %>
+          <p class='active-team'>
+            MyTeam is <span class='title'><%= @buyer.team.package.title %></span> and it was expired on <%= @buyer.team.deadline.strftime("%b %d, %Y") %> <br/>
+            Upgrade your plan or expand your exiration date.
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <h3 class='text-center'>MyTeam Packages</h3>
+
+    <% TeamPackage.all.each do |package| %>
+      <div class='team-package text-center'>
+        <% if package.members > 0 %>
+          <h3><%= link_to package.title, update_team_plan_path(@buyer, package) %></h3>
+          <span><%= number_to_currency (package.cost_in_dollars) %> <%= package.cycle %></span>
+          <label><%= package.members %> <%= "member".pluralize(package.members) %></label>
+        <% else %>
+          <h3><%= package.title %></h3>
+          <span>Custom Made</span>
+          <label>Call for details</label>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

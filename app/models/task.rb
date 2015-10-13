@@ -62,8 +62,8 @@ class Task < ActiveRecord::Base
       begin
         intercom.events.create(obj)
       rescue
-        self.buyer.submit_user
-        intercom.events.create(obj)
+        # self.buyer.submit_user
+        # intercom.events.create(obj)
       end
 
     end
@@ -93,23 +93,60 @@ class Task < ActiveRecord::Base
     end
   end
 
+  def self.check_active_task_pending
+    _tasks = Task.active.where(activated_at: 270.minutes.ago..240.minutes.ago(Time.zone.now))
+    _tasks.each do |task|
+      task.active_task_pending_email
+    end
+
+    _tasks = Task.active.where(activated_at: 990.minutes.ago..16.hours.ago(Time.zone.now))
+    _tasks.each do |task|
+      unless task.team.blank?
+        task.new_task_create_email
+      end
+    end
+  end
+
   def background_processing
     self.create_payment_summary!
   end
 
-  def new_task_create_email
-    _category = self.category
-    _category.sellers.each do |seller|
-      Notifier.send_notify_sellers_about_new_tasks_email(category, seller, self).deliver
+  def active_task_pending_email
+    if self.team.blank?
+      _category = self.category
+      _category.sellers.each do |seller|
+        Notifier.send_notify_sellers_about_pending_tasks_email(_category, seller, self).deliver
+      end
+    else
+      self.team.each do |seller|
+        Notifier.send_notify_sellers_about_pending_tasks_email(self.category, seller, self).deliver
+      end
     end
+  end
+  handle_asynchronously :active_task_pending_email
 
-    # seller = Seller.find_by_email('jinjin1201@outlook.com')
-    # Notifier.send_notify_sellers_about_new_tasks_email(category, seller, @task).deliver unless seller.nil?
+  def new_task_create_email
+    if self.team.blank?
+      _category = self.category
+      _category.sellers.each do |seller|
+        Notifier.send_notify_sellers_about_new_tasks_email(_category, seller, self).deliver
+      end
+    elsif !self.activated_at.blank? and self.activated_at < 16.hours.ago(Time.zone.now)
+      _category = self.category
+      _category.sellers.each do |seller|
+        unless self.team.exists?(id: seller.id)
+          Notifier.send_notify_sellers_about_new_tasks_email(_category, seller, self).deliver
+        end
+      end
+    else
+      self.team.each do |seller|
+        Notifier.send_notify_sellers_about_new_tasks_email(self.category, seller, self).deliver
+      end
+    end
   end
   handle_asynchronously :new_task_create_email
 
   def create_attachments(_attachments_params)
-    puts "attachment ++++ "
     puts _attachments_params
     if _attachments_params.present?
       _attachments_params.each do |key, attachment|
@@ -120,6 +157,10 @@ class Task < ActiveRecord::Base
 
   def self.build_with_default_price
     self.new(price_in_dollars: 49)
+  end
+
+  def team
+    self.buyer.teammembers(self.category)
   end
 
   def refund_credits(_buyer)

@@ -32,6 +32,7 @@ module ApplicationHelper
         false
       elsif controller_name == "registrations" and ["edit", "update"].include?action_name
         false
+      elsif controller_name == "buyers" and ["team", "subscribe"].include?action_name
       else
         true
       end

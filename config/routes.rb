@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     get 'completed_tasks'
     get 'in_progress_tasks'
     get 'lapsed_tasks'
+    get 'team'
+    put 'update_team'
+    get 'subscribe'
     get 'add_credits', on: :collection
   end
 
@@ -31,7 +34,7 @@ Rails.application.routes.draw do
 
   resources :tasks do
     get 'accept_task', on: :member 
-    get 'test_notify'
+    get 'status', on: :member 
     put :add_watcher, on: :member
     put :remove_watcher, on: :member
 
@@ -67,6 +70,9 @@ Rails.application.routes.draw do
 
   post 'buyers/:id/active_tasks' => 'buyers#active_tasks'
   post '/credit_hook', controller: 'payment_notifications', action: :credit_hook
+
+  get 'buyers/:id/add_teammember/:seller_id' => 'buyers#add_teammember', :as => 'add_teammember'
+  get 'buyers/:id/update_team_plan/:package_id' => 'buyers#update_team_plan', :as => 'update_team_plan'
 
   get '/reset_bots', controller: 'buyers', action: :reset_bots
 

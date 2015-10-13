@@ -2,8 +2,10 @@ class TasksController < ApplicationController
 
   protect_from_forgery except: [:show]
 
-  before_action :authenticate!
-  before_action :fetch_task, only: [:show, :edit, :update, :destroy, :accept_task, :add_watcher, :remove_watcher]
+
+  before_action :authenticate!, except: [:status]
+  before_action :fetch_task, only: [:show, :edit, :update, :destroy, :accept_task, :add_watcher, :remove_watcher, :status]
+
   before_action :authorized_buyer, only: [:edit, :update]
   before_action :not_assigned, only: [:edit, :update, :accept_task]
   before_action :fetch_categories, only: [:index, :show, :new, :edit]
@@ -79,6 +81,20 @@ class TasksController < ApplicationController
       @task.remove_watcher(params[:seller_id].to_i)
       format.json{ render nothing: true }
     end
+  end
+
+  def status
+    _category = @task.category
+    _category.sellers.each do |seller|
+      Notifier.send_notify_sellers_about_pending_tasks_email(_category, seller, @task).deliver
+    end
+    # path = ActionController::Base.helpers.asset_path("sl-header-logo.png", type: :image)
+    if @task.active?
+      path = Rails.root.join('app', 'assets', 'images', 'active.png')
+    else
+      path = Rails.root.join('app', 'assets', 'images', 'inactive.png')
+    end
+    send_file path, :type=>"image/png", :disposition => 'inline'
   end
 
   private

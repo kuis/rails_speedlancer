@@ -92,6 +92,12 @@ ActiveAdmin.register Buyer do
   end
 
   action_item :view, only: :show do
+    unless resource.team.nil?
+      link_to "#{resource.first_name}'s Team", admin_team_path(resource.team)
+    end
+  end
+
+  action_item :view, only: :show do
     unless resource.bot_key.blank?
       link_to "Restart bot", "#{collection_path}/#{resource.id}/restart_bot"
     end

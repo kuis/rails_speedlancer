@@ -113,7 +113,9 @@ class Seller < ActiveRecord::Base
 
   def average_rating
     ratings = feedbacks.pluck :rating
-    average = ratings.sum / ratings.size.to_f
+    average = ratings.sum / ratings.size.to_f unless ratings.blank?
+    average = 0.0 if ratings.blank?
+    average
   end
 
   ###################

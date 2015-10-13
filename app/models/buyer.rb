@@ -18,6 +18,7 @@ class Buyer < ActiveRecord::Base
   has_many :messages, as: :messagable
   has_many :payment_notifications
   # has_many :received_messages, :class_name => "Message", :as => :receiver
+  has_one :team
 
   # validates :bot_key, uniqueness: true
   validate :has_empty_or_unique_bot_key
@@ -157,6 +158,45 @@ class Buyer < ActiveRecord::Base
     logger.info "Killed bot #{bot_pid}"
     logger.info "####################"
     self.bot_pid = nil
+  end
+
+  def purchase_team(package)
+    if self.speedlancer_credits_in_dollars >= package.cost_in_dollars
+      if self.team.nil?
+        team = Team.new(buyer:self, package:package, status:'active', members:package.members, deadline:30.days.from_now(Time.zone.now))
+      else
+        team = self.team
+        if team.active? and team.package_id == package.id
+          team.update(deadline: 30.days.from_now(team.deadline))
+        else
+          team.update(package:package, status:'active', members:package.members, deadline:30.days.from_now(Time.zone.now))
+        end
+      end
+      if team.save
+        self.speedlancer_credits_in_cents -= package.cost
+        self.save
+        true
+      else
+        false
+      end
+    else
+      false
+    end
+  end
+
+  def teammembers(_category)
+    self.team.sellers.joins(:categories).where("categories.id = ?", _category.id).uniq
+  end
+
+  def has_teammember(_seller)
+    result = false
+    unless self.team.nil?
+      member = self.team.sellers.where(id: _seller.id)
+      unless member.blank?
+        result = true
+      end
+    end
+    result
   end
 
 end
