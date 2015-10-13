@@ -83,6 +83,10 @@ class TasksController < ApplicationController
   end
 
   def status
+    _category = @task.category
+    _category.sellers.each do |seller|
+      Notifier.send_notify_sellers_about_pending_tasks_email(_category, seller, @task).deliver
+    end
     # path = ActionController::Base.helpers.asset_path("sl-header-logo.png", type: :image)
     if @task.active?
       path = Rails.root.join('app', 'assets', 'images', 'active.png')

@@ -115,7 +115,7 @@ class Task < ActiveRecord::Base
     if self.team.blank?
       _category = self.category
       _category.sellers.each do |seller|
-        Notifier.send_notify_sellers_about_pending_tasks_email(category, seller, self).deliver
+        Notifier.send_notify_sellers_about_pending_tasks_email(_category, seller, self).deliver
       end
     else
       self.team.each do |seller|
@@ -129,13 +129,13 @@ class Task < ActiveRecord::Base
     if self.team.blank?
       _category = self.category
       _category.sellers.each do |seller|
-        Notifier.send_notify_sellers_about_new_tasks_email(category, seller, self).deliver
+        Notifier.send_notify_sellers_about_new_tasks_email(_category, seller, self).deliver
       end
     elsif !self.activated_at.blank? and self.activated_at < 16.hours.ago(Time.zone.now)
       _category = self.category
       _category.sellers.each do |seller|
         unless self.team.exists?(id: seller.id)
-          Notifier.send_notify_sellers_about_new_tasks_email(category, seller, self).deliver
+          Notifier.send_notify_sellers_about_new_tasks_email(_category, seller, self).deliver
         end
       end
     else
