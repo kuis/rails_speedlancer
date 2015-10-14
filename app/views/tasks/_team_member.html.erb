@@ -1,4 +1,4 @@
-<% if current_buyer.teamable and current_buyer == @task.buyer && @task.completed? && @task.present_seller %>
+<% if current_buyer == @task.buyer && current_buyer.teamable && @task.completed? && @task.present_seller %>
 	<div class="add-team">
 		<% if !@task.buyer.has_teammember(@task.present_seller) %>
 			<%= link_to  add_teammember_path(@task.buyer, @task.present_seller) do %>
