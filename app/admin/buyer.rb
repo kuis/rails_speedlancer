@@ -2,7 +2,7 @@ ActiveAdmin.register Buyer do
 
   menu priority: 2
 
-  permit_params :email, :password, :password_confirmation, :first_name, :last_name, :about, :speedlancer_credits_in_dollars, :avatar
+  permit_params :email, :password, :password_confirmation, :first_name, :last_name, :about, :speedlancer_credits_in_dollars, :avatar, :teamable
 
   # Index section
   filter :email, as: :string
@@ -28,6 +28,7 @@ ActiveAdmin.register Buyer do
       row :first_name
       row :last_name
       row :sign_in_count
+      row :teamable
       row :about
        row "Credits", :speedlancer_credits_in_dollars do |buyer|
         number_to_currency (buyer.speedlancer_credits_in_dollars)
@@ -121,6 +122,7 @@ ActiveAdmin.register Buyer do
       f.input :password
       f.input :first_name, label: "First Name"
       f.input :last_name, label: "Last Name"
+      f.input :teamable
       f.input :about
       f.input :speedlancer_credits_in_dollars, label: "Credits"
       f.input :avatar

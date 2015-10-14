@@ -16,7 +16,9 @@
         <ul class="dd-wrap">
           <li><%= link_to 'View Profile', buyer_active_tasks_path(current_buyer) %></li>
           <li><%= link_to 'Edit Profile', edit_buyer_registration_path %></li>
+          <% if current_buyer.teamable %>
           <li><%= link_to 'Edit my team', buyer_team_path(current_buyer) %></li>
+          <% end %>
           <li><%= link_to 'Sign Out', destroy_buyer_session_path, method: :delete %></li>
         </ul>
       </li>
