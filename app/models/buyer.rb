@@ -185,7 +185,12 @@ class Buyer < ActiveRecord::Base
   end
 
   def teammembers(_category)
-    self.team.sellers.joins(:categories).where("categories.id = ?", _category.id).uniq
+    result = nil
+    unless self.team.nil?
+      self.team.sellers.joins(:categories).where("categories.id = ?", _category.id).uniq
+    end
+
+    result
   end
 
   def has_teammember(_seller)
