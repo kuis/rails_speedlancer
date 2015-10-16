@@ -30,7 +30,7 @@ class BuyersController < ApplicationController
 
   def add_credits
     credits_in_dollars = params[:buyer][:credits_to_add].to_f
-    redirect_to current_buyer.paypal_url(buyer_active_tasks_url(current_buyer), credits_in_dollars)
+    redirect_to current_buyer.paypal_url(buyer_active_tasks_path(current_buyer), credits_in_dollars)
   end
 
   def reset_bots
