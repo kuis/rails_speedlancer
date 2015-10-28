@@ -61,7 +61,7 @@ class Notifier < ActionMailer::Base
     @buyer = _buyer
     @seller = _seller
     _submission.submission_attachments.each do |submission_attachment|
-      attachments[submission_attachment.submission.file.identifier] = File.read(submission_attachment.submission.path)
+      # attachments[submission_attachment.submission.file.identifier] = File.read(submission_attachment.submission.path)
     end
     mail(to: @buyer.email, subject: "Your task has been delivered!")
   end
