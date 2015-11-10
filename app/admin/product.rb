@@ -1,7 +1,7 @@
 ActiveAdmin.register Product do
 	menu priority: 3
 
-	permit_params :title, :description, :price_in_cents, :status, :category_id, :thumbnail
+	permit_params :title, :description, :price_in_cents, :status, :category_id, :thumbnail, :note
 
 	filter :category
 	filter :title
@@ -15,6 +15,7 @@ ActiveAdmin.register Product do
 			f.input :price_in_cents, label: "Price"
 			f.input :status, as: :select, collection: Product.statuses.keys
 			f.input :thumbnail
+			f.input :note
 		end
 
 		f.actions
