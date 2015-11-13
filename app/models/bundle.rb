@@ -9,6 +9,8 @@ class Bundle < ActiveRecord::Base
 
     accepts_nested_attributes_for :bundle_contents, allow_destroy: true
 
+    scope :recent, lambda { |n| order("id").last(n) }
+
     def price
 		self.price_in_cents.to_d / 100 if self.price_in_cents
 	end

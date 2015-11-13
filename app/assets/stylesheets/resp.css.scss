@@ -18,86 +18,148 @@ $writing_color : #2079b5;
 $data_entry_color : #185f8d;
 $bundle_color: #0f3955;
 
-.ico-badge { background: url(images/sprite/ico-badge.png) no-repeat 0 0; width: 506px; height: 262px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-black-star { background: url(images/sprite/ico-black-star.png) no-repeat 0 0; width: 70px; height: 68px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-black-user { background: url(images/sprite/ico-black-user.png) no-repeat 0 0; width: 70px; height: 86px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-black-write { background: url(images/sprite/ico-black-write.png) no-repeat 0 0; width: 64px; height: 80px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-bag { background: url(images/sprite/ico-blue-bag.png) no-repeat 0 0; width: 52px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-bell { background: url(images/sprite/ico-blue-bell.png) no-repeat 0 0; width: 54px; height: 62px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-brush { background: url(images/sprite/ico-blue-brush.png) no-repeat 0 0; width: 82px; height: 82px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-camera-small { background: url(images/sprite/ico-blue-camera-small.png) no-repeat 0 0; width: 30px; height: 21px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-camera { background: url(images/sprite/ico-blue-camera.png) no-repeat 0 0; width: 116px; height: 92px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-cards { background: url(images/sprite/ico-blue-cards.png) no-repeat 0 0; width: 92px; height: 98px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-draw { background: url(images/sprite/ico-blue-draw.png) no-repeat 0 0; width: 102px; height: 94px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-fileadd { background: url(images/sprite/ico-blue-fileadd.png) no-repeat 0 0; width: 60px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-image { background: url(images/sprite/ico-blue-image.png) no-repeat 0 0; width: 64px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-megaphone { background: url(images/sprite/ico-blue-megaphone.png) no-repeat 0 0; width: 64px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-mobilephone { background: url(images/sprite/ico-blue-mobilephone.png) no-repeat 0 0; width: 98px; height: 92px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-move { background: url(images/sprite/ico-blue-move.png) no-repeat 0 0; width: 106px; height: 86px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-blue-star { background: url(images/sprite/ico-blue-star.png) no-repeat 0 0; width: 68px; height: 66px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-box-small { background: url(images/sprite/ico-box-small.png) no-repeat 0 0; width: 20px; height: 18px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-box { background: url(images/sprite/ico-box.png) no-repeat 0 0; width: 39px; height: 34px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-cards { background: url(images/sprite/ico-cards.png) no-repeat 0 0; width: 80px; height: 70px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-close { background: url(images/sprite/ico-close.png) no-repeat 0 0; width: 13px; height: 13px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-draw { background: url(images/sprite/ico-draw.png) no-repeat 0 0; width: 68px; height: 72px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-facebook { background: url(images/sprite/ico-facebook.png) no-repeat 0 0; width: 32px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-featured-1 { background: url(images/sprite/ico-featured-1.png) no-repeat 0 0; width: 140px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-featured-2 { background: url(images/sprite/ico-featured-2.png) no-repeat 0 0; width: 54px; height: 31px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-featured-3 { background: url(images/sprite/ico-featured-3.png) no-repeat 0 0; width: 83px; height: 25px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-featured-4 { background: url(images/sprite/ico-featured-4.png) no-repeat 0 0; width: 134px; height: 27px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-featured-5 { background: url(images/sprite/ico-featured-5.png) no-repeat 0 0; width: 62px; height: 25px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-featured { background: url(images/sprite/ico-featured.png) no-repeat 0 0; width: 76px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-googleplus { background: url(images/sprite/ico-googleplus.png) no-repeat 0 0; width: 32px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-linkedin { background: url(images/sprite/ico-linkedin.png) no-repeat 0 0; width: 32px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-mobilephone { background: url(images/sprite/ico-mobilephone.png) no-repeat 0 0; width: 78px; height: 78px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-pen { background: url(images/sprite/ico-pen.png) no-repeat 0 0; width: 30px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-pencil { background: url(images/sprite/ico-pencil.png) no-repeat 0 0; width: 34px; height: 34px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-search { background: url(images/sprite/ico-search.png) no-repeat 0 0; width: 16px; height: 16px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-small-cart { background: url(images/sprite/ico-small-cart.png) no-repeat 0 0; width: 48px; height: 45px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-small-check { background: url(images/sprite/ico-small-check.png) no-repeat 0 0; width: 35px; height: 32px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-small-write { background: url(images/sprite/ico-small-write.png) no-repeat 0 0; width: 35px; height: 44px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-star-2 { background: url(images/sprite/ico-star-2.png) no-repeat 0 0; width: 70px; height: 68px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-star-o { background: url(images/sprite/ico-star-o.png) no-repeat 0 0; width: 71px; height: 68px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-twitter { background: url(images/sprite/ico-twitter.png) no-repeat 0 0; width: 32px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-user { background: url(images/sprite/ico-user.png) no-repeat 0 0; width: 70px; height: 86px; display: inline-block; vertical-align: middle; font-size: 0; }
-.ico-write { background: url(images/sprite/ico-write.png) no-repeat 0 0; width: 64px; height: 80px; display: inline-block; vertical-align: middle; font-size: 0; }
-.logo { background: url(images/sprite/logo.png) no-repeat 0 0; width: 220px; height: 48px; display: inline-block; vertical-align: middle; font-size: 0; }
-.partner-1 { background: url(images/sprite/partner-1.png) no-repeat 0 0; width: 74px; height: 88px; display: inline-block; vertical-align: middle; font-size: 0; }
-.partner-2 { background: url(images/sprite/partner-2.png) no-repeat 0 0; width: 112px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0; }
-.partner-3 { background: url(images/sprite/partner-3.png) no-repeat 0 0; width: 142px; height: 38px; display: inline-block; vertical-align: middle; font-size: 0; }
-.partner-4 { background: url(images/sprite/partner-4.png) no-repeat 0 0; width: 104px; height: 66px; display: inline-block; vertical-align: middle; font-size: 0; }
-.partner-5 { background: url(images/sprite/partner-5.png) no-repeat 0 0; width: 142px; height: 86px; display: inline-block; vertical-align: middle; font-size: 0; }
-.partner-6 { background: url(images/sprite/partner-6.png) no-repeat 0 0; width: 130px; height: 56px; display: inline-block; vertical-align: middle; font-size: 0; }
-.partner-7 { background: url(images/sprite/partner-7.png) no-repeat 0 0; width: 172px; height: 98px; display: inline-block; vertical-align: middle; font-size: 0; }
-.partner-8 { background: url(images/sprite/partner-8.png) no-repeat 0 0; width: 132px; height: 76px; display: inline-block; vertical-align: middle; font-size: 0; }
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-	.ico-blue-camera-small { background: url(images/sprite/ico-blue-camera-small@2x.png) no-repeat 0 0; width: 30px; height: 21px; background-size: 30px 21px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-box-small { background: url(images/sprite/ico-box-small@2x.png) no-repeat 0 0; width: 20px; height: 18px; background-size: 20px 18px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-box { background: url(images/sprite/ico-box@2x.png) no-repeat 0 0; width: 39px; height: 34px; background-size: 39px 34px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-featured-1 { background: url(images/sprite/ico-featured-1@2x.png) no-repeat 0 0; width: 140px; height: 26px; background-size: 140px 26px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-featured-2 { background: url(images/sprite/ico-featured-2@2x.png) no-repeat 0 0; width: 54px; height: 31px; background-size: 54px 31px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-featured-3 { background: url(images/sprite/ico-featured-3@2x.png) no-repeat 0 0; width: 83px; height: 25px; background-size: 83px 25px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-featured-4 { background: url(images/sprite/ico-featured-4@2x.png) no-repeat 0 0; width: 134px; height: 27px; background-size: 134px 27px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-featured-5 { background: url(images/sprite/ico-featured-5@2x.png) no-repeat 0 0; width: 62px; height: 25px; background-size: 62px 25px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-featured { background: url(images/sprite/ico-featured@2x.png) no-repeat 0 0; width: 76px; height: 26px; background-size: 76px 26px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-pen { background: url(images/sprite/ico-pen@2x.png) no-repeat 0 0; width: 30px; height: 30px; background-size: 30px 30px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-pencil { background: url(images/sprite/ico-pencil@2x.png) no-repeat 0 0; width: 34px; height: 34px; background-size: 34px 34px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-small-cart { background: url(images/sprite/ico-small-cart@2x.png) no-repeat 0 0; width: 48px; height: 45px; background-size: 48px 45px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-small-check { background: url(images/sprite/ico-small-check@2x.png) no-repeat 0 0; width: 35px; height: 32px; background-size: 35px 32px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-small-write { background: url(images/sprite/ico-small-write@2x.png) no-repeat 0 0; width: 35px; height: 44px; background-size: 35px 44px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-user { background: url(images/sprite/ico-user@2x.png) no-repeat 0 0; width: 70px; height: 86px; background-size: 70px 86px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.ico-write { background: url(images/sprite/ico-write@2x.png) no-repeat 0 0; width: 64px; height: 80px; background-size: 64px 80px; display: inline-block; vertical-align: middle; font-size: 0; }
-	.logo { background: url(images/sprite/logo@2x.png) no-repeat 0 0; width: 220px; height: 48px; background-size: 220px 48px; display: inline-block; vertical-align: middle; font-size: 0; }
+@mixin bg($path) {
+	background: url(asset-path($path)) no-repeat 0 0;
 }
 
-/* ------------------------------------------------------------ *\
-	I.   Generic
-\* ------------------------------------------------------------ */
 
-/* ------------------------------------------------------------ *\
-	Reset
-\* ------------------------------------------------------------ */
+.ico-badge { 
+	@include bg('images/sprite/ico-badge.png'); 
+	width: 506px; height: 262px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-badge img {
+	max-width: 120px;
+	max-height: 120px;
+}
+.ico-box-small { 
+	@include bg('images/sprite/ico-box-small.png'); 
+	width: 20px; height: 18px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-close { 
+	@include bg('images/sprite/ico-close.png');
+	width: 13px; height: 13px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-facebook { 
+	@include bg('images/sprite/ico-facebook.png'); 
+	width: 32px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-featured-1 { 
+	@include bg('images/sprite/ico-featured-1.png'); 
+	width: 140px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-featured-2 { 
+	@include bg('images/sprite/ico-featured-2.png'); 
+	width: 54px; height: 31px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-featured-3 { 
+	@include bg('images/sprite/ico-featured-3.png'); 
+	width: 83px; height: 25px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-featured-4 { 
+	@include bg('images/sprite/ico-featured-4.png'); 
+	width: 134px; height: 27px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-featured-5 { 
+	@include bg('images/sprite/ico-featured-5.png'); 
+	width: 62px; height: 25px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-featured { 
+	@include bg('images/sprite/ico-featured.png'); 
+	width: 76px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-googleplus { 
+	@include bg('images/sprite/ico-googleplus.png'); 
+	width: 32px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-linkedin { 
+	@include bg('images/sprite/ico-linkedin.png'); 
+	width: 32px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-search { 
+	@include bg('images/sprite/ico-search.png'); 
+	width: 16px; height: 16px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-small-cart { 
+	@include bg('images/sprite/ico-small-cart.png'); 
+	width: 48px; height: 45px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-small-check { 
+	@include bg('images/sprite/ico-small-check.png'); 
+	width: 35px; height: 32px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-small-write { 
+	@include bg('images/sprite/ico-small-write.png'); 
+	width: 35px; height: 44px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-twitter { 
+	@include bg('images/sprite/ico-twitter.png'); 
+	width: 32px; height: 26px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.ico-write { 
+	@include bg('images/sprite/ico-write.png'); 
+	width: 64px; height: 80px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.logo { 
+	@include bg('images/sprite/logo.png'); 
+	width: 220px; height: 48px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.partner-1 { 
+	@include bg('images/sprite/partner-1.png');
+	width: 74px; height: 88px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.partner-2 { 
+	@include bg('images/sprite/partner-2.png'); 
+	width: 112px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.partner-3 { 
+	@include bg('images/sprite/partner-3.png'); 
+	width: 142px; height: 38px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.partner-4 { 
+	@include bg('images/sprite/partner-4.png'); 
+	width: 104px; height: 66px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.partner-5 { 
+	@include bg('images/sprite/partner-5.png'); 
+	width: 142px; height: 86px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.partner-6 { 
+	@include bg('images/sprite/partner-6.png'); 
+	width: 130px; height: 56px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.partner-7 { 
+	@include bg('images/sprite/partner-7.png'); 
+	width: 172px; height: 98px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+.partner-8 { 
+	@include bg('images/sprite/partner-8.png'); 
+	width: 132px; height: 76px; display: inline-block; vertical-align: middle; font-size: 0; 
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.ico-blue-camera-small { @include bg('images/sprite/ico-blue-camera-small@2x.png'); width: 30px; height: 21px; background-size: 30px 21px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.ico-box-small { @include bg('images/sprite/ico-box-small@2x.png'); width: 20px; height: 18px; background-size: 20px 18px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.ico-box { @include bg('images/sprite/ico-box@2x.png'); width: 39px; height: 34px; background-size: 39px 34px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.ico-featured-1 { 
+		@include bg('images/sprite/ico-featured-1@2x.png'); 
+		width: 140px; height: 26px; background-size: 140px 26px; display: inline-block; vertical-align: middle; font-size: 0; 
+	}
+	.ico-featured-2 { @include bg('images/sprite/ico-featured-2@2x.png'); width: 54px; height: 31px; background-size: 54px 31px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.ico-featured-3 { @include bg('images/sprite/ico-featured-3@2x.png'); width: 83px; height: 25px; background-size: 83px 25px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.ico-featured-4 { @include bg('images/sprite/ico-featured-4@2x.png'); width: 134px; height: 27px; background-size: 134px 27px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.ico-featured-5 { @include bg('images/sprite/ico-featured-5@2x.png'); width: 62px; height: 25px; background-size: 62px 25px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.ico-featured { @include bg('images/sprite/ico-featured@2x.png'); width: 76px; height: 26px; background-size: 76px 26px; display: inline-block; vertical-align: middle; font-size: 0; }
+
+
+	.ico-small-cart { @include bg('images/sprite/ico-small-cart@2x.png'); width: 48px; height: 45px; background-size: 48px 45px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.ico-small-check { @include bg('images/sprite/ico-small-check@2x.png'); width: 35px; height: 32px; background-size: 35px 32px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.ico-small-write { @include bg('images/sprite/ico-small-write@2x.png'); width: 35px; height: 44px; background-size: 35px 44px; display: inline-block; vertical-align: middle; font-size: 0; }
+	
+	.ico-write { @include bg('images/sprite/ico-write@2x.png'); width: 64px; height: 80px; background-size: 64px 80px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.logo { @include bg('images/sprite/logo@2x.png'); width: 220px; height: 48px; background-size: 220px 48px; display: inline-block; vertical-align: middle; font-size: 0; }
+}
+
+
 
 *,
 *:before,
@@ -180,72 +242,71 @@ table { width: 100%; border-collapse: collapse; border-spacing: 0; }
 nav ul,
 nav ol { list-style: none outside none; }
 
-/* ------------------------------------------------------------ *\
-	Fonts
-\* ------------------------------------------------------------ */
+
+
 
 @font-face {
 	font-family: "ebrima";
-	src: url("fonts/ebrima_400_normal_1446545352.eot");
-	src: url("fonts/ebrima_400_normal_1446545352.eot?#iefix") format("embedded-opentype"),
-		url("fonts/ebrima_400_normal_1446545352.svg#ebrima") format("svg"),
-		url("fonts/ebrima_400_normal_1446545352.woff") format("woff"),
-		url("fonts/ebrima_400_normal_1446545352.ttf") format("truetype");
+	src: url(asset-path("fonts/ebrima_400_normal_1446545352.eot"));
+	src: url(asset-path("fonts/ebrima_400_normal_1446545352.eot?#iefix")) format("embedded-opentype"),
+		url(asset-path("fonts/ebrima_400_normal_1446545352.svg#ebrima")) format("svg"),
+		url(asset-path("fonts/ebrima_400_normal_1446545352.woff")) format("woff"),
+		url(asset-path("fonts/ebrima_400_normal_1446545352.ttf")) format("truetype");
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "ebrima";
-	src: url("fonts/ebrima_700_normal_1446545352.eot");
-	src: url("fonts/ebrima_700_normal_1446545352.eot?#iefix") format("embedded-opentype"),
-		url("fonts/ebrima_700_normal_1446545352.svg#ebrima") format("svg"),
-		url("fonts/ebrima_700_normal_1446545352.woff") format("woff"),
-		url("fonts/ebrima_700_normal_1446545352.ttf") format("truetype");
+	src: url(asset-path("fonts/ebrima_700_normal_1446545352.eot"));
+	src: url(asset-path("fonts/ebrima_700_normal_1446545352.eot?#iefix")) format("embedded-opentype"),
+		url(asset-path("fonts/ebrima_700_normal_1446545352.svg#ebrima")) format("svg"),
+		url(asset-path("fonts/ebrima_700_normal_1446545352.woff")) format("woff"),
+		url(asset-path("fonts/ebrima_700_normal_1446545352.ttf")) format("truetype");
 	font-weight: 700;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "coolvetica";
-	src: url("fonts/coolvetica_400_normal_1446545521.eot");
-	src: url("fonts/coolvetica_400_normal_1446545521.eot?#iefix") format("embedded-opentype"),
-		url("fonts/coolvetica_400_normal_1446545521.svg#coolvetica") format("svg"),
-		url("fonts/coolvetica_400_normal_1446545521.woff") format("woff"),
-		url("fonts/coolvetica_400_normal_1446545521.ttf") format("truetype");
+	src: url(asset-path("fonts/coolvetica_400_normal_1446545521.eot"));
+	src: url(asset-path("fonts/coolvetica_400_normal_1446545521.eot?#iefix")) format("embedded-opentype"),
+		url(asset-path("fonts/coolvetica_400_normal_1446545521.svg#coolvetica")) format("svg"),
+		url(asset-path("fonts/coolvetica_400_normal_1446545521.woff")) format("woff"),
+		url(asset-path("fonts/coolvetica_400_normal_1446545521.ttf")) format("truetype");
 	font-weight: 700;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "CMSansSerif";
-	src: url("fonts/CMSansSerif_500_normal_1446545696.eot");
-	src: url("fonts/CMSansSerif_500_normal_1446545696.eot?#iefix") format("embedded-opentype"),
-		url("fonts/CMSansSerif_500_normal_1446545696.svg#CMSansSerif") format("svg"),
-		url("fonts/CMSansSerif_500_normal_1446545696.woff") format("woff"),
-		url("fonts/CMSansSerif_500_normal_1446545696.ttf") format("truetype");
+	src: url(asset-path("fonts/CMSansSerif_500_normal_1446545696.eot"));
+	src: url(asset-path("fonts/CMSansSerif_500_normal_1446545696.eot?#iefix")) format("embedded-opentype"),
+		url(asset-path("fonts/CMSansSerif_500_normal_1446545696.svg#CMSansSerif")) format("svg"),
+		url(asset-path("fonts/CMSansSerif_500_normal_1446545696.woff")) format("woff"),
+		url(asset-path("fonts/CMSansSerif_500_normal_1446545696.ttf")) format("truetype");
 	font-weight: 500;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "DollieScript";
-	src: url("fonts/DollieScript_400_normal_1446651399.eot");
-	src: url("fonts/DollieScript_400_normal_1446651399.eot?#iefix") format("embedded-opentype"),
-		url("fonts/DollieScript_400_normal_1446651399.svg#DollieScript") format("svg"),
-		url("fonts/DollieScript_400_normal_1446651399.woff") format("woff"),
-		url("fonts/DollieScript_400_normal_1446651399.ttf") format("truetype");
+	src: url(asset-path("fonts/DollieScript_400_normal_1446651399.eot"));
+	src: url(asset-path("fonts/DollieScript_400_normal_1446651399.eot?#iefix")) format("embedded-opentype"),
+		url(asset-path("fonts/DollieScript_400_normal_1446651399.svg#DollieScript")) format("svg"),
+		url(asset-path("fonts/DollieScript_400_normal_1446651399.woff")) format("woff"),
+		url(asset-path("fonts/DollieScript_400_normal_1446651399.ttf")) format("truetype");
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "cooper";
-	src: url("fonts/cooper_900_normal_1446651497.eot");
-	src: url("fonts/cooper_900_normal_1446651497.eot?#iefix") format("embedded-opentype"),
-		url("fonts/cooper_900_normal_1446651497.svg#cooper") format("svg"),
-		url("fonts/cooper_900_normal_1446651497.woff") format("woff"),
-		url("fonts/cooper_900_normal_1446651497.ttf") format("truetype");
+	src: url(asset-path("fonts/cooper_900_normal_1446651497.eot"));
+	src: url(asset-path("fonts/cooper_900_normal_1446651497.eot?#iefix")) format("embedded-opentype"),
+		url(asset-path("fonts/cooper_900_normal_1446651497.svg#cooper")) format("svg"),
+		url(asset-path("fonts/cooper_900_normal_1446651497.woff")) format("woff"),
+		url(asset-path("fonts/cooper_900_normal_1446651497.ttf")) format("truetype");
 	font-weight: 900;
 	font-style: normal;
 }
@@ -694,10 +755,10 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 	Logo
 \* ------------------------------------------------------------ */
 
-.logo { background: url(images/sprite/logo.png) no-repeat 0 0; width: 220px; height: 48px; display: inline-block; vertical-align: middle; font-size: 0; }
+.logo { @include bg('images/sprite/logo.png'); width: 220px; height: 48px; display: inline-block; vertical-align: middle; font-size: 0; }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-	.logo { background: url(images/sprite/logo@2x.png) no-repeat 0 0; width: 220px; height: 48px; background-size: 220px 48px; display: inline-block; vertical-align: middle; font-size: 0; }
+	.logo { @include bg('images/sprite/logo@2x.png'); width: 220px; height: 48px; background-size: 220px 48px; display: inline-block; vertical-align: middle; font-size: 0; }
 }
 
 @media (max-width: 1023px) {
@@ -772,7 +833,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 	Popover
 \* ------------------------------------------------------------ */
 
-.popover { width:223px; height: 175px; position: relative; background: url(images/popover-image.jpg) no-repeat 50% 50%; background-size: cover; position: absolute; z-index: 999; display:none; border-radius: 5px; overflow: hidden; }
+.popover { width:223px; height: 175px; position: relative; @include bg('images/popover-image.jpg'); background-size: cover; position: absolute; z-index: 999; display:none; border-radius: 5px; overflow: hidden; }
 .popover .popover-body { position: absolute; bottom:0; left:0; width:100%; text-align:center; color: #fff; background:#3498db; font-size:10px; padding:8px 0; }
 .popover .popover-body strong { display:block; text-transform: uppercase; font-size:11px; }
 
@@ -786,7 +847,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .profile .avatar { width:137px; height: 137px; float:left; }
 .profile h6 { font-size:15px; margin: 0; font-weight:700; text-transform: uppercase; }
 .profile p { margin: 0; }
-.profile .rating { display: inline-block; vertical-align: middle; height: 15px; width:100px; background: url(images/rating-blue.png) repeat-x 0 0; }
+.profile .rating { display: inline-block; vertical-align: middle; height: 15px; width:100px; @include bg('images/rating-blue.png'); }
 
 .profile.profile-right .avatar { float:right; }
 .profile.profile-right .profile-body { padding:45px 20px 45px 0; text-align:right; }
@@ -822,7 +883,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .rating { display: inline-block; vertical-align: middle; width:100px; height: 15px; position: relative; }
 .rating:before { content:''; position: absolute; top:0; left:0; background-repeat: repeat-x; background-position:0 0; width:100%; height: 100%}
 
-.rating.rating-white:before { background-image: url(images/rating.png); }
+.rating.rating-white:before { background-image: url(asset-path('images/rating.png')); }
 
 /* ------------------------------------------------------------ *\
 	Section
@@ -1000,9 +1061,9 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .task.task-data-entry .task-icon { background:$data_entry_color; }
 .task.task-bundle .task-icon { background:$bundle_color; }
 
-.task.task-design .task-icon .icon { background: url(images/sprite/ico-pen.png) no-repeat 0 0; width: 30px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0; }
-.task.task-writing .task-icon .icon { background: url(images/sprite/ico-pencil.png) no-repeat 0 0; width: 34px; height: 34px; display: inline-block; vertical-align: middle; font-size: 0; }
-.task.task-bundle .task-icon .icon { background: url(images/sprite/ico-box.png) no-repeat 0 0; width: 39px; height: 34px; display: inline-block; vertical-align: middle; font-size: 0; }
+.task.task-design .task-icon .icon { @include bg('images/sprite/ico-pen.png'); width: 30px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0; }
+.task.task-writing .task-icon .icon { @include bg('images/sprite/ico-pencil.png'); width: 34px; height: 34px; display: inline-block; vertical-align: middle; font-size: 0; }
+.task.task-bundle .task-icon .icon { @include bg('images/sprite/ico-box.png'); width: 39px; height: 34px; display: inline-block; vertical-align: middle; font-size: 0; }
 
 
 .task .task-title { position: absolute; top:0; left:0; text-transform: uppercase; color: #4d4d4d; font-family: 'CMSansSerif', arial, serif; font-weight:500; width:100%; padding:0 0 0 67px; text-align:left; }
@@ -1026,6 +1087,10 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .task-logo .icon img {
 	max-width: 100%;
 	max-height: 80px;
+}
+
+.task-logo .icon.icon-small img {
+	max-height: 40px;
 }
 
 @media (max-width: 767px) {

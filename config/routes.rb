@@ -77,6 +77,7 @@ Rails.application.routes.draw do
   get '/reset_bots', controller: 'buyers', action: :reset_bots
 
   resources :bundles, only: [:show]
+  resources :products, only: [:show]
 
   # root to: "tasks#index"
   root to: "pages#index"

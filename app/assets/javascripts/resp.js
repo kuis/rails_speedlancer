@@ -26,17 +26,31 @@
 		//  Popup
 		var myModal = $('#myModal');
 
-		if ( myModal.length ) {			
-			myModal
-			.on('show.bs.modal', function (e) {
-				$('.wrapper').addClass('blur-content');				
-			})
-			.on('hidden.bs.modal', function (e) {
-				$('.wrapper').removeClass('blur-content');
-			});
+		function popup(product) {
+			if ( myModal.length ) {
+				myModal.find(".ico-badge img").attr('src', product.thumbnail);
+				myModal.find(".section-task .section-head .section-title").text(product.title);
+				myModal.find(".section-task .section-head p").text(product.description);
+				myModal.find(".section-task .section-actions a").attr('href', '/tasks/new?product=' + product.id)
 
-			myModal.modal('show');
-		};
+				myModal
+				.on('show.bs.modal', function (e) {
+					$('.wrapper').addClass('blur-content');				
+				})
+				.on('hidden.bs.modal', function (e) {
+					$('.wrapper').removeClass('blur-content');
+				});
+
+				myModal.modal('show');
+			};
+		}
+		$(".modal-link").on('click', function(e) {
+			e.preventDefault();
+			$task = $(this);
+			$.get($task.attr('href'), function(json){
+				popup(json.product);
+			}, 'json');
+		});
 
 		$win.on('load', function () {
 			var carouselIntro = $(".slider-intro .slides");

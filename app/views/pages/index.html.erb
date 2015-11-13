@@ -217,7 +217,7 @@
 
 							<% @products.each do |product| %>
 								<li class="isotope-item item-<%= product.category.name.downcase %>">
-									<a href="#" class="task task-<%= product.category.name.downcase %>">
+									<a href="<%= product_path(product) %>.json" class="task <%= "task-#{product.category.name.downcase}" %> modal-link">
 										<span class="task-icon">
 											<i class="icon"></i>
 										</span>
@@ -265,5 +265,182 @@
 
 		<%= render partial: "layouts/resp_testimonial.html" %>
 
-
 	</div><!-- /.main -->
+
+
+	<!-- Modal -->
+<div class="modal fade open" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-head clearfix">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<i class="ico-close"></i>
+			</button>
+		</div><!-- /.modal-head -->
+
+		<div class="modal-content">
+			<div class="container">
+				<div class="modal-row">
+					<div class="modal-col">
+						<section class="section-task">
+							<div class="section-head">
+								<div class="badge-icon">
+									<i class="ico-badge">
+										<img />
+									</i>
+								</div><!-- /.badge-icon -->
+					
+								<h2 class="section-title">Logo Design</h2><!-- /.section-title -->
+					
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque </p>
+							</div><!-- /.section-head -->
+					
+							<div class="section-actions">
+								<a href="#" class="btn btn-xl btn-design">Buy now</a>
+							</div><!-- /.section-actions -->
+					
+							<div class="section-body">
+								<ol class="steps">
+									<li class="step">
+										<div class="step-icon">
+											<i class="ico-small-cart"></i>
+										</div><!-- /.step-icon -->
+					
+										<span class="step-count">&bull;</span>
+					
+										<p><strong>Buy</strong> now</p>
+									</li><!-- /.step -->
+									
+									<li class="step">
+										<div class="step-icon">
+											<i class="ico-small-write"></i>
+										</div><!-- /.step-icon -->
+					
+										<span class="step-count">&bull; &bull;</span>
+					
+										<p><strong>Submit</strong> <br /> your brief.</p>
+									</li><!-- /.step -->
+									
+									<li class="step">
+										<div class="step-icon">
+											<i class="ico-small-check"></i>
+										</div><!-- /.step-icon -->
+					
+										<span class="step-count">&bull; &bull;</span>
+					
+										<p><strong>Done</strong> by <br /> 6pm tonight!</p>
+									</li><!-- /.step -->
+								</ol><!-- /.steps -->
+							</div><!-- /.section-body -->
+						</section><!-- /.section-task -->
+					
+						<section class="section-team">
+							<div class="section-head">
+								<h6>meet our speedlancers</h6>
+
+								<span class="rating rating-white"></span>
+							</div><!-- /.section-head -->
+
+							<ul class="list-team">
+								<li>
+									<div class="avatar">
+										<img src="<%= image_path("temp/avatar-7.png") %>" alt="" />
+									</div><!-- /.avatar -->
+
+									<h6>carla smith</h6>
+
+									<p>Content Writer</p>
+								</li>
+
+								<li>
+									<div class="avatar">
+										<img src="<%= image_path("temp/avatar-5.png") %>" alt="" />
+									</div><!-- /.avatar -->
+
+									<h6>justin mccarthy</h6>
+
+									<p>Designer</p>
+								</li>
+
+								<li>
+									<div class="avatar">
+										<img src="<%= image_path("temp/avatar-6.png") %>" alt="" />
+									</div><!-- /.avatar -->
+
+									<h6>alex hotorn</h6>
+
+									<p>Data encoder</p>
+								</li>
+							</ul><!-- /.list-team -->
+						</section><!-- /.section-team -->
+					</div><!-- /.modal-col -->
+					
+					<div class="modal-col">
+						<section class="section-preview">
+							<div class="section-inner">
+								<div class="slider-logo">
+									<div class="slider-clip">
+										<ul class="slides">
+											<li class="slide">
+												<img src="<%= image_path("temp/slide-logo.jpg") %>" alt="" />
+											</li><!-- /.slide -->
+										</ul><!-- /.slides -->
+									</div><!-- /.slider-clip -->
+									
+									<div class="slider-paging"></div><!-- /.slider-paging -->
+								</div><!-- /.slider-logo -->
+						
+								<div class="profile-alt">
+									<div class="avatar">
+										<img src="<%= image_path("temp/avatar-4.png") %>" alt="" />
+									</div><!-- /.avatar -->
+						
+									<div class="profile-label">
+										<img src="<%= image_path("temp/ontario-logo.png") %>" alt="" />
+									</div><!-- /.profile-label -->
+
+									<div class="profile-body">
+										<p><strong>Logo Design</strong> by Speedlancer, <br /><strong>Vincent Roman</strong>, for <strong>Ontario Security</strong></p>
+									</div><!-- /.profile-body -->
+								</div><!-- /.profile-alt -->
+						
+								<div class="tasks tasks-related">
+									<div class="tasks-head">
+										<p>Others also Purchased:</p>
+									</div><!-- /.tasks-head -->
+						
+									<div class="tasks-body">
+										<ul class="list-tasks">
+
+											<% Bundle.recent(3).each do |bundle| %>
+												<li>
+													<div class="task task-bundle">
+														<span class="task-icon">
+															<i class="ico-box-small"></i>
+														</span>
+
+														<h6 class="task-title"><%= bundle.title %></h6>
+
+														<div class="task-body">
+															<span class="task-logo">
+																<i class="icon icon-small">
+																	<%= image_tag bundle.thumbnail %>
+																</i>
+															</span>
+												
+															<h4 class="task-price">$<%= bundle.price %></h4><!-- /.task-price -->
+														</div>
+													</div>
+												</li>
+											<% end %>
+
+										</ul>
+									</div><!-- /.tasks-body -->
+								</div><!-- /.tasks -->
+							</div><!-- /.section-inner -->
+						</section><!-- /.section-preview -->
+					</div><!-- /.modal-col -->
+				</div><!-- /.modal-row -->
+			</div><!-- /.container -->
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
