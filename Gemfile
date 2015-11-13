@@ -43,6 +43,9 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'intercom'
 gem 'intercom-rails'
 
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 group :development, :test do
   gem 'mailcatcher'
   gem 'spring'

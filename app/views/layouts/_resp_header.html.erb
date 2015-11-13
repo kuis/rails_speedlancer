@@ -1,0 +1,78 @@
+
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="#">
+					<span class="logo"></span>
+				</a>
+			</div>
+
+			<div class="navbar-collapse collapse" id="navbar">
+				<form class="navbar-form navbar-left search">
+					<input type="text" class="form-control">
+
+					<i class="ico-search"></i>
+				</form>
+
+				<ul class="nav navbar-nav nav-primary navbar-left">
+					<li>
+						<a href="#">How It Works</a>
+					</li>
+
+					<li>
+						<a href="#">Manage Tasks</a>
+					</li>
+
+					<li>
+						<a href="#">Recent</a>
+					</li>
+
+					<li>
+						<a href="#">Projects</a>
+					</li>
+				</ul>
+
+
+				<ul class="nav navbar-nav navbar-right nav-access">
+					<% if buyer_signed_in? %>
+						<li class="has-dd">
+							<a href="#">
+								<span class="avatar">
+									<%= display_profile_image(current_buyer) %>
+								</span>
+
+								<span class="text"><%= current_buyer.full_name %></span>
+							</a>
+							<ul class="dd-wrap">
+								<li><%= link_to 'View Profile', buyer_active_tasks_path(current_buyer) %></li>
+								<li><%= link_to 'Edit Profile', edit_buyer_registration_path %></li>
+								<li><%= link_to 'Edit my team', buyer_team_path(current_buyer) %></li>
+								<li><%= link_to 'Sign Out', destroy_buyer_session_path, method: :delete %></li>
+							</ul>
+						</li>
+					<% elsif seller_signed_in? %>
+						<li>
+							<a href="#">
+								<span class="avatar">
+									<%= display_profile_image(current_seller) %>
+								</span>
+
+								<span class="text"><%= current_seller.full_name %></span>
+							</a>
+						</li>
+					<% else %>
+						<li><%= link_to "Log In", login_path %></li>
+						<li><%= link_to "Sign Up", signup_path %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>

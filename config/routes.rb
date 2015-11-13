@@ -76,7 +76,10 @@ Rails.application.routes.draw do
 
   get '/reset_bots', controller: 'buyers', action: :reset_bots
 
-  root to: "tasks#index"
+  resources :bundles, only: [:show]
+
+  # root to: "tasks#index"
+  root to: "pages#index"
 
   # Api with Wordpress app
   namespace :api do

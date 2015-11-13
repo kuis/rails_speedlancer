@@ -1,0 +1,110 @@
+<div class="intro">
+	<div class="fullscreen" style="background-image: url(<%= image_path("temp/intro-1.jpg") %>); "></div>
+
+	<div class="intro-inner">
+		<div class="container">
+			<h1><%= @bundle.title %></h1>
+
+			<p><%= @bundle.description %></p>
+
+			<p>
+				<a href="#" class="btn btn-xl btn-design btn-fixed">inquire now</a>
+			</p>
+		</div><!-- /.container -->
+	</div><!-- /.intro-inner -->
+</div><!-- /.intro-->
+
+<div class="main">
+
+	<section class="section">
+		<div class="container">
+			<div class="section-head">
+				<h2 class="section-title">What is Included</h2><!-- /.section-title -->
+			</div><!-- /.section-head -->
+
+			<div class="section-body">
+				<div class="tasks tasks-secondary">
+					<ul>
+						<% ind = 0 %>
+						<% @bundle.bundle_contents.each do |content| ind += 1 %>
+							<li>
+								<div class="task">
+									<div class="task-body">
+										<span class="task-logo">
+											<i class="icon"><%= image_tag content.thumbnail %></i>
+										</span>
+										<h6><%= content.title %></h6>
+									</div>
+								</div>
+								<span class="task-counter">
+									<% for i  in 1..ind %>
+										&bull;
+									<% end %>
+								</span>
+							</li>
+						<% end %>
+					</ul><!-- /.isotope-items -->
+				</div><!-- /.tasks tasks-secondary-->
+			</div><!-- /.section-body -->
+		</div><!-- /.container -->
+	</section><!-- /.section -->
+
+	<section class="section section-articles">
+		<div class="container">
+			<div class="section-body">
+				<% ind = 0 %>
+				<% @bundle.bundle_contents.each do |content| ind += 1%>
+					<article class="article">
+						<div class="article-head">
+							<h3 class="article-title">
+								<span class="text"><%= "#{ind}. #{content.title}" %></span>
+								<div class="article-icon">
+									<i class="icon"><%= image_tag content.thumbnail %></i>
+								</div>
+							</h3>
+						</div>
+
+						<div class="article-body">
+							<p><%= content.description %></p>
+						</div>
+					</article>
+				<% end %>
+			</div><!-- /.section-body -->
+
+			<% if ind > 0 %>
+				<div class="section-actions">
+					<a href="#" class="btn btn-design btn-xl btn-fixed">more</a>
+				</div><!-- /.section-actions -->
+			<% end %>
+		</div><!-- /.container -->
+	</section><!-- /.section section-articles -->
+
+	<%= render partial: "layouts/resp_testimonial.html" %>
+
+</div>
+
+<script>
+	function showmore() {
+		count = $(".section-articles article:hidden").length;
+
+		if (count > 3) 
+			count = 3;
+		else
+			$(".section-articles .section-actions").remove();
+
+		$(".section-articles article:hidden").each(function(){
+			if (count > 0) {
+				count --;
+			} else {
+				return;
+			}
+			$(this).show();
+		});
+	}
+	$(".section-articles .article").hide();
+	$(".section-articles .section-actions a").on('click', function(e){
+		showmore();
+		e.preventDefault();
+	});
+	showmore();
+</script>

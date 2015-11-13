@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Speedlancer</title>
+		<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+		<link href="//fonts.googleapis.com/css?family=Roboto:400,300,700|Roboto+Condensed:400,300,700" rel="stylesheet" type="text/css">
+		<%= stylesheet_link_tag    'resp', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'resp', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<% flash.each do |name , msg| %>
+			<div class="<%= name %>">
+				<%= msg %>
+			</div>
+		<% end %>
+
+		<div class="wrapper">
+			<header class="header">
+				<%= render 'layouts/resp_header' %>
+			</header>
+
+			<%= yield %>
+
+			<footer class="footer">
+				<%= render "layouts/resp_footer" %>
+			</footer>
+		</div>
+
+		<div class="popover" id="popover-callout">
+			<div class="popver-inner">
+				<div class="popover-body">
+					Done in 2:00 hours
+					<strong>Click here to get yours now!</strong>
+				</div><!-- /.popover-body -->
+			</div><!-- /.popver-inner -->
+		</div><!-- /.popover -->
+	</body>
+</html>
