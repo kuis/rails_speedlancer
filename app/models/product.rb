@@ -1,4 +1,9 @@
+require 'elasticsearch/model'
+
 class Product < ActiveRecord::Base
+	include Elasticsearch::Model
+	include Elasticsearch::Model::Callbacks
+
 	validates :title, :description, :category_id, presence: true
 
 	belongs_to :category
@@ -15,3 +20,6 @@ class Product < ActiveRecord::Base
 		self.price_in_cents = dollars.to_d * 100 if dollars.present?
 	end
 end
+
+
+Product.import force: true

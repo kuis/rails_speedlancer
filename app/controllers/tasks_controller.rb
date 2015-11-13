@@ -25,7 +25,6 @@ class TasksController < ApplicationController
     product = Product.find_by_id(params[:product])
     @sellers = Seller.approved
     @task = Task.build_with_product(product)
-    # @task = Task.build_with_default_price
   end
 
   def create

@@ -439,7 +439,7 @@ blockquote:last-child { margin-bottom: 0; }
 .header .navbar-form { position: relative; padding: 0; margin:0 0 0 50px; }
 .header .navbar-form .form-control { background-color:transparent; border-radius: 20px; border-color:#fff; width:290px; color: #fff; height: 40px; }
 .header .navbar-form .form-control:focus + .ico-search { opacity: 0; visibility: hidden; }
-.header .navbar-form .ico-search { position: absolute; top:11px; left:18px; }
+.header .navbar-form .ico-search { position: absolute; top:11px; right:18px; }
 
 .header .navbar-nav.nav-primary { padding-left:23px; }
 .header .navbar-nav>li>a { padding:10px 23px; background:transparent; color: #fff; text-decoration: none; }
@@ -1156,7 +1156,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .widgets { list-style: none outside none; }
 
 /*# sourceMappingURL=style.css.map */
-
+.has-dd { min-width: 160px; }
 .has-dd .dd-wrap { display: none; }
 .has-dd:hover .dd-wrap { display: block; }
 .dd-wrap li {
@@ -1170,4 +1170,9 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 	text-decoration: none;
 	display:block;
 	padding: 10px 25px;
+}
+
+.intro-bar {
+	background: #3498db;
+	height: 96px;
 }

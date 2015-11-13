@@ -73,6 +73,12 @@
 		// initialize isotope
 		popover();
 		isotope();
+
+		$('form.search input[name=q]').on('keydown', function(e) {
+			if (e.keyCode == 13 && $(this).val().trim() == '') {
+				e.preventDefault();
+			}
+		});
 	});
 
 	function isotope () {

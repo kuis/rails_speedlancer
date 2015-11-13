@@ -78,6 +78,7 @@ Rails.application.routes.draw do
 
   resources :bundles, only: [:show]
   resources :products, only: [:show]
+  get '/search', controller: 'pages', action: :search
 
   # root to: "tasks#index"
   root to: "pages#index"

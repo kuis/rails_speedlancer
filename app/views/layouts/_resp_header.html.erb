@@ -17,8 +17,8 @@
 			</div>
 
 			<div class="navbar-collapse collapse" id="navbar">
-				<form class="navbar-form navbar-left search">
-					<input type="text" class="form-control">
+				<form class="navbar-form navbar-left search" action="/search">
+					<input type="text" class="form-control" name='q' value="<%= @q %>">
 
 					<i class="ico-search"></i>
 				</form>

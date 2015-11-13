@@ -1,4 +1,9 @@
+require 'elasticsearch/model'
+
 class Bundle < ActiveRecord::Base
+	include Elasticsearch::Model
+	include Elasticsearch::Model::Callbacks
+
 	validates :title, :description, presence: true
 
 	has_many :bundle_contents, dependent: :destroy
@@ -19,3 +24,5 @@ class Bundle < ActiveRecord::Base
 		self.price_in_cents = dollars.to_d * 100 if dollars.present?
 	end
 end
+
+Bundle.import force: true
