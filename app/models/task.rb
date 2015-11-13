@@ -159,6 +159,15 @@ class Task < ActiveRecord::Base
     self.new(price_in_dollars: 49)
   end
 
+  def self.build_with_product(product)
+    if product.nil?
+      task = self.build_with_default_price
+    else
+      task = self.new(title:product.title, price_in_dollars: product.price, category_id: product.category_id, description: product.description)
+    end
+    task
+  end
+
   def team
     self.buyer.teammembers(self.category)
   end

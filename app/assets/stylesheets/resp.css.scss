@@ -847,7 +847,11 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .profile .avatar { width:137px; height: 137px; float:left; }
 .profile h6 { font-size:15px; margin: 0; font-weight:700; text-transform: uppercase; }
 .profile p { margin: 0; }
-.profile .rating { display: inline-block; vertical-align: middle; height: 15px; width:100px; @include bg('images/rating-blue.png'); }
+.profile .rating { 
+	display: inline-block; vertical-align: middle; height: 15px;
+	width: 84px; 
+	background: url(asset-path('images/rating-blue.png')); 
+}
 
 .profile.profile-right .avatar { float:right; }
 .profile.profile-right .profile-body { padding:45px 20px 45px 0; text-align:right; }
@@ -1152,3 +1156,18 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .widgets { list-style: none outside none; }
 
 /*# sourceMappingURL=style.css.map */
+
+.has-dd .dd-wrap { display: none; }
+.has-dd:hover .dd-wrap { display: block; }
+.dd-wrap li {
+  	background: #3498db;
+  	color: #fff;
+  	text-decoration: none;
+  	list-style: none;
+}
+
+.dd-wrap li a {
+	text-decoration: none;
+	display:block;
+	padding: 10px 25px;
+}
