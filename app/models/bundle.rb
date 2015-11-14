@@ -1,4 +1,4 @@
-require 'elasticsearch/model'
+# require 'elasticsearch/model'
 
 class Bundle < ActiveRecord::Base
 	include Elasticsearch::Model
