@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.carouFredSel-6.2.1-packed
 //= require isotope.pkgd.min
@@ -39,9 +38,12 @@
 				})
 				.on('hidden.bs.modal', function (e) {
 					$('.wrapper').removeClass('blur-content');
+					window.history.pushState('home', 'Speedlaner', '/');
 				});
 
 				myModal.modal('show');
+
+				window.history.pushState('page2', product.title, '/products/' + product.id);
 			};
 		}
 		$(".modal-link").on('click', function(e) {
@@ -79,6 +81,8 @@
 				e.preventDefault();
 			}
 		});
+
+		$(".modal-link.active-true").trigger('click');
 	});
 
 	function isotope () {

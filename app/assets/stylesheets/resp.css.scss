@@ -523,7 +523,7 @@ blockquote:last-child { margin-bottom: 0; }
 	Article
 \* ------------------------------------------------------------ */
 
-.article { padding:0 150px 150px 150px; overflow: hidden; }
+.article { padding:0 150px 80px 150px; overflow: hidden; }
 .article .article-head { width:50%; float:left; }
 .article .article-body { width:50%; float:left; text-align:justify; line-height:32px; }
 .article .article-title { font-weight:500; font-family: 'CMSansSerif', arial, serif; margin-top:0; text-align:left; display: inline-block; vertical-align: top; }
@@ -1112,8 +1112,8 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 \* ------------------------------------------------------------ */
 
 .tasks.tasks-secondary h6 { margin: 0; padding:0 20px; }
-.tasks.tasks-secondary >ul { overflow: hidden; }
-.tasks.tasks-secondary >ul>li { float:left; width:16.5%; float:left; padding:0 7px; }
+.tasks.tasks-secondary >ul { overflow: hidden; text-align: center; }
+.tasks.tasks-secondary >ul>li { display:inline-block; width:16.5%; padding:0 7px; }
 
 @media (max-width: 767px) {
 	.tasks.tasks-secondary >ul>li { float:none; width: auto; }
