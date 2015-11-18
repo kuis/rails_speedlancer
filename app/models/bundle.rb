@@ -23,6 +23,10 @@ class Bundle < ActiveRecord::Base
 	def price=(dollars)
 		self.price_in_cents = dollars.to_d * 100 if dollars.present?
 	end
+
+	def cssClass
+		'item-bundle'
+	end
 end
 
 Bundle.import force: true

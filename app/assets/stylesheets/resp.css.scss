@@ -15,7 +15,7 @@
 
 $design_color : #3498db;
 $writing_color : #2079b5;
-$data_entry_color : #185f8d;
+$other_color : #185f8d;
 $bundle_color: #0f3955;
 
 @mixin bg($path) {
@@ -565,7 +565,7 @@ blockquote:last-child { margin-bottom: 0; }
 .btn { color: #fff; }
 .btn.btn-design { background : $design_color; }
 .btn.btn-writing { background : $writing_color; }
-.btn.btn-data-entry { background : $data_entry_color; }
+.btn.btn-other { background : $other_color; }
 .btn.btn-bundle { background : $bundle_color; }
 .btn.btn-white { background:#fff; color: #3498db; }
 
@@ -1062,19 +1062,22 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 
 .task.task-design .task-icon { background:$design_color; }
 .task.task-writing .task-icon { background:$writing_color; }
-.task.task-data-entry .task-icon { background:$data_entry_color; }
+.task.task-other .task-icon { background:$other_color; }
 .task.task-bundle .task-icon { background:$bundle_color; }
 
-.task.task-design .task-icon .icon { @include bg('images/sprite/ico-pen.png'); width: 30px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0; }
-.task.task-writing .task-icon .icon { @include bg('images/sprite/ico-pencil.png'); width: 34px; height: 34px; display: inline-block; vertical-align: middle; font-size: 0; }
-.task.task-bundle .task-icon .icon { @include bg('images/sprite/ico-box.png'); width: 39px; height: 34px; display: inline-block; vertical-align: middle; font-size: 0; }
+.task .task-icon .icon { display: inline-block; vertical-align: middle; font-size: 0; }
+
+.task.task-design .task-icon .icon { @include bg('images/sprite/ico-pen.png'); width: 30px; height: 30px; }
+.task.task-writing .task-icon .icon { @include bg('images/sprite/ico-pencil.png'); width: 34px; height: 34px; }
+.task.task-other .task-icon .icon { @include bg('images/sprite/ico-other.png'); width: 34px; height: 34px; }
+.task.task-bundle .task-icon .icon { @include bg('images/sprite/ico-box.png'); width: 39px; height: 34px; }
 
 
 .task .task-title { position: absolute; top:0; left:0; text-transform: uppercase; color: #4d4d4d; font-family: 'CMSansSerif', arial, serif; font-weight:500; width:100%; padding:0 0 0 67px; text-align:left; }
 
 .task.task-design .task-price { color: $design_color; }
 .task.task-writing .task-price { color: $writing_color; }
-.task.task-data-entry .task-price { color: $data_entry_color; }
+.task.task-other .task-price { color: $other_color; }
 .task.task-bundle .task-price { color: $bundle_color; }
 
 .task .task-body { display: table-cell; vertical-align: middle; }

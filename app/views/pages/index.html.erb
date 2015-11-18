@@ -204,8 +204,8 @@
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget.</p>
 
 					<div class="btn-group btn-group-xl nav-tasks">
-						<% @categories.each do |category| %>
-							<a class="btn btn-<%= category.name.downcase %>" href=".item-<%= category.name.downcase %>"><%= category.name %></a>
+						<% Product.cssTypes.each do |label, cssClass| %>
+							<a class="btn btn-<%= label %>" href="<%= cssClass %>"><%= label %></a>
 						<% end %>
 						<a class="btn btn-bundle" href=".item-bundle">bundle</a>
 					</div><!-- /.btn-group -->
@@ -216,8 +216,8 @@
 						<ul class="isotope-items">
 
 							<% @products.each do |product| %>
-								<li class="isotope-item item-<%= product.category.name.downcase %>">
-									<a href="<%= product_path(product) %>.json" class="task <%= "task-#{product.category.name.downcase}" %> modal-link <%= "active-#{product.id == @product.id}" unless @product.nil? %>">
+								<li class="isotope-item <%= "item-#{product.cssType}" %>">
+									<a href="<%= product_path(product) %>.json" class="task <%= "task-#{product.cssType}" %> modal-link <%= "active-#{product.id == @product.id}" unless @product.nil? %>">
 										<span class="task-icon">
 											<i class="icon"></i>
 										</span>
@@ -227,7 +227,7 @@
 												<i class="icon"><%= image_tag product.thumbnail %></i>
 											</span>
 										
-											<h4 class="task-price">$<%= product.price %></h4><!-- /.task-price -->
+											<h4 class="task-price"><%= number_to_currency(product.price) %></h4><!-- /.task-price -->
 										</div>
 									</a>
 								</li>
@@ -247,7 +247,7 @@
 												<i class="icon"><%= image_tag bundle.thumbnail %></i>
 											</span>
 										
-											<h4 class="task-price">$<%= bundle.price %></h4>
+											<h4 class="task-price"><%= number_to_currency(bundle.price) %></h4>
 										</div>
 									<% end %>
 								</li>
@@ -269,4 +269,4 @@
 
 
 	<!-- Modal -->
-	<%= render partial: "task_modal.html" %>
+	<%= render partial: "pages/task_modal.html" %>
