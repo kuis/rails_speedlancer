@@ -4,6 +4,16 @@ ActiveAdmin.register Bundle do
 	filter :title
 	filter :status
 
+	index do
+		column :id
+		column :title
+		column :price
+		column :status
+		column "Contents" do |bundle|
+			bundle.bundle_contents.count
+	    end
+	  end
+
 	form do |f|
 		f.inputs "Details" do
 			f.input :title
