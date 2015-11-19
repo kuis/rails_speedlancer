@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
 	include Elasticsearch::Model
 	include Elasticsearch::Model::Callbacks
 
-	validates :title, :description, :category_id, presence: true
+	validates :title, :description, :category_id, :eta, presence: true
 
 	belongs_to :category
 
