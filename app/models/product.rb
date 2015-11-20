@@ -39,6 +39,21 @@ class Product < ActiveRecord::Base
 			:other => '.item-other'
 		}
 	end
+
+	def eta_from_now
+		deadline = Time.now + self.eta.hours
+		result = ''
+
+		if deadline.today? 
+			result = 'today!'
+		elsif deadline.to_date == Date.tomorrow
+			result = 'tomorrow!'
+		else
+			result = deadline.strftime('%a, %b %d')
+		end
+		
+		deadline.strftime('%l%P ') + result
+	end
 end
 
 

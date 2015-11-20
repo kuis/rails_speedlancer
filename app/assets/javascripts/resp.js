@@ -29,7 +29,8 @@
 			if ( myModal.length ) {
 				myModal.find(".ico-badge img").attr('src', product.thumbnail);
 				myModal.find(".section-task .section-head .section-title").text(product.title);
-				myModal.find(".section-task .section-head p").text(product.description);
+				myModal.find(".section-task .section-head .section-desc").html(product.description);
+				myModal.find(".section-task .section-body .steps .step p span.eta").text(product.eta_from_now);
 				myModal.find(".section-task .section-actions a").attr('href', '/tasks/new?product=' + product.id)
 
 				myModal
@@ -49,7 +50,7 @@
 		$(".modal-link").on('click', function(e) {
 			e.preventDefault();
 			$task = $(this);
-			$.get($task.attr('href'), function(json){
+			$.get($task.attr('href') + '.json', function(json){
 				popup(json.product);
 			}, 'json');
 		});
@@ -102,6 +103,18 @@
 			masonryWall.isotope({
 				filter: $(this).attr('href')
 			});
+		});
+
+		$('.section-tasks .tasks .isotope-items li.isotope-item').each(function(ind) {
+			if (ind < 16) {
+				$(this).addClass('isotope-init-item');
+			}
+
+			if (ind == $('.section-tasks .tasks .isotope-items li.isotope-item').length - 1) {
+				masonryWall.isotope({
+					filter: '.isotope-init-item'
+				});
+			}
 		});
 	}
 

@@ -12,6 +12,7 @@ ActiveAdmin.register Bundle do
 		column "Contents" do |bundle|
 			bundle.bundle_contents.count
 	    end
+	    actions
 	  end
 
 	form do |f|

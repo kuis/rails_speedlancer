@@ -214,10 +214,9 @@
 				<div class="section-body">
 					<div class="tasks">
 						<ul class="isotope-items">
-
 							<% @products.each do |product| %>
 								<li class="isotope-item <%= "item-#{product.cssType}" %>">
-									<a href="<%= product_path(product) %>.json" class="task <%= "task-#{product.cssType}" %> modal-link <%= "active-#{product.id == @product.id}" unless @product.nil? %>">
+									<a href="<%= product_path(product) %>" class="task <%= "task-#{product.cssType}" %> modal-link <%= "active-#{product.id == @product.id}" unless @product.nil? %>">
 										<span class="task-icon">
 											<i class="icon"></i>
 										</span>
