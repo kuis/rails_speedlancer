@@ -3,7 +3,16 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Speedlancer</title>
+		<title>
+			<% if Metainfo.get('title').blank? %>
+				Speedlancer
+			<% else %>
+				<%= Metainfo.get('title') %>
+			<% end %>
+		</title>
+		<% Metainfo.metas.each do |meta| %>
+			<meta name="<%= meta.name %>" content="<%= meta.value %>">
+		<% end %>
 		<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 		<link href="//fonts.googleapis.com/css?family=Roboto:400,300,700|Roboto+Condensed:400,300,700" rel="stylesheet" type="text/css">
 		<%= stylesheet_link_tag    'resp', media: 'all', 'data-turbolinks-track' => true %>
