@@ -29,6 +29,7 @@
 			if ( myModal.length ) {
 				myModal.find(".ico-badge img").attr('src', product.thumbnail);
 				myModal.find(".section-task .section-head .section-title").text(product.title);
+				myModal.find(".section-task .section-head .section-subtitle").text(product.subheading);
 				myModal.find(".section-task .section-head .section-desc").html(product.description);
 				myModal.find(".section-task .section-body .steps .step p span.eta").text(product.eta_from_now);
 				myModal.find(".section-task .section-actions a").attr('href', '/tasks/new?product=' + product.id)
