@@ -484,7 +484,8 @@ blockquote:last-child { margin-bottom: 0; }
 .footer p { text-align:justify; }
 
 .footer-widgets { padding:100px 0; }
-.footer-widget { width:300px; }
+.footer-widget { padding-right: 100px; }
+.footer-widget.footer-widget-last { padding-right: 0; }
 
 .footer-foot { overflow: hidden; background:#1b1b1b; border-top:1px solid #393939; padding:15px 0; }
 .footer-foot .copyright { float:left; margin: 0; }

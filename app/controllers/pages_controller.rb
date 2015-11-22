@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-	before_action :authenticate!
 	
 	def index
 		@products = Product.active
