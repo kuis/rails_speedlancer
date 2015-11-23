@@ -10,10 +10,10 @@
 							<div class="container">
 								<div class="row">
 									<div class="col col-md-offset-6 col-lg-6">
-										<h1 class="intro-title">A MARKET PLACE FOR SPEED</h1><!-- /.intro-title -->
+										<h1 class="intro-title">&nbsp;A MARKETPLACE FOR SPEED&nbsp;</h1><!-- /.intro-title -->
 
 										<p>
-											<a href="#" class="btn btn-xl btn-design btn-fixed">how it works <i class="ico-arrow-right"></i></a>
+											<a href="#second-menu" class="btn btn-xl btn-design btn-fixed btn-toggle" for="#second-menu .sub">how it works <i class="ico-arrow-right"></i></a>
 										</p>
 
 										<h3>featured in</h3>
@@ -63,10 +63,10 @@
 							<div class="container">
 								<div class="row">
 									<div class="col col-md-offset-6 col-lg-6">
-										<h1 class="intro-title">A MARKET PLACE FOR SPEED</h1><!-- /.intro-title -->
+										<h1 class="intro-title">&nbsp;A MARKETPLACE FOR SPEED&nbsp;</h1><!-- /.intro-title -->
 
 										<p>
-											<a href="#" class="btn btn-xl btn-design btn-fixed">how it works <i class="ico-arrow-right"></i></a>
+											<a href="#second-menu" class="btn btn-xl btn-design btn-fixed btn-toggle" for="#second-menu .sub">how it works <i class="ico-arrow-right"></i></a>
 										</p>
 
 										<h3>featured in</h3>
@@ -117,10 +117,10 @@
 							<div class="container">
 								<div class="row">
 									<div class="col col-md-offset-6 col-lg-6">
-										<h1 class="intro-title">A MARKET PLACE FOR SPEED</h1><!-- /.intro-title -->
+										<h1 class="intro-title">&nbsp;A MARKETPLACE FOR SPEED&nbsp;</h1><!-- /.intro-title -->
 
 										<p>
-											<a href="#" class="btn btn-xl btn-design btn-fixed">how it works <i class="ico-arrow-right"></i></a>
+											<a href="#second-menu" class="btn btn-xl btn-design btn-fixed btn-toggle" for="#second-menu .sub">how it works <i class="ico-arrow-right"></i></a>
 										</p>
 
 										<h3>featured in</h3>
@@ -173,26 +173,35 @@
 		</div><!-- /.slider-intro -->
 	</div><!-- /.intro intro-home -->
 
-	<div class="main">
+	<div class="main" id='second-menu'>
 		<nav class="nav-secondary">
 			<div class="container">
 				<ul>
 					<li>
-						<a href="#">&gt;Tell us what you need</a>
+						<a href="#">&gt; Pick Your Task From Our Market</a>
+						<div class='sub'>
+							<p>Get started by picking out your task from our list of options below and then describing what you need</p>
+						</div>
 					</li>
 
 					<li>
-						<a href="#">&gt;Task Routed to Best Speedlancer</a>
+						<a href="#">&gt; Collaborate With a Proven Pro</a>
+						<div class='sub'>
+							<p>We’ll match you with the best available talent, from our carefully vetted talent pool. Someone will be begin working on your project within 5-60 minutes in most cases (may take longer depending on your description)</p>
+						</div>
 					</li>
 					
 					<li>
-						<a href="#">&gt; Project done!</a>
+						<a href="#">&gt; Smash Your Deadlines</a>
+						<div class='sub'>
+							<p>With a 4 hour guarantee after acceptance, your Speedlancer will have delivered your task and hopefully exceed your expectations!</p>
+						</div>
 					</li>
 				</ul>
 			</div><!-- /.container -->
 		</nav><!-- /.nav-secondary -->
 
-		<section class="section section-tasks">
+		<section class="section section-tasks" id="task-wrapper">
 			<div class="container">
 				<div class="section-head">
 					<h2 class="section-title">Pick From Our Range Of Curated Tasks</h2><!-- /.section-title -->
@@ -203,7 +212,7 @@
 						<% Product.cssTypes.each do |label, cssClass| %>
 							<a class="btn btn-<%= label %>" href="<%= cssClass %>"><%= label %></a>
 						<% end %>
-						<a class="btn btn-bundle" href=".item-bundle">bundle</a>
+						<a class="btn btn-bundle" href=".item-bundle">bundles</a>
 					</div><!-- /.btn-group -->
 				</div><!-- /.section-head -->
 
@@ -218,11 +227,13 @@
 										</span>
 										<h6 class="task-title"><%= product.title %></h6>
 										<div class="task-body">
-											<span class="task-logo">
-												<i class="icon"><%= image_tag product.thumbnail %></i>
-											</span>
-										
-											<h4 class="task-price"><%= number_to_currency(product.price) %></h4><!-- /.task-price -->
+											<div class="task-body-inner">
+												<span class="task-logo">
+													<i class="icon"><%= image_tag product.thumbnail %></i>
+												</span>
+											
+												<h4 class="task-price">$<%= product.price.to_i %></h4><!-- /.task-price -->
+											</div>
 										</div>
 									</a>
 								</li>
@@ -238,15 +249,37 @@
 										<h6 class="task-title"><%= bundle.title %></h6>
 										
 										<div class="task-body">
-											<span class="task-logo">
-												<i class="icon"><%= image_tag bundle.thumbnail %></i>
-											</span>
-										
-											<h4 class="task-price"><%= number_to_currency(bundle.price) %></h4>
+											<div class="task-body-inner">
+												<span class="task-logo">
+													<i class="icon"><%= image_tag bundle.thumbnail %></i>
+												</span>
+											
+												<h4 class="task-price">$<%= bundle.price.to_i %></h4>
+											</div>
 										</div>
 									<% end %>
 								</li>
 							<% end %>
+
+							<li class="isotope-item isotope-init-item item-design item-writing item-other">
+								<%= link_to new_task_path, :class => "task" do %>
+									<span class="task-icon">
+										<i class="icon"></i>
+									</span>
+
+									<h6 class="task-title">Custom Task</h6>
+
+									<div class="task-body">
+										<div class="task-body-inner">
+											<span class="task-logo">
+												<i class="icon"><%= image_tag asset_path('images/sprite/ico-blue-fileadd.png') %></i>
+											</span>
+										
+											<h4 class="task-price"></h4>
+										</div>
+									</div>
+								<% end %>
+							</li>
 							
 						</ul><!-- /.isotope-items -->
 					</div><!-- /.tasks -->

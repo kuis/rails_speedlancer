@@ -18,14 +18,14 @@
 
 			<div class="navbar-collapse collapse" id="navbar">
 				<form class="navbar-form navbar-left search" action="/search">
-					<input type="text" class="form-control" name='q' value="<%= @q %>">
+					<input type="text" class="form-control" name='q' value="<%= @q %>" placeholder="Search our range of tasks">
 
 					<i class="ico-search"></i>
 				</form>
 
 				<ul class="nav navbar-nav nav-primary navbar-left">
 					<li>
-						<a href="#">How It Works</a>
+						<a href="https://speedlancer.com/how-it-works/">How it Works</a>
 					</li>
 
 					<li>
@@ -45,7 +45,7 @@
 				<ul class="nav navbar-nav navbar-right nav-access">
 					<% if buyer_signed_in? %>
 						<li class="has-dd">
-							<a href="#">
+							<a href="<%= buyer_active_tasks_path(current_buyer) %>">
 								<span class="avatar">
 									<%= display_profile_image(current_buyer) %>
 								</span>

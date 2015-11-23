@@ -31,6 +31,7 @@
 				myModal.find(".section-task .section-head .section-title").text(product.title);
 				myModal.find(".section-task .section-head .section-subtitle").text(product.subheading);
 				myModal.find(".section-task .section-head .section-desc").html(product.description);
+				myModal.find(".section-task .section-actions .price").text(product.price);
 				myModal.find(".section-task .section-body .steps .step p span.eta").text(product.eta_from_now);
 				myModal.find(".section-task .section-actions a").attr('href', '/tasks/new?product=' + product.id);
 				if ( product.custom_data ) {
@@ -104,6 +105,22 @@
 			}
 		});
 
+		$(".btn-toggle").on('click', function(e){
+			if ($(this).attr('for')) {
+				$elem = $( $(this).attr('for') );
+				if ($elem.length > 0) {
+					$elem.toggle();
+				}
+			}
+		});
+
+		$(".btn-contact-intercom").on('click', function(e) {
+			if ( $('.intercom-launcher-button').length > 0 ) {
+				$('.intercom-launcher-button').trigger('click');
+			}
+			e.preventDefault();
+		});
+
 		$(".modal-link.active-true").trigger('click');
 	});
 
@@ -127,7 +144,7 @@
 		});
 
 		$('.section-tasks .tasks .isotope-items li.isotope-item').each(function(ind) {
-			if (ind < 16) {
+			if (ind < 7) {
 				$(this).addClass('isotope-init-item');
 			}
 
@@ -162,7 +179,7 @@
 		    	}
 		    }
 		}, function(){
-		    // $div.hide();
+		    $div.hide();
 		});
 	}
 })(jQuery, window, document);
