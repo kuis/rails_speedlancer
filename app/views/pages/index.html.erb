@@ -1,3 +1,4 @@
+	<% unless buyer_signed_in? or seller_signed_in? %>
 	<div class="intro intro-home">
 		<div class="slider-intro">
 			<div class="slider-clip">
@@ -172,9 +173,11 @@
 			</div><!-- /.slider-foot -->
 		</div><!-- /.slider-intro -->
 	</div><!-- /.intro intro-home -->
+	<% end %>
 
 	<div class="main" id='second-menu'>
 		<nav class="nav-secondary">
+			<% unless buyer_signed_in? or seller_signed_in? %>
 			<div class="container">
 				<ul>
 					<li>
@@ -199,8 +202,11 @@
 					</li>
 				</ul>
 			</div><!-- /.container -->
+			<% end %>
 		</nav><!-- /.nav-secondary -->
+	</div>
 
+	<div class="main">
 		<section class="section section-tasks" id="task-wrapper">
 			<div class="container">
 				<div class="section-head">

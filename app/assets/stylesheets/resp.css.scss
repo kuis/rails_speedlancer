@@ -829,7 +829,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 	Nav Secondary
 \* ------------------------------------------------------------ */
 
-.nav-secondary { background:#4aa1dc; font-size:15px; }
+.nav-secondary { background:#4aa1dc; font-size:15px; min-height: 76px;}
 .nav-secondary ul { display: table; width:100%; table-layout: fixed; }
 .nav-secondary li { display: table-cell; text-align:center; }
 .nav-secondary a { display:block; color: #fff; line-height:73px; text-decoration: none; transition: background .3s; }
@@ -1147,6 +1147,8 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 	.task .task-body { display:block; }
 	.task-logo { line-height:inherit; }
 	.task-logo:after { margin-top:10px; }
+
+	.task .task-body-inner .task-price { position: relative; bottom: 0; }
 }
 /* ------------------------------------------------------------ *\
 	Tasks Secondary

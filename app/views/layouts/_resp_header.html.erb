@@ -25,19 +25,20 @@
 
 				<ul class="nav navbar-nav nav-primary navbar-left">
 					<li>
-						<a href="https://speedlancer.com/how-it-works/">How it Works</a>
+						<a href="#second-menu" class="btn-toggle" for="#second-menu .sub">How it Works</a>
 					</li>
 
-					<li>
-						<a href="#">Manage Tasks</a>
-					</li>
+					<% if buyer_signed_in? %>
+					<li><%= link_to 'Manage Tasks', buyer_active_tasks_path(current_buyer) %></li>
+					<% end %>
 
-					<li>
-						<a href="#">Recent</a>
-					</li>
-
-					<li>
+					<li class="has-dd">
 						<a href="#">Projects</a>
+						<ul class="dd-wrap">
+							<% Bundle.active.each do |bundle| %>
+							<li><%= link_to bundle.title, bundle_path(bundle) %></li>
+							<% end %>
+						</ul>
 					</li>
 				</ul>
 
