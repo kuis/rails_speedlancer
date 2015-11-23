@@ -11,9 +11,9 @@ ActiveAdmin.register Bundle do
 		column :status
 		column "Contents" do |bundle|
 			bundle.bundle_contents.count
-	    end
-	    actions
-	  end
+		end
+		actions
+	end
 
 	form do |f|
 		f.inputs "Details" do

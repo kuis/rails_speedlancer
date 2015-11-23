@@ -32,7 +32,27 @@
 				myModal.find(".section-task .section-head .section-subtitle").text(product.subheading);
 				myModal.find(".section-task .section-head .section-desc").html(product.description);
 				myModal.find(".section-task .section-body .steps .step p span.eta").text(product.eta_from_now);
-				myModal.find(".section-task .section-actions a").attr('href', '/tasks/new?product=' + product.id)
+				myModal.find(".section-task .section-actions a").attr('href', '/tasks/new?product=' + product.id);
+				if ( product.custom_data ) {
+					myModal.find(".custom-data .profile-alt").show();
+
+					if (product.custom_data.result) {
+						myModal.find(".custom-data .slider-logo").show();
+						myModal.find(".custom-data .slider-logo img").attr('src', product.custom_data.result);
+					} else {
+						myModal.find(".custom-data .slider-logo").hide();
+					}
+
+					myModal.find(".custom-data .profile-alt .avatar img").attr('src', product.custom_data.seller.avatar);
+					myModal.find(".custom-data .profile-alt .profile-label img").attr('src', product.custom_data.company.logo);
+
+					myModal.find(".custom-data .profile-alt .profile-body .custom-data-title").text(product.title);
+					myModal.find(".custom-data .profile-alt .profile-body .custom-data-seller-name").text(product.custom_data.seller.name);
+					myModal.find(".custom-data .profile-alt .profile-body .custom-data-company-name").text(product.custom_data.company.name);
+				} else {
+					myModal.find(".custom-data .slider-logo").hide();
+					myModal.find(".custom-data .profile-alt").hide();
+				}
 
 				myModal
 				.on('show.bs.modal', function (e) {
@@ -130,9 +150,19 @@
 		    });
 		})
 		.hover(function(){
-		    $div.show();
+			if ( $(this).attr('for-eta') ) {
+		    	$div.show();
+
+		    	$div.find('.eta').text( $(this).attr('for-eta') );
+		    	if ( $(this).attr('for-testimorial') ) {
+		    		$div.find(".popover-header").attr( 'src',$(this).attr('for-testimorial') );
+		    		$div.find(".popover-header").show();
+		    	} else {
+		    		$div.find(".popover-header").hide();
+		    	}
+		    }
 		}, function(){
-		    $div.hide();
+		    // $div.hide();
 		});
 	}
 })(jQuery, window, document);

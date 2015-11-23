@@ -5,7 +5,8 @@ class ProductsController < ApplicationController
 		@products = Product.active
 		@bundles = Bundle.active
 
-		unless request.xhr?
+		# unless request.xhr?
+		unless request.format == 'json'
 			render 'pages/index', layout: 'resp'
 		end
 	end

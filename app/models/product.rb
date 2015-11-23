@@ -7,10 +7,13 @@ class Product < ActiveRecord::Base
 	validates :title, :description, :category_id, :eta, presence: true
 
 	belongs_to :category
+	belongs_to :custom_seller, :foreign_key => :custom_seller_id, :class_name => "Seller"
 
 	enum status: [ :active, :inactive ]
 
 	mount_uploader :thumbnail, AttachmentUploader
+	mount_uploader :custom_company_logo, AttachmentUploader
+	mount_uploader :custom_result, AttachmentUploader
 
 	def price
 		(self.price_in_cents.to_d / 100.00).to_d if self.price_in_cents
