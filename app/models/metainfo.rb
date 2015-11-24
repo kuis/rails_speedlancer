@@ -1,16 +1,11 @@
 class Metainfo < ActiveRecord::Base
-    validates :name, :presence => true, :uniqueness => true
+    validates :name, :presence => true, :uniqueness => {scope: :url}
     validates :value, presence: true
 
-    scope :metas, -> {where("NAME != 'title'")}
+    scope :default, -> {where("URL = '' or URL IS NULL")}
+    scope :metas, -> {where("URL = '' or URL IS NULL")}
 
-    def self.get(name)
-    	obj = Metainfo.find_by_name(name)
-    	value = ''
-    	unless obj.nil?
-    	 	value = obj.value
-    	end
-
-    	value
+    def self.get(url)
+    	Metainfo.where("url = ?", url)
     end
 end
