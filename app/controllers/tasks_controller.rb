@@ -30,7 +30,6 @@ class TasksController < ApplicationController
   def create
     @task = current_buyer.tasks.new(task_params)
     @task.source = 'CMS'
-    @task.fee_by_percent = 30
 
     if @task.save
       check_required_credits(@task.price_in_dollars)
@@ -104,7 +103,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:title, :description, :price_in_dollars, :buyer_id, :category_id, task_attachments_attributes: [:attachment_file, :_destroy, :id])
+      params.require(:task).permit(:title, :description, :price_in_dollars, :fee_by_percent, :buyer_id, :category_id, task_attachments_attributes: [:attachment_file, :_destroy, :id])
     end
 
     def authorized_buyer

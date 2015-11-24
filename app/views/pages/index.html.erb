@@ -227,7 +227,7 @@
 						<ul class="isotope-items">
 							<% @products.each do |product| %>
 								<li class="isotope-item <%= "item-#{product.cssType}" %>">
-									<a href="<%= product_path(product) %>" class="task <%= "task-#{product.cssType}" %> modal-link <%= "active-#{product.id == @product.id}" unless @product.nil? %>"  for-eta="<%= product.eta %>" for-testimorial="<%= image_path(product.custom_result) unless product.custom_result.nil? %>">
+									<a href="<%= product_path(product) %>" class="task <%= "task-#{product.cssType}" %> modal-link <%= "active-#{product.id == @product.id}" unless @product.nil? %>"  for-eta="<%= product.eta_from_now %>" for-testimorial="<%= image_path(product.custom_result) unless product.custom_result.nil? %>">
 										<span class="task-icon">
 											<i class="icon"></i>
 										</span>

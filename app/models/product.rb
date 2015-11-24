@@ -44,18 +44,19 @@ class Product < ActiveRecord::Base
 	end
 
 	def eta_from_now
-		deadline = Time.now + self.eta.hours
-		result = ''
+		# deadline = Time.now + self.eta.hours
+		# result = ''
 
-		if deadline.today? 
-			result = 'today!'
-		elsif deadline.to_date == Date.tomorrow
-			result = 'tomorrow!'
-		else
-			result = deadline.strftime('%a, %b %d')
-		end
+		# if deadline.today? 
+		# 	result = 'today!'
+		# elsif deadline.to_date == Date.tomorrow
+		# 	result = 'tomorrow!'
+		# else
+		# 	result = deadline.strftime('%a, %b %d')
+		# end
 		
-		deadline.strftime('%l%P ') + result
+		# deadline.strftime('%l%P ') + result
+		self.eta + 12
 	end
 end
 

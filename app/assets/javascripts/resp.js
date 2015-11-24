@@ -17,6 +17,42 @@
 //= require isotope.pkgd.min
 //= require scripts
 
+function get_ETAStr(eta) {
+	var today = new Date();
+	var tomorrow = new Date();
+	tomorrow.setDate(tomorrow.getDate() + 1);
+
+	var deadline = new Date();
+	deadline.setSeconds = 0;
+	if (deadline.getMinutes() > 0) {
+		deadline.setMinutes(0);
+		deadline.setHours(deadline.getHours() + 1);
+	}
+	deadline.setHours(deadline.getHours() + eta);
+
+	var result = '';
+
+	var hh = deadline.getHours();
+	if (hh < 12) {
+		if (hh == 0) hh = 12;
+		result = hh + ':00am ';
+	} else {
+		if (hh == 12) hh = 24;
+		result = (hh - 12) + ':00pm ';
+	}
+
+	if (today.toDateString() == deadline.toDateString()) {
+		result += 'today';
+	} else if (tomorrow.toDateString() == deadline.toDateString()) {
+		result += 'tomorrow';
+	} else {
+		var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+		result += days[ deadline.getDay() ];
+	}
+
+	return result;
+}
+
 ;(function($, window, document, undefined) {
 	var $win = $(window);
 	var $doc = $(document);
@@ -32,8 +68,10 @@
 				myModal.find(".section-task .section-head .section-subtitle").text(product.subheading);
 				myModal.find(".section-task .section-head .section-desc").html(product.description);
 				myModal.find(".section-task .section-actions .price").text(product.price);
-				myModal.find(".section-task .section-body .steps .step p span.eta").text(product.eta_from_now);
-				myModal.find(".section-task .section-actions a").attr('href', '/tasks/new?product=' + product.id);
+				myModal.find(".section-task .section-body .steps .step p span.eta").text(get_ETAStr(product.eta_from_now));
+
+				myModal.find(".section-task .section-actions input[name='product']").val(product.id);
+
 				if ( product.custom_data ) {
 					myModal.find(".custom-data .profile-alt").show();
 

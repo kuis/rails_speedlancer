@@ -26,7 +26,15 @@
 							</div><!-- /.section-head -->
 					
 							<div class="section-actions">
-								<a href="#" class="btn btn-xl btn-design">Buy now with $<span class='price'></span></a>
+								<%= form_tag '/pages/purchase', method: :post do %>
+									<% unless buyer_signed_in? %>
+									<div class="form-group">
+										<input type="email" class="form-control" name="buyer" placeholder="Your email" required>
+									</div>
+									<% end %>
+									<input type='hidden' name='product'>
+									<button class="btn btn-xl btn-design">Buy now with $<span class='price'></span></a>
+								<% end %>
 							</div><!-- /.section-actions -->
 					
 							<div class="section-body">
