@@ -955,7 +955,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 
 @media (max-width: 767px) {
 	.section-testimonial { padding:200px 0 0 0; }
-	.section-testimonial .testimonial { width:100%; background:#3498db; color: #fff; padding:20px 10px; margin: 0 -15px; display:block; width: auto; }
+	.section-testimonial .testimonial { width:100%; background:#3498db; color: #fff; padding:20px 10px; display:block; }
 	.section-testimonial .testimonial-inner:before { display:none; }
 	.section-testimonial .fullscreen { background-position:0 center; }
 }
