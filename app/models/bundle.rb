@@ -29,4 +29,4 @@ class Bundle < ActiveRecord::Base
 	end
 end
 
-Bundle.import force: true
+# Bundle.import force: true

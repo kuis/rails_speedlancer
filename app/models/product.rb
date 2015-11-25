@@ -61,4 +61,4 @@ class Product < ActiveRecord::Base
 end
 
 
-Product.import force: true
+# Product.import force: true
