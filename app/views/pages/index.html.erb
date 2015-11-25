@@ -11,114 +11,7 @@
 							<div class="container">
 								<div class="row">
 									<div class="col col-md-offset-6 col-lg-6">
-										<h1 class="intro-title">&nbsp;A MARKETPLACE FOR SPEED&nbsp;</h1><!-- /.intro-title -->
-
-										<p>
-											<a href="#second-menu" class="btn btn-xl btn-design btn-fixed btn-toggle" for="#second-menu .sub">how it works <i class="ico-arrow-right"></i></a>
-										</p>
-
-										<h3>featured in</h3>
-
-										<ul class="list-featured">
-											<li>
-												<i class="ico-featured"></i>
-											</li>
-											
-											<li>
-												<i class="ico-featured-1"></i>
-											</li>
-											
-											<li class="hidden-xs">
-												<i class="ico-featured-2"></i>
-											</li>
-											
-											<li class="hidden-xs">
-												<i class="ico-featured-3"></i>
-											</li>
-											
-											<li class="hidden-xs">
-												<i class="ico-featured-4"></i>
-											</li>
-											
-											<li class="hidden-xs">
-												<i class="ico-featured-5"></i>
-											</li>
-										</ul><!-- /.list-featured -->
-									</div><!-- /.col col-lg-6 -->
-								</div><!-- /.row -->
-							</div><!-- /.container -->
-
-							<div class="slide-foot">
-								<div class="container">
-									<h4><strong>Fiona McAlpine</strong> Speedlancer Writer</h4>
-								</div><!-- /.container -->
-							</div><!-- /.slide-foot -->
-						</div><!-- /.slide-inner -->
-					</li><!-- /.slide -->
-
-					<li class="slide">
-						<div class="fullscreen hidden-xs" style="background-image: url(<%= image_path("temp/intro.jpg") %>);"></div>
-						<div class="fullscreen fullscreen-left visible-xs" style="background-image: url(<%= image_path("temp/intro-mobile.jpg") %>);"></div>
-
-						<div class="slide-inner">
-							<div class="container">
-								<div class="row">
-									<div class="col col-md-offset-6 col-lg-6">
-										<h1 class="intro-title">&nbsp;A MARKETPLACE FOR SPEED&nbsp;</h1><!-- /.intro-title -->
-
-										<p>
-											<a href="#second-menu" class="btn btn-xl btn-design btn-fixed btn-toggle" for="#second-menu .sub">how it works <i class="ico-arrow-right"></i></a>
-										</p>
-
-										<h3>featured in</h3>
-
-										<ul class="list-featured">
-											<li>
-												<i class="ico-featured"></i>
-											</li>
-											
-											<li>
-												<i class="ico-featured-1"></i>
-											</li>
-											
-											<li class="hidden-xs">
-												<i class="ico-featured-2"></i>
-											</li>
-											
-											<li class="hidden-xs">
-												<i class="ico-featured-3"></i>
-											</li>
-											
-											<li class="hidden-xs">
-												<i class="ico-featured-4"></i>
-											</li>
-											
-											<li class="hidden-xs">
-												<i class="ico-featured-5"></i>
-											</li>
-										</ul><!-- /.list-featured -->
-									</div><!-- /.col col-lg-6 -->
-								</div><!-- /.row -->
-							</div><!-- /.container -->
-
-							<div class="slide-foot">
-								<div class="container">
-									<h4><strong>Fiona McAlpine</strong> Speedlancer Writer</h4>
-								</div><!-- /.container -->
-							</div><!-- /.slide-foot -->
-						</div><!-- /.slide-inner -->
-					</li><!-- /.slide -->
-
-
-					<li class="slide">
-						<div class="fullscreen hidden-xs" style="background-image: url(<%= image_path("temp/intro.jpg") %>);"></div>
-						<div class="fullscreen fullscreen-left visible-xs" style="background-image: url(<%= image_path("temp/intro-mobile.jpg") %>);"></div>
-
-						<div class="slide-inner">
-							<div class="container">
-								<div class="row">
-									<div class="col col-md-offset-6 col-lg-6">
-										<h1 class="intro-title">&nbsp;A MARKETPLACE FOR SPEED&nbsp;</h1><!-- /.intro-title -->
+										<h1 class="intro-title">&nbsp;Meet the Uber of Freelancing&nbsp;</h1><!-- /.intro-title -->
 
 										<p>
 											<a href="#second-menu" class="btn btn-xl btn-design btn-fixed btn-toggle" for="#second-menu .sub">how it works <i class="ico-arrow-right"></i></a>
@@ -268,20 +161,11 @@
 							<% end %>
 
 							<li class="isotope-item isotope-init-item item-design item-writing item-other">
-								<%= link_to new_task_path, :class => "task" do %>
-									<span class="task-icon">
-										<i class="icon"></i>
-									</span>
-
-									<h6 class="task-title">Custom Task</h6>
+								<%= link_to new_task_path, :class => "task", :style => 'background-color:#3a99d8;' do %>
 
 									<div class="task-body">
 										<div class="task-body-inner">
-											<span class="task-logo">
-												<i class="icon"><%= image_tag asset_path('images/sprite/ico-blue-fileadd.png') %></i>
-											</span>
-										
-											<h4 class="task-price"></h4>
+											<%= image_tag 'custom-task.png', :style=>'width:100%;' %>
 										</div>
 									</div>
 								<% end %>

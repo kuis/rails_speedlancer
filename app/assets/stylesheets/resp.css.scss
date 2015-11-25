@@ -869,6 +869,10 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .popover .popover-body { position: relative; width:100%; text-align:center; color: #fff; background:#3498db; font-size:10px; padding:8px 0; }
 .popover .popover-body strong { display:block; text-transform: uppercase; font-size:11px; }
 
+@media (max-width: 767px) {
+	.popover { display: none !important; }
+}
+
 /* ------------------------------------------------------------ *\
 	Profile
 \* ------------------------------------------------------------ */
@@ -961,7 +965,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 	.section-testimonial { padding:200px 0 0 0; }
 	.section-testimonial .testimonial { width:100%; background:#3498db; color: #fff; padding:20px 10px; display:block; }
 	.section-testimonial .testimonial-inner:before { display:none; }
-	.section-testimonial .fullscreen { background-position:0 center; }
+	.section-testimonial .fullscreen { background-position:0 0; background-size: 200%; }
 }
 
 /* ------------------------------------------------------------ *\
