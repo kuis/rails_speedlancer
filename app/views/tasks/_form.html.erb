@@ -2,10 +2,13 @@
   <%= f.input :category_id, collection: @categories, include_blank: false, :required => false %>
   <%= f.input :title, placeholder: "Task Title", :required => false %>
   <%= f.input :description, placeholder: "Task Description", :required => false  %>
+  <%= f.hidden_field :fee_by_percent, :required => false  %>
   <div class="input">
     <%= f.label :price_in_dollars %>
     <%= f.input_field :price_in_dollars, label: "Price in Dollars", placeholder: "Price in Dollars" %>
+    <% if @product.nil? %>
     <div id="slider" class="costslider"></div>
+    <% end %>
   </div>
   <label>Attachments</label>
 	<p class="uploadhint">Upload size limit is set to 100mb per attached file.</p>
@@ -25,15 +28,19 @@
 <script>
 
   $(function() {
-    $( "#slider" ).slider({
-      range: "min",
-      min: 10,
-      value: "<%= @task.price_in_dollars %>",
-      max: 100,
-      slide: function( event, ui ) {
-        $( "#task_price_in_dollars" ).val(ui.value).trigger("change");
-      }
-    });
+    if ( $( "#slider" ).length > 0 ) {
+      $( "#slider" ).slider({
+        range: "min",
+        min: 10,
+        value: "<%= @task.price_in_dollars %>",
+        max: 100,
+        slide: function( event, ui ) {
+          $( "#task_price_in_dollars" ).val(ui.value).trigger("change");
+        }
+      });
+    } else {
+      $("#task_price_in_dollars").prop('readonly', true);
+    }
   });
 
   <% if ["update", "edit"].include? action_name %>

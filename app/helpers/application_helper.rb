@@ -26,6 +26,10 @@ module ApplicationHelper
     end
   end
 
+  def get_profile_image_url(_resource)
+    _resource.avatar? ? _resource.avatar_url : _resource.gravatar_url
+  end
+
   def side_bar_present?
     if current_buyer_or_seller.present?
       if controller_name == "tasks" and ["edit", "update", "create", "new"].include?action_name

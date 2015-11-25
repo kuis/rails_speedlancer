@@ -1,0 +1,190 @@
+	<% unless buyer_signed_in? or seller_signed_in? %>
+	<div class="intro intro-home">
+		<div class="slider-intro">
+			<div class="slider-clip">
+				<ul class="slides">
+					<li class="slide">
+						<div class="fullscreen hidden-xs" style="background-image: url(<%= image_path("temp/intro.jpg") %>);"></div>
+						<div class="fullscreen fullscreen-left visible-xs" style="background-image: url(<%= image_path("temp/intro-mobile.jpg") %>);"></div>
+
+						<div class="slide-inner">
+							<div class="container">
+								<div class="row">
+									<div class="col col-md-offset-6 col-lg-6">
+										<h1 class="intro-title">&nbsp;Meet the Uber of Freelancing&nbsp;</h1><!-- /.intro-title -->
+
+										<p>
+											<a href="#second-menu" class="btn btn-xl btn-design btn-fixed btn-toggle" for="#second-menu .sub">how it works <i class="ico-arrow-right"></i></a>
+										</p>
+
+										<h3>featured in</h3>
+
+										<ul class="list-featured">
+											<li>
+												<i class="ico-featured"></i>
+											</li>
+											
+											<li>
+												<i class="ico-featured-1"></i>
+											</li>
+											
+											<li class="hidden-xs">
+												<i class="ico-featured-2"></i>
+											</li>
+											
+											<li class="hidden-xs">
+												<i class="ico-featured-3"></i>
+											</li>
+											
+											<li class="hidden-xs">
+												<i class="ico-featured-4"></i>
+											</li>
+											
+											<li class="hidden-xs">
+												<i class="ico-featured-5"></i>
+											</li>
+										</ul><!-- /.list-featured -->
+									</div><!-- /.col col-lg-6 -->
+								</div><!-- /.row -->
+							</div><!-- /.container -->
+
+							<div class="slide-foot">
+								<div class="container">
+									<h4><strong>Fiona McAlpine</strong> Speedlancer Writer</h4>
+								</div><!-- /.container -->
+							</div><!-- /.slide-foot -->
+						</div><!-- /.slide-inner -->
+					</li><!-- /.slide -->
+
+				</ul><!-- /.slides -->
+			</div><!-- /.slider-clip -->
+
+			<div class="slider-foot">
+				<div class="container">
+					<div class="slider-paging"></div><!-- /.slider-paging -->
+				</div><!-- /.container -->
+			</div><!-- /.slider-foot -->
+		</div><!-- /.slider-intro -->
+	</div><!-- /.intro intro-home -->
+	<% end %>
+
+	<div class="main" id='second-menu'>
+		<nav class="nav-secondary">
+			<% unless buyer_signed_in? or seller_signed_in? %>
+			<div class="container">
+				<ul>
+					<li>
+						<a href="#">&gt; Pick Your Task From Our Market</a>
+						<div class='sub'>
+							<p>Get started by picking out your task from our list of options below and then describing what you need</p>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">&gt; Collaborate With a Proven Pro</a>
+						<div class='sub'>
+							<p>We’ll match you with the best available talent, from our carefully vetted talent pool. Someone will be begin working on your project within 5-60 minutes in most cases (may take longer depending on your description)</p>
+						</div>
+					</li>
+					
+					<li>
+						<a href="#">&gt; Smash Your Deadlines</a>
+						<div class='sub'>
+							<p>With a 4 hour guarantee after acceptance, your Speedlancer will have delivered your task and hopefully exceed your expectations!</p>
+						</div>
+					</li>
+				</ul>
+			</div><!-- /.container -->
+			<% end %>
+		</nav><!-- /.nav-secondary -->
+	</div>
+
+	<div class="main">
+		<section class="section section-tasks" id="task-wrapper">
+			<div class="container">
+				<div class="section-head">
+					<h2 class="section-title">Pick From Our Range Of Curated Tasks</h2><!-- /.section-title -->
+
+					<p>Speedlancer can offer you a range of carefully chosen tasks that will match your needs in design, content creation & marketing!</p>
+
+					<div class="btn-group btn-group-xl nav-tasks">
+						<% Product.cssTypes.each do |label, cssClass| %>
+							<a class="btn btn-<%= label %>" href="<%= cssClass %>"><%= label %></a>
+						<% end %>
+						<a class="btn btn-bundle" href=".item-bundle">bundles</a>
+					</div><!-- /.btn-group -->
+				</div><!-- /.section-head -->
+
+				<div class="section-body">
+					<div class="tasks">
+						<ul class="isotope-items">
+							<% @products.each do |product| %>
+								<li class="isotope-item <%= "item-#{product.cssType}" %>">
+									<a href="<%= product_path(product) %>" class="task <%= "task-#{product.cssType}" %> modal-link <%= "active-#{product.id == @product.id}" unless @product.nil? %>"  for-eta="<%= product.eta_from_now %>" for-testimorial="<%= image_path(product.custom_result) unless product.custom_result.nil? %>">
+										<span class="task-icon">
+											<i class="icon"></i>
+										</span>
+										<h6 class="task-title"><%= product.title %></h6>
+										<div class="task-body">
+											<div class="task-body-inner">
+												<span class="task-logo">
+													<i class="icon"><%= image_tag product.thumbnail %></i>
+												</span>
+											
+												<h4 class="task-price">$<%= product.price.to_i %></h4><!-- /.task-price -->
+											</div>
+										</div>
+									</a>
+								</li>
+							<% end %>
+
+							<% @bundles.each do |bundle| %>
+								<li class="isotope-item item-bundle">
+									<%= link_to bundle_path(bundle), :class => "task task-bundle" do %>
+										<span class="task-icon">
+											<i class="icon"></i>
+										</span>
+										
+										<h6 class="task-title"><%= bundle.title %></h6>
+										
+										<div class="task-body">
+											<div class="task-body-inner">
+												<span class="task-logo">
+													<i class="icon"><%= image_tag bundle.thumbnail %></i>
+												</span>
+											
+												<h4 class="task-price">$<%= bundle.price.to_i %></h4>
+											</div>
+										</div>
+									<% end %>
+								</li>
+							<% end %>
+
+							<li class="isotope-item isotope-init-item item-design item-writing item-other">
+								<%= link_to new_task_path, :class => "task", :style => 'background-color:#3a99d8;' do %>
+
+									<div class="task-body">
+										<div class="task-body-inner">
+											<%= image_tag 'custom-task.png', :style=>'width:100%;' %>
+										</div>
+									</div>
+								<% end %>
+							</li>
+							
+						</ul><!-- /.isotope-items -->
+					</div><!-- /.tasks -->
+				</div><!-- /.section-body -->
+
+				<div class="section-actions nav-tasks">
+					<a href=".isotope-item" class="btn btn-design btn-xl btn-fixed">browse all tasks</a>
+				</div><!-- /.section-actions -->
+			</div><!-- /.container -->
+		</section><!-- /.section section-tasks -->
+
+		<%= render partial: "layouts/resp_testimonial.html" %>
+
+	</div><!-- /.main -->
+
+
+	<!-- Modal -->
+	<%= render partial: "pages/task_modal.html" %>

@@ -156,7 +156,16 @@ class Task < ActiveRecord::Base
   end
 
   def self.build_with_default_price
-    self.new(price_in_dollars: 49)
+    self.new(price_in_dollars: 49, fee_by_percent: 30)
+  end
+
+  def self.build_with_product(product)
+    if product.nil?
+      task = self.build_with_default_price
+    else
+      task = self.new(title: product.title, price_in_dollars: product.price, category_id: product.category_id, description: product.description, fee_by_percent: product.margin)
+    end
+    task
   end
 
   def team

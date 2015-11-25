@@ -1,0 +1,90 @@
+	<div class="intro-bar">
+		
+	</div><!-- /.intro-->
+
+
+	<div class="main">
+
+		<section class="section section-tasks">
+			<div class="container">
+				<div class="section-head">
+					<h2 class="section-title">Results of search</h2><!-- /.section-title -->
+
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget.</p>
+
+					<% if @products.count > 0 or @bundles.count > 0 %>
+						<div class="btn-group btn-group-xl nav-tasks">
+							<% Product.cssTypes.each do |label, cssClass| %>
+								<a class="btn btn-<%= label %>" href="<%= cssClass %>"><%= label %></a>
+							<% end %>
+							<a class="btn btn-bundle" href=".item-bundle">bundle</a>
+						</div><!-- /.btn-group -->
+					<% end %>
+
+				</div><!-- /.section-head -->
+
+				<div class="section-body">
+					<div class="tasks">
+						<ul class="isotope-items">
+
+							<% @products.each do |product| %>
+								<li class="isotope-item <%= "item-#{product.cssType}" %>">
+									<a href="<%= product_path(product) %>" class="task <%= "task-#{product.cssType}" %> modal-link <%= "active-#{product.id == @product.id}" unless @product.nil? %>">
+										<span class="task-icon">
+											<i class="icon"></i>
+										</span>
+										<h6 class="task-title"><%= product.title %></h6>
+										<div class="task-body">
+											<span class="task-logo">
+												<i class="icon"><%= image_tag product.thumbnail %></i>
+											</span>
+										
+											<h4 class="task-price"><%= number_to_currency(product.price) %></h4><!-- /.task-price -->
+										</div>
+									</a>
+								</li>
+							<% end %>
+
+							<% @bundles.each do |bundle| %>
+								<li class="isotope-item item-bundle">
+									<%= link_to bundle_path(bundle), :class => "task task-bundle" do %>
+										<span class="task-icon">
+											<i class="icon"></i>
+										</span>
+										
+										<h6 class="task-title"><%= bundle.title %></h6>
+										
+										<div class="task-body">
+											<span class="task-logo">
+												<i class="icon"><%= image_tag bundle.thumbnail %></i>
+											</span>
+										
+											<h4 class="task-price">$<%= bundle.price %></h4>
+										</div>
+									<% end %>
+								</li>
+							<% end %>
+							
+						</ul><!-- /.isotope-items -->
+
+						<% if @products.count == 0 and @bundles.count == 0 %>
+							<p style='text-align:center'>You have no result!</p>
+						<% end %>
+
+					</div><!-- /.tasks -->
+				</div><!-- /.section-body -->
+
+				<% if @products.count > 0 or @bundles.count > 0 %>
+					<div class="section-actions nav-tasks">
+						<a href=".isotope-item" class="btn btn-design btn-xl btn-fixed">browse all tasks</a>
+					</div><!-- /.section-actions -->
+				<% end %>
+			</div><!-- /.container -->
+		</section><!-- /.section section-tasks -->
+
+		<%= render partial: "layouts/resp_testimonial.html" %>
+
+	</div><!-- /.main -->
+
+
+	<%= render partial: "task_modal.html" %>
