@@ -29,10 +29,11 @@ class PagesController < ApplicationController
 				_password = Devise.friendly_token.first(8)
 				_buyer.password = _password
 				_buyer.save
-				Notifier.send_account_credentials_to_buyer(_buyer.password, _buyer).deliver
+
+				Notifier.delay.send_account_credentials_to_buyer(_password, _buyer)
 				sign_in _buyer
 
-				redirect_to new_task_path(:product => params[:product]), :notice => "Your current password is 'password', Please reset it before signout"
+				redirect_to new_task_path(:product => params[:product]), :notice => "We sent your account detail with email"
 			end
 		end
 	end
