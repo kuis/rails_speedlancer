@@ -821,6 +821,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 
 .nav-tasks { text-transform: uppercase; font-weight:700; }
 .nav-tasks .btn { font-weight:700; font-size:13px; padding:23px 45px; }
+.nav-tasks .btn:hover { color: #fff; }
 
 @media (max-width: 767px) {
 	.nav-tasks .btn { padding:6px 12px; }
