@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 	
+	before_action :seller_login?
+
 	def index
 		@products = Product.active
 		@bundles = Bundle.active
@@ -35,6 +37,12 @@ class PagesController < ApplicationController
 
 				redirect_to new_task_path(:product => params[:product]), :notice => "We sent your account detail with email"
 			end
+		end
+	end
+
+	def seller_login?
+		if seller_signed_in?
+			redirect_to seller_active_tasks_path(current_seller)
 		end
 	end
 end
