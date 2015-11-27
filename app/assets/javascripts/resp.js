@@ -208,7 +208,7 @@ function get_ETAStr(eta) {
 			if ( $(this).attr('for-eta') ) {
 		    	$div.show();
 
-		    	$div.find('.eta').text( $(this).attr('for-eta') );
+		    	// $div.find('.eta').text( $(this).attr('for-eta') );
 		    	if ( $(this).attr('for-testimorial') ) {
 		    		$div.find(".popover-header").attr( 'src',$(this).attr('for-testimorial') );
 		    		$div.find(".popover-header").show();
