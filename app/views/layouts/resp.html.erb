@@ -42,17 +42,32 @@
 					<strong>Click here to get yours now!</strong>
 				</div><!-- /.popover-body -->
 			</div><!-- /.popver-inner -->
-		</div><!-- /.popover -->		
+		</div><!-- /.popover -->
+		<!-- Google Analytics -->	
 		<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-XXXXX-X']);
-		_gaq.push(['_trackPageview']);
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		(function() {
-		  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
+			ga('create', 'UA-53163961-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- Intercom -->
+		<script type="text/javascript">
+			(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/l5c1kmji';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+		</script>
+		<!-- Adroll -->
+		<noscript>
+			<iframe src="//www.googletagmanager.com/ns.html?id=GTM-K3XZGP"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<script>
+			function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.paren tNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-K3XZGP');
 		</script>
 	</body>
 </html>
